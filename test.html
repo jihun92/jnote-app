@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이노트 전자책 - 1&2페이지 통합본</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap');
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #d4d4d8;
+            margin: 0;
+            display: flex;
+            flex-direction: column; /* 세로로 페이지 나열 */
+            align-items: center;
+            padding: 40px 0;
+            gap: 50px; /* 페이지 간 간격 */
+        }
+
+        /* A4 공통 규격 */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background-color: #1a1a1b;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        /* 페이지별 고유 여백 */
+        .page-1 {
+            padding: 60px;
+            justify-content: space-between;
+        }
+
+        .page-2 {
+            padding: 40px 50px;
+        }
+
+        /* 공통 질감 효과 */
+        .texture {
+            position: absolute;
+            inset: 0;
+            opacity: 0.15;
+            pointer-events: none;
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+            mix-blend-mode: overlay;
+        }
+
+        /* 2페이지용 텍스처 투명도 조절 */
+        .page-2 .texture {
+            opacity: 0.1;
+        }
+
+        /* 색상 유틸리티 */
+        .neon-text { color: #ccff00; }
+        .neon-bg { background-color: #ccff00; }
+
+        /* 2페이지 이미지 가이드 박스 */
+        .image-placeholder {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px dashed rgba(204, 255, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .image-placeholder:hover {
+            border-color: rgba(204, 255, 0, 0.8);
+            background: rgba(204, 255, 0, 0.05);
+            box-shadow: 0 0 15px rgba(204, 255, 0, 0.1);
+        }
+        
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.02), transparent);
+            pointer-events: none;
+        }
+
+        /* 업로드된 이미지 스타일 */
+        .uploaded-img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 10;
+            background-color: #1a1a1b; /* 투명 이미지 대비 배경 */
+        }
+
+        /* 다중 페이지 인쇄 최적화 */
+        @media print {
+            body { 
+                background: none; 
+                padding: 0; 
+                margin: 0;
+                display: block; /* 인쇄 시 flex 해제 */
+            }
+            .page { 
+                box-shadow: none; 
+                margin: 0; 
+                width: 210mm;
+                height: 297mm;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                page-break-after: always; /* 각 페이지 끝날 때 강제 페이지 넘김 */
+            }
+            .page:last-child {
+                page-break-after: auto; /* 마지막 장은 넘기지 않음 */
+            }
+            .no-print {
+                display: none !important;
+            }
+            /* 인쇄 시 업로드 박스 호버 효과 제거 */
+            .image-placeholder {
+                border-color: rgba(255,255,255,0.1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==============================================
+         [PAGE 1] 표지 (The Hook)
+         ============================================== -->
+    <div class="page page-1" id="page-1">
+        <div class="texture"></div>
+
+        <!-- Decorative Neon Line -->
+        <div class="absolute top-0 right-20 w-[2px] h-48 bg-gradient-to-b from-[#ccff00] to-transparent"></div>
+        <div class="absolute top-12 right-12 text-[10px] font-mono text-zinc-600 rotate-90 tracking-[0.5em] origin-right uppercase">
+            REVERSE SUCCESS // STRATEGY
+        </div>
+
+        <!-- Top: Badge -->
+        <div class="relative z-10 flex flex-col items-center mt-20">
+            <div class="inline-block px-6 py-2 neon-bg text-black text-[14px] font-black tracking-[0.3em] uppercase rounded-full shadow-[0_10px_30px_rgba(204,255,0,0.2)]">
+                비전공자 역전의 아이콘
+            </div>
+        </div>
+
+        <!-- Middle: Catchphrase & Specs -->
+        <div class="relative z-10 text-center flex flex-col items-center mt-12">
+            
+            <h1 class="font-black tracking-tighter mb-10 flex flex-col items-center gap-1">
+                <span class="text-[52px] text-white leading-[1.2]">"이 스펙으로 대체 어떻게</span>
+                <span class="text-[52px] leading-[1.2]">대기업 <span class="neon-text underline decoration-4 underline-offset-8 relative">
+                    [개발자]
+                    <div class="absolute -bottom-2 left-0 w-full h-2 bg-[#ccff00]/30 blur-md"></div>
+                </span>가 되었을까?"</span>
+            </h1>
+
+            <!-- Reordered Specs with [BEFORE] tag -->
+            <div class="flex flex-col items-center gap-4 mb-12 w-full max-w-md">
+                <div class="w-full py-4 bg-white/5 border border-white/10 rounded-lg backdrop-blur-sm text-center shadow-lg relative">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-zinc-700 text-zinc-300 text-[10px] font-black px-3 py-1 rounded-sm tracking-[0.2em]">[ BEFORE ]</span>
+                    <p class="text-lg font-bold text-zinc-200 tracking-tight">고교 9등급 <span class="text-zinc-600 font-light mx-3">|</span> <span class="text-zinc-400">사회복지 학점은행제</span></p>
+                </div>
+                <div class="w-full py-4 bg-white/5 border border-white/10 rounded-lg backdrop-blur-sm text-center shadow-lg relative">
+                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-zinc-700 text-zinc-300 text-[10px] font-black px-3 py-1 rounded-sm tracking-[0.2em]">[ BEFORE ]</span>
+                    <p class="text-lg font-bold text-zinc-200 tracking-tight">직업군인 전역 <span class="text-zinc-600 font-light mx-3">|</span> <span class="text-zinc-400">비전공자의 시작점</span></p>
+                </div>
+            </div>
+
+            <div class="w-full max-w-xl space-y-10">
+                <div class="text-left border-l-4 border-[#ccff00] pl-8 py-2 relative bg-gradient-to-r from-[#ccff00]/10 to-transparent">
+                    <i class="fa-solid fa-crosshairs absolute -left-[14px] top-1/2 -translate-y-1/2 text-[#ccff00] bg-[#1a1a1b] py-2"></i>
+                    <p class="text-[24px] font-medium text-zinc-300 leading-snug">
+                        웹 개발 경험 0에서 시작해 <br>
+                        <span class="text-white font-bold border-b-2 border-[#ccff00]">이력서 합격률 <span class="neon-text italic text-[32px]">40%</span></span>를 기록한
+                    </p>
+                </div>
+                
+                <!-- Graphic Stamp for 문장 치환술 -->
+                <div class="relative group flex justify-center pt-4">
+                    <div class="absolute inset-0 neon-bg blur-xl opacity-20"></div>
+                    <div class="relative border-4 border-[#ccff00] px-8 py-6 transform -rotate-2 shadow-2xl bg-[#1a1a1b] w-full max-w-md">
+                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 neon-bg text-black text-[12px] font-black px-4 py-1 uppercase tracking-[0.3em] shadow-lg">
+                            The Secret Formula
+                        </div>
+                        <p class="text-[28px] font-black text-white tracking-tighter flex items-center justify-center gap-3 mt-2">
+                            <i class="fa-solid fa-bolt neon-text"></i>
+                            비전공자 [문장 치환술]
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom: Author & Footer -->
+        <div class="relative z-10 flex flex-col items-center gap-8 mt-6">
+            <div class="relative text-center w-full px-10">
+                <i class="fa-solid fa-quote-left absolute -top-4 left-4 text-4xl neon-text opacity-10"></i>
+                <p class="text-white font-bold text-[20px] tracking-tight mb-2">
+                    "0원짜리 경력을 1억짜리 이력으로 바꾸는 기술"
+                </p>
+                <p class="neon-text font-black text-[28px] italic tracking-tight">
+                    "당신은 늦은 게 아니라, <br>가치를 증명할 '언어'가 없는 것입니다."
+                </p>
+            </div>
+            
+            <div class="w-full flex justify-between items-end pt-8 border-t border-white/10">
+                <div class="flex flex-col">
+                    <span class="text-[12px] font-bold neon-text tracking-[0.4em] uppercase mb-2">[검증된 성공 공식]</span>
+                    <span class="text-3xl font-black tracking-tighter italic">제이노트(J-Note) <span class="text-sm font-light not-italic opacity-40 ml-2">출판</span></span>
+                </div>
+                <div class="text-right flex flex-col items-end">
+                    <div class="flex gap-1 mb-2">
+                        <div class="w-1.5 h-4 neon-bg"></div>
+                        <div class="w-1.5 h-4 neon-bg"></div>
+                        <div class="w-1.5 h-4 neon-bg"></div>
+                        <div class="w-1.5 h-4 neon-bg"></div>
+                        <div class="w-1.5 h-4 neon-bg"></div>
+                    </div>
+                    <span class="text-[12px] font-mono opacity-30">RELEASE_VER: 2026.02</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Spine Shadow -->
+        <div class="absolute left-0 top-0 w-16 h-full bg-gradient-to-r from-black/80 to-transparent pointer-events-none"></div>
+    </div>
+
+
+    <!-- ==============================================
+         [PAGE 2] 인트로 (The Backstory)
+         ============================================== -->
+    <div class="page page-2" id="page-2">
+        <div class="texture"></div>
+
+        <!-- Header -->
+        <div class="relative z-10 flex justify-between items-center border-b border-white/10 pb-3 mb-5">
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="neon-text mr-2">■</span>Phase 01 // 역전의 서막</span>
+            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_02</span>
+        </div>
+
+        <!-- Headline -->
+        <div class="relative z-10 mb-5 border-l-4 border-[#ccff00] pl-5">
+            <h2 class="text-[30px] font-black leading-[1.3] tracking-tighter break-keep">
+                "남들보다 5년은 늦었다고 생각했습니다. <br>
+                <span class="text-zinc-400">20대 후반, 직업군인 전역자가 마주한 현실은 차가웠습니다."</span>
+            </h2>
+        </div>
+
+        <!-- 상단 사진 영역 (클릭형 업로드 기능 탑재) -->
+        <div class="relative z-10 grid grid-cols-3 gap-4 mb-5 px-6">
+            <!-- Upload Box 1 -->
+            <div class="aspect-[3/4] image-placeholder group relative overflow-hidden cursor-pointer image-upload-zone" title="클릭하여 이미지 업로드">
+                <i class="fa-solid fa-file-invoice text-zinc-600 text-3xl mb-2 group-hover:text-[#ccff00] transition-colors relative z-0 placeholder-content"></i>
+                <span class="text-[10px] text-[#ccff00] font-bold uppercase text-center tracking-tight leading-snug relative z-0 placeholder-content group-hover:scale-110 transition-transform">
+                    [클릭하여 사진 삽입]<br><span class="text-zinc-400">9등급 성적표</span>
+                </span>
+                <div class="absolute top-2 left-2 bg-black/60 px-2 py-1 text-[8px] neon-text font-mono tracking-widest z-20">DOC_01</div>
+            </div>
+            
+            <!-- Upload Box 2 -->
+            <div class="aspect-[3/4] image-placeholder group relative overflow-hidden cursor-pointer image-upload-zone" title="클릭하여 이미지 업로드">
+                <i class="fa-solid fa-person-military-to-person text-zinc-600 text-3xl mb-2 group-hover:text-[#ccff00] transition-colors relative z-0 placeholder-content"></i>
+                <span class="text-[10px] text-[#ccff00] font-bold uppercase text-center tracking-tight leading-snug relative z-0 placeholder-content group-hover:scale-110 transition-transform">
+                    [클릭하여 사진 삽입]<br><span class="text-zinc-400">직업군인 전역증</span>
+                </span>
+                <div class="absolute top-2 left-2 bg-black/60 px-2 py-1 text-[8px] neon-text font-mono tracking-widest z-20">DOC_02</div>
+            </div>
+
+            <!-- Upload Box 3 -->
+            <div class="aspect-[3/4] image-placeholder group relative overflow-hidden cursor-pointer image-upload-zone" title="클릭하여 이미지 업로드">
+                <i class="fa-solid fa-industry text-zinc-600 text-3xl mb-2 group-hover:text-[#ccff00] transition-colors relative z-0 placeholder-content"></i>
+                <span class="text-[10px] text-[#ccff00] font-bold uppercase text-center tracking-tight leading-snug relative z-0 placeholder-content group-hover:scale-110 transition-transform">
+                    [클릭하여 사진 삽입]<br><span class="text-zinc-400">중소기업 현장</span>
+                </span>
+                <div class="absolute top-2 left-2 bg-black/60 px-2 py-1 text-[8px] neon-text font-mono tracking-widest z-20">IMG_01</div>
+            </div>
+        </div>
+
+        <!-- 본문 텍스트 -->
+        <div class="relative z-10 flex flex-col gap-3 text-zinc-300 text-[14px] leading-[1.6] font-light">
+            <p>
+                92년생인 제가 2017년, 직업군인을 전역하고 사회에 첫발을 내디뎠을 때 제 나이는 26살이었습니다. <br>
+                남들이 신입 개발자로 커리어를 쌓을 때, 제 손에 쥐어진 건 <span class="text-white font-bold underline decoration-zinc-600 underline-offset-4">'사회복지학 학점은행제 학위'</span>와 고등학교 <span class="text-white font-bold underline decoration-zinc-600 underline-offset-4">'9등급 성적표'</span>가 전부였습니다.
+            </p>
+            <p>
+                늦깎이 비전공자로 뛰어든 첫 직장은 전공과 아무 상관 없는 제조업 중소기업. 
+                기름 냄새 나는 공장에서 윈도우 창이나 고치는 일이 제 경력의 시작이었습니다. 
+                세상은 제게 말했습니다. <span class="text-zinc-400 italic">"그 나이에, 그 스펙으로 웹 개발? 평생 중소기업이나 전전하다 끝날 거야."</span>
+            </p>
+            
+            <!-- 핵심 강조 박스 -->
+            <div class="bg-gradient-to-r from-[#ccff00]/10 to-transparent border-l-4 border-[#ccff00] p-4 my-1 shadow-lg">
+                <p class="text-[16px] font-black text-white italic mb-1.5 tracking-tight">"하지만 저는 그 '물경력'으로 대기업 문을 부수고 들어갔습니다."</p>
+                <p class="text-[13px]">코딩 실력보다 중요한 건, 내 경험을 기업의 언어로 재해석하는 <span class="neon-text font-bold text-[16px]">[문장 치환 기술]</span>이었습니다. 보잘것없어 보이던 제 공장 경력을 인사팀이 탐내는 <span class="text-white font-bold">'비즈니스 문제 해결 데이터'</span>로 재구성한 결과, 기적이 일어났습니다.</p>
+            </div>
+        </div>
+
+        <!-- 텍스트 + CSS 합격 그래픽 영역 -->
+        <div class="relative z-10 mt-4 bg-[#121212] border border-[#ccff00]/30 rounded-lg p-5 shadow-2xl overflow-hidden flex flex-col gap-4">
+            <div class="absolute -right-10 -top-10 w-40 h-40 bg-[#ccff00] opacity-[0.03] blur-2xl rounded-full"></div>
+            
+            <!-- 사용자 요청 타이틀 -->
+            <div class="flex items-center gap-2 mb-1 z-10">
+                <i class="fa-solid fa-bolt text-[#ccff00] text-lg"></i>
+                <h3 class="text-[18px] font-black text-white tracking-tight">오직 <span class="neon-text">'이력서 전략'</span> 하나로 만든 결과</h3>
+            </div>
+
+            <div class="flex justify-between items-center gap-4 z-10">
+                <!-- 좌측: 강력한 불릿 포인트 텍스트 -->
+                <div class="flex-1 flex flex-col gap-4">
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-check text-[#ccff00] mt-1 text-[16px]"></i>
+                        <div>
+                            <p class="text-[16px] font-bold text-white leading-tight"><span class="neon-text text-[20px] tracking-tight">서류 합격률 40%</span> 달성</p>
+                            <p class="text-[13px] text-zinc-400 mt-1">(카카오 계열사, 쏘카, 그린카 등)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start gap-3">
+                        <i class="fa-solid fa-check text-[#ccff00] mt-1 text-[16px]"></i >
+                        <div>
+                            <p class="text-[16px] font-bold text-white leading-tight">20대 후반 무경력자에서 <br><span class="neon-text text-[20px] tracking-tight">대기업 KT DS 경력직</span> 스카우트 이직 성공</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 우측: 합격 뱃지 (시각적 균형 -translate-y-8 로 대폭 상향 조절) -->
+                <div class="w-[150px] shrink-0 bg-white/5 border border-white/10 rounded-md p-4 relative transform rotate-3 -translate-y-8 shadow-[0_10px_20px_rgba(0,0,0,0.5)]">
+                    <div class="flex items-center gap-2 mb-3 border-b border-white/10 pb-2">
+                        <i class="fa-solid fa-envelope-open-text text-zinc-400 text-[12px]"></i>
+                        <span class="text-[10px] text-zinc-400 font-mono uppercase tracking-widest">Recruitment</span>
+                    </div>
+                    <p class="text-[14px] font-bold text-white mb-1.5 tracking-tight">최종 합격을<br>축하합니다.</p>
+                    <p class="text-[9px] text-zinc-500 leading-tight">입사 안내 및 처우 협의가<br>진행될 예정입니다.</p>
+                    
+                    <!-- 합격 도장 그래픽 -->
+                    <div class="absolute -bottom-3 -right-3 border-2 border-[#ccff00] text-[#ccff00] text-[16px] font-black px-3 py-1 uppercase tracking-widest transform -rotate-12 bg-[#121212] shadow-xl">
+                        PASSED
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 푸터 -->
+        <div class="relative z-10 flex flex-col mt-auto pt-4">
+            <div class="flex justify-between items-end border-t border-white/10 pt-4">
+                <span class="text-lg font-black tracking-tighter italic text-white/90">
+                    제이노트(J-Note) <span class="text-[10px] font-light not-italic opacity-40 ml-1">출판</span>
+                </span>
+                <span class="text-[9px] font-mono opacity-30 tracking-widest">CONFIDENTIAL REPORT</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Action Button (UI Only, Not in Print) -->
+    <div class="fixed bottom-8 right-8 flex flex-col gap-4 no-print">
+        <button onclick="window.print()" class="neon-bg text-black px-6 py-4 rounded-full font-black shadow-2xl hover:scale-110 transition-transform flex items-center gap-3">
+            <i class="fa-solid fa-file-pdf text-xl"></i>
+            <span>PDF로 저장하기</span>
+        </button>
+    </div>
+
+    <!-- 이미지 업로드 스크립트 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // 숨겨진 파일 업로드 인풋 생성
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
+            fileInput.style.display = 'none';
+            document.body.appendChild(fileInput);
+
+            let currentTargetZone = null;
+
+            // 모든 업로드 영역(점선 박스)에 클릭 이벤트 연결
+            document.querySelectorAll('.image-upload-zone').forEach(zone => {
+                zone.addEventListener('click', () => {
+                    currentTargetZone = zone;
+                    fileInput.click(); // 파일 선택 창 열기
+                });
+            });
+
+            // 사용자가 파일을 선택했을 때 실행되는 로직
+            fileInput.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                if (file && currentTargetZone) {
+                    const reader = new FileReader();
+                    
+                    // 파일을 다 읽으면 브라우저에 이미지 표시
+                    reader.onload = (e) => {
+                        // 기존에 업로드된 이미지가 있으면 덮어쓰고, 없으면 새로 생성
+                        let img = currentTargetZone.querySelector('img.uploaded-img');
+                        if (!img) {
+                            img = document.createElement('img');
+                            img.className = 'uploaded-img';
+                            currentTargetZone.appendChild(img);
+                        }
+                        img.src = e.target.result;
+
+                        // 기존의 아이콘과 텍스트는 보이지 않게 투명도 처리
+                        currentTargetZone.querySelectorAll('.placeholder-content').forEach(el => {
+                            el.style.opacity = '0';
+                        });
+                    };
+                    
+                    reader.readAsDataURL(file); // 이미지 파일을 base64 데이터로 변환
+                }
+                
+                // 같은 파일을 다시 선택해도 작동하도록 인풋 초기화
+                fileInput.value = '';
+            });
+        });
+    </script>
+</body>
+</html>

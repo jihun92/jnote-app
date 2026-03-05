@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이노트 전자책 - 4페이지 (솔루션: STAR 치환술 최종)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap');
+        
+        /* 🚀 PDF 저장 시 디자인 강제 고정 및 잘림 방지 설정 */
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            box-sizing: border-box !important;
+            text-shadow: none !important;
+            box-shadow: none !important;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #d4d4d8;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 0;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background-color: #1a1a1b !important;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: #ffffff !important;
+            padding: 45px 55px;
+        }
+
+        /* 텍스처 오류 방지용 */
+        .texture {
+            position: absolute;
+            inset: 0;
+            opacity: 0.03 !important;
+            pointer-events: none;
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+        }
+
+        .neon-text { color: #ccff00 !important; }
+        .neon-bg { background-color: #ccff00 !important; }
+
+        /* STAR 단계별 박스 */
+        .star-box {
+            background-color: #242426 !important;
+            border: 1px solid #333333 !important;
+            border-radius: 8px;
+            padding: 16px 18px;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .star-label {
+            position: absolute;
+            left: -12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            background-color: #ccff00 !important;
+            color: black !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 18px;
+            border-radius: 4px;
+            z-index: 20;
+        }
+
+        /* 강조 박스 (T와 R) */
+        .highlight-box {
+            border: 1px solid #ccff00 !important;
+            background-color: #1c2310 !important;
+        }
+
+        /* 도장 효과 (박제 버전) */
+        .grade-stamp {
+            border: 4px solid #ccff00 !important;
+            color: #ccff00 !important;
+            padding: 5px 15px;
+            font-size: 28px;
+            font-weight: 900;
+            text-transform: uppercase;
+            transform: rotate(-12deg);
+            display: inline-block;
+            background-color: transparent !important;
+            letter-spacing: 2px;
+            position: absolute;
+            right: 25px;
+            top: 25px;
+            opacity: 0.9;
+        }
+
+        @media print {
+            body { background: none !important; padding: 0 !important; margin: 0 !important; }
+            .page { 
+                box-shadow: none !important; 
+                margin: 0 !important; 
+                width: 210mm !important; 
+                height: 297mm !important; 
+                background-color: #1a1a1b !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+            .no-print { display: none !important; }
+            .texture { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page" id="page-4">
+        <div class="texture"></div>
+
+        <!-- Header (표준화된 헤더) -->
+        <div class="relative z-10 flex justify-between items-center pb-3 mb-6" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #ccff00 !important;">■</span>Phase 03 // 솔루션 (The Framework)</span>
+            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_04</span>
+        </div>
+
+        <!-- Headline -->
+        <div class="relative z-10 mb-6 pl-5" style="border-left: 4px solid #ccff00 !important;">
+            <h2 class="text-[28px] font-black leading-[1.3] tracking-tighter break-keep text-white">
+                "초보 개발자도 즉시 활용 가능한 <br>
+                <span class="neon-text">[정량적 자기소개서를 만드는 STAR 기법]"</span>
+            </h2>
+        </div>
+
+        <!-- Intro Text -->
+        <div class="relative z-10 mb-5 text-[14.5px] leading-relaxed text-zinc-300">
+            <p>
+                어려운 기술 용어는 필요 없습니다. 인사담당자가 가장 좋아하는 건 숫자로 증명된 <strong class="text-white">'성과'</strong>입니다. <br>
+                누구나 해봤을 법한 <span class="neon-text font-bold">'데이터 검색'</span> 업무를 예로 들어보겠습니다.
+            </p>
+        </div>
+
+        <!-- 🚀 STAR Framework Section -->
+        <div class="relative z-10 pl-4 space-y-3 mb-6">
+            
+            <!-- S: Situation -->
+            <div class="star-box">
+                <div class="star-label">S</div>
+                <div class="ml-8">
+                    <p class="text-[11px] font-bold text-[#ccff00] mb-1 uppercase tracking-widest">Situation // 상황 설명</p>
+                    <p class="text-[13px] text-zinc-500 line-through">❌ 하수: "이전 업무 중 제품 코드를 조회했습니다."</p>
+                    <p class="text-[14px] text-white font-bold leading-snug mt-1">⭕ 고수: "운영 프로세스 중 반복적인 수작업 조회가 많아 비효율이 큰 구간이 있었습니다."</p>
+                </div>
+            </div>
+
+            <!-- T: Problem (강조) -->
+            <div class="star-box highlight-box">
+                <div class="star-label">T</div>
+                <div class="ml-8">
+                    <p class="text-[11px] font-bold text-[#ccff00] mb-1 uppercase tracking-widest">Problem // 문제 인지 (숫자 정의)</p>
+                    <p class="text-[13px] text-zinc-500/70 line-through">❌ 하수: "매달 데이터를 수동으로 검색하느라 시간이 오래 걸렸습니다."</p>
+                    <p class="text-[14px] text-white font-bold leading-snug mt-1">⭕ 고수: "매달 <span class="neon-text">500건 이상</span>을 수동 조회하며, 월 <span class="neon-text">40시간 이상</span> 소요되는 고비용 구조였습니다."</p>
+                </div>
+            </div>
+
+            <!-- A: Action -->
+            <div class="star-box">
+                <div class="star-label">A</div>
+                <div class="ml-8">
+                    <p class="text-[11px] font-bold text-[#ccff00] mb-1 uppercase tracking-widest">Action // 해결 방안 (작은 시도)</p>
+                    <p class="text-[13px] text-zinc-500 line-through">❌ 하수: "엑셀 단축키를 활용해 빠르게 검색했습니다."</p>
+                    <p class="text-[14px] text-white font-bold leading-snug mt-1">⭕ 고수: "기준 데이터를 매핑하여 <span class="neon-text">VLOOKUP으로 자동 조회</span>되도록 시스템을 개선했습니다."</p>
+                </div>
+            </div>
+
+            <!-- R: Result (강조) -->
+            <div class="star-box highlight-box">
+                <div class="star-label">R</div>
+                <div class="ml-8">
+                    <p class="text-[11px] font-bold text-[#ccff00] mb-1 uppercase tracking-widest">Result // 수치화된 성적 (결과값)</p>
+                    <p class="text-[13px] text-zinc-500/70 line-through">❌ 하수: "검색이 빨라져서 다른 업무를 할 여유가 생겼습니다."</p>
+                    <p class="text-[14px] text-white font-black leading-snug mt-1">⭕ 고수: "조회 시간을 <span class="neon-text">80% 단축</span>시켰으며, 월 40시간 업무를 <span class="neon-text">8시간으로 최적화</span>했습니다."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🚀 대표님 추가 멘트 섹션 (회고의 중요성) -->
+        <div class="relative z-10 px-6 py-5 rounded-lg mb-6 border border-white/5 bg-white/5">
+            <p class="text-[14.5px] leading-[1.6] text-zinc-300 break-keep">
+                중요한 것은 결과가 얼마나 대단한지가 아닙니다. <strong class="text-white">수치가 작아도 괜찮습니다.</strong> <br>
+                핵심은 내가 스스로 <span class="neon-text font-bold">문제를 인지</span>하고, 나만의 <span class="neon-text font-bold">솔루션</span>을 잡고, 해결 이후의 성과를 기록하는 <strong class="text-white">'회고할 수 있는 사람'</strong>임을 보여주는 것입니다. 그것이 인사담당자가 찾는 진짜 인재의 모습입니다.
+            </p>
+        </div>
+
+        <!-- 🚀 Scorer's Verdict (도장 효과 및 푸터 통일성을 위해 하단 배치) -->
+        <div class="relative z-10 p-7 rounded-lg mb-4" style="background-color: #121213 !important; border: 1px solid #333333 !important; min-height: 140px;">
+            <div class="flex items-center gap-3 mb-3">
+                <i class="fa-solid fa-user-check neon-text text-xl"></i>
+                <span class="text-[16px] font-black text-white tracking-tight">채점관의 최종 평가</span>
+            </div>
+            <p class="text-[15px] text-zinc-400 leading-relaxed italic pr-32">
+                "이 지원자는 단순 업무를 기술적으로 개선하여 <br>
+                <strong class="text-white">월 32시간의 인건비를 절감</strong>할 수 있는 성과 지향적 인재임."
+            </p>
+            <!-- 합격 도장 -->
+            <div class="grade-stamp">SCORE A</div>
+        </div>
+
+        <!-- Footer (링크 배너 제거 및 표준 푸터 적용) -->
+        <div class="relative z-10 mt-auto pt-6" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
+            <div class="flex justify-between items-end" style="display: flex !important; justify-content: space-between !important; align-items: flex-end !important;">
+                <span class="text-lg font-black tracking-tighter italic" style="color: rgba(255,255,255,0.9) !important;">
+                    제이노트(J-Note) <span class="text-[10px] font-light not-italic ml-1" style="opacity: 0.4 !important;">출판</span>
+                </span>
+                <span class="text-[9px] font-mono tracking-widest" style="opacity: 0.3 !important;">CONFIDENTIAL REPORT</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF 저장 버튼 -->
+    <div class="fixed bottom-8 right-8 no-print">
+        <button onclick="window.print()" class="neon-bg text-black px-8 py-4 rounded-full font-black shadow-2xl hover:scale-110 transition-transform flex items-center gap-3">
+            <i class="fa-solid fa-file-pdf text-xl"></i>
+            <span>PDF로 저장</span>
+        </button>
+    </div>
+
+</body>
+</html>

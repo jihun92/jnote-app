@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이노트 전자책 - 6페이지 (면접 활용법 최종 완성본)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap');
+        
+        /* 🚀 PDF 저장 시 디자인 강제 고정 및 잘림 방지 설정 */
+        * {
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+            box-sizing: border-box !important;
+            text-shadow: none !important;
+            box-shadow: none !important;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #d4d4d8;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 0;
+        }
+
+        .page {
+            width: 210mm;
+            height: 297mm;
+            background-color: #1a1a1b !important;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: #ffffff !important;
+            padding: 45px 55px;
+        }
+
+        .texture {
+            position: absolute;
+            inset: 0;
+            opacity: 0.03 !important;
+            pointer-events: none;
+            background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+        }
+
+        .neon-text { color: #ccff00 !important; }
+        .neon-bg { background-color: #ccff00 !important; }
+
+        /* 인터뷰 스크립트 연결선 디자인 */
+        .script-thread {
+            position: absolute;
+            left: 23px;
+            top: 40px;
+            bottom: 20px;
+            width: 2px;
+            background: linear-gradient(to bottom, #444, #ccff00, #444);
+            z-index: 1;
+        }
+
+        .script-node {
+            position: relative;
+            z-index: 2;
+            padding-left: 55px;
+            margin-bottom: 25px;
+        }
+
+        .node-icon {
+            position: absolute;
+            left: 8px;
+            top: 0;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            background-color: #1a1a1b !important;
+            border: 2px solid #333;
+            overflow: hidden;
+        }
+
+        .node-icon.q { border-color: #fff !important; color: #fff !important; }
+        .node-icon.a { border-color: #ccff00 !important; color: #ccff00 !important; background-color: #1a1a1b !important;}
+
+        /* 면접관 실사 이미지 프로필 */
+        .interviewer-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* STAR 태그 (심플하게 변경) */
+        .star-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            background-color: #333 !important;
+            color: #ccff00 !important;
+            font-size: 10px;
+            font-weight: 900;
+            border-radius: 4px;
+            margin-right: 8px;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        @media print {
+            body { background: none !important; padding: 0 !important; margin: 0 !important; }
+            .page { 
+                box-shadow: none !important; 
+                margin: 0 !important; 
+                width: 210mm !important; 
+                height: 297mm !important; 
+                background-color: #1a1a1b !important;
+                -webkit-print-color-adjust: exact !important;
+            }
+            .no-print { display: none !important; }
+            .texture { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page" id="page-6">
+        <div class="texture"></div>
+
+        <!-- Header -->
+        <div class="relative z-10 flex justify-between items-center pb-3 mb-6" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #ccff00 !important;">■</span>Phase 05 // 면접 활용법 (The Interview Guide)</span>
+            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_06</span>
+        </div>
+
+        <!-- 🚀 헤드라인 영역 -->
+        <div class="relative z-10 mb-8">
+            <h2 class="text-[27px] font-black leading-[1.3] tracking-tighter break-keep text-white mb-3">
+                방금 작성한 <span class="neon-text">[STAR 문장]</span>이 면접관의 질문을 대답하는 
+                완벽한 <br> 대본이 됩니다.
+            </h2>
+            <div class="bg-white/5 border border-white/10 rounded-lg p-4 px-5 flex items-start gap-3">
+                <i class="fa-solid fa-circle-info text-[#ccff00] mt-1"></i>
+                <p class="text-[14px] leading-relaxed text-zinc-300 break-keep">
+                    5페이지의 워크북은 단순한 글쓰기 연습이 아닙니다. 실전 면접에서 당황하지 않고 
+                    <strong class="text-white">나의 문제 해결 능력을 가장 논리적으로 증명</strong>할 수 있는 강력한 대본입니다. 
+                </p>
+            </div>
+        </div>
+
+        <!-- 🚀 실전 면접 스크립트 (면접관 이미지 추가 및 문구 수정) -->
+        <div class="relative z-10 bg-[#121213] border border-white/10 rounded-lg p-6 mb-8 relative">
+            
+            <div class="flex items-center gap-2 mb-6 border-b border-white/10 pb-3">
+                <i class="fa-solid fa-microphone-lines text-zinc-400"></i>
+                <h3 class="text-[14px] font-bold text-zinc-300 tracking-widest uppercase">실전 면접 시뮬레이션</h3>
+            </div>
+
+            <div class="relative">
+                <div class="script-thread"></div>
+
+                <!-- 면접관의 질문 (정장 입은 남자 이미지 삽입) -->
+                <div class="script-node">
+                    <div class="node-icon q">
+                        <!-- 전문적인 양복 입은 면접관 이미지 (Unsplash) -->
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&auto=format&fit=crop" alt="면접관" class="interviewer-img" onerror="this.src='https://via.placeholder.com/150/1a1a1b/ffffff?text=Q'">
+                    </div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <p class="text-[12px] font-bold text-zinc-400 tracking-widest uppercase">Interviewer</p>
+                        <span class="text-[10px] bg-white/10 text-zinc-400 px-1.5 py-0.5 rounded-sm">면접관</span>
+                    </div>
+                    <p class="text-[15.5px] font-bold text-white leading-relaxed bg-white/5 p-3 rounded-md border border-white/5 inline-block">
+                        "업무 수행 중 발생한 문제를 주도적으로 해결한 사례가 있나요?"
+                    </p>
+                </div>
+
+                <!-- 지원자의 답변 (5페이지의 완벽한 스크립트 이식 및 '개선하고자' 추가) -->
+                <div class="script-node">
+                    <div class="node-icon a"><i class="fa-solid fa-user-check"></i></div>
+                    <p class="text-[12px] font-bold text-[#ccff00] mb-2 tracking-widest uppercase">Candidate (당신의 답변)</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <span class="star-badge">S/T</span>
+                            <p class="text-[14.5px] leading-relaxed text-zinc-200">
+                                "카페 근무 시절, <strong class="text-white underline decoration-zinc-600 underline-offset-4">피크 타임 대기 인원이 평균 7명 이상 대기줄이 발생하여 새로 들어오는 손님이 떠나는 상황</strong>이 발생했습니다."
+                            </p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="star-badge">A</span>
+                            <p class="text-[14.5px] leading-relaxed text-zinc-200">
+                                "이를 개선하고자, <strong class="neon-text font-bold">주문의 70%가 특정 메뉴에 집중됨을 파악하고 피크 전 미리 준비하는 '선제조 스탠바이'로 방식을 변경</strong>했습니다."
+                            </p>
+                        </div>
+                        <div class="flex items-start">
+                            <span class="star-badge">R</span>
+                            <p class="text-[14.5px] leading-relaxed text-zinc-200">
+                                "그 결과, 주문 후 음료가 나가는 속도가 빨라져, <strong class="text-[#ccff00] font-bold underline decoration-[#ccff00] underline-offset-4">피크 타임 평균 대기 줄이 3명 이하로 유지</strong>할 수 있었습니다. 덕분에 긴 대기 시간으로 인해 발길을 돌리던 고객들의 이탈을 방지하여, <strong class="text-[#ccff00] font-bold underline decoration-[#ccff00] underline-offset-4">피크 시간대 매출을 전월 대비 15% 이상 향상</strong>시키는 성과를 거두었습니다."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🚀 3가지 체크리스트 (직관적이고 성과/성장 중심의 카피로 전면 수정) -->
+        <div class="relative z-10 space-y-3 mb-6">
+            <h3 class="text-[15px] font-black text-white px-1 mb-2">💡 이 문장이 합격을 부르는 3가지 이유</h3>
+            
+            <div class="grid grid-cols-1 gap-2.5">
+                <div class="bg-[#242426] border border-[#333] rounded-md p-3.5 flex items-start gap-3.5">
+                    <i class="fa-solid fa-chart-pie text-[#ccff00] text-lg mt-0.5"></i>
+                    <div>
+                        <p class="text-[14.5px] font-bold text-white leading-none mb-1.5">평가 가능한 명확한 성과</p>
+                        <p class="text-[12.5px] text-zinc-400 leading-snug break-keep">"열심히 했습니다"라는 주관적인 답변대신, 내가 이룬 성과를 면접관이 즉시 납득할 수 있도록 수치화된 데이터로 대답했습니다.</p>
+                    </div>
+                </div>
+                <div class="bg-[#242426] border border-[#333] rounded-md p-3.5 flex items-start gap-3.5">
+                    <i class="fa-solid fa-seedling text-[#ccff00] text-lg mt-0.5"></i>
+                    <div>
+                        <p class="text-[14.5px] font-bold text-white leading-none mb-1.5">스스로 문제를 찾고 성장하는 인재</p>
+                        <p class="text-[12.5px] text-zinc-400 leading-snug break-keep">단순히 주어진 일만 하는 것이 아니라, 문제를 파악하고 해결책을 찾아 결과를 내는 '매일 성장하는 주도적 인재'임을 증명합니다.</p>
+                    </div>
+                </div>
+                <div class="bg-[#242426] border border-[#333] rounded-md p-3.5 flex items-start gap-3.5">
+                    <i class="fa-solid fa-briefcase text-[#ccff00] text-lg mt-0.5"></i>
+                    <div>
+                        <p class="text-[14.5px] font-bold text-white leading-none mb-1.5">기업의 언어(효율화) 장착</p>
+                        <p class="text-[12.5px] text-zinc-400 leading-snug break-keep">아무리 사소한 경험이라도 기업이 가장 좋아하는 '시간 단축과 비용 절감'이라는 철저한 비즈니스 관점으로 번역해 냈습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🚀 Footer -->
+        <div class="relative z-10 mt-auto pt-6" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
+            <div class="flex justify-between items-end" style="display: flex !important; justify-content: space-between !important; align-items: flex-end !important;">
+                <span class="text-lg font-black tracking-tighter italic" style="color: rgba(255,255,255,0.9) !important;">
+                    제이노트(J-Note) <span class="text-[10px] font-light not-italic ml-1" style="opacity: 0.4 !important;">출판</span>
+                </span>
+                <span class="text-[9px] font-mono tracking-widest" style="opacity: 0.3 !important;">CONFIDENTIAL REPORT</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PDF 저장 버튼 -->
+    <div class="fixed bottom-8 right-8 no-print">
+        <button onclick="window.print()" class="neon-bg text-black px-8 py-4 rounded-full font-black shadow-2xl hover:scale-110 transition-transform flex items-center gap-3">
+            <i class="fa-solid fa-file-pdf text-xl"></i>
+            <span>PDF로 저장</span>
+        </button>
+    </div>
+
+</body>
+</html>
