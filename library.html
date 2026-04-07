@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전자책 책장 | JNOTE LIBRARY</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Noto+Sans+KR:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body data-page="library">
+    <header class="topbar">
+        <div class="shell topbar-inner">
+            <a href="./library.html" class="brand">
+                <span class="brand-mark">J</span>
+                <span>JNOTE LIBRARY</span>
+            </a>
+            <div class="top-actions">
+                <a class="nav-link" href="./library.html">전자책 책장</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section" style="padding-top: 56px;">
+            <div class="shell">
+                <div class="section-head">
+                    <div>
+                        <div class="eyebrow" style="margin-bottom: 16px;">Library</div>
+                        <h2>전자책 책장</h2>
+                    </div>
+                </div>
+                <div class="book-grid" id="bookList"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="./books/registry.js?v=20260407-1"></script>
+    <script src="./app.js?v=20260407-1"></script>
+</body>
+</html>

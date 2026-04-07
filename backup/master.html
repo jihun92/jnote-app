@@ -19,23 +19,24 @@
 
         body {
             font-family: 'Noto Sans KR', sans-serif;
-            background-color: #d4d4d8;
+            background:
+                linear-gradient(180deg, #f8fbff 0%, #eef5ff 100%);
             margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: 40px 0;
-            gap: 60px; /* 웹에서 볼 때 페이지 사이 간격 */
+            padding: 28px 0;
+            gap: 28px; /* 웹에서 볼 때 페이지 사이 간격 */
         }
 
         /* 🚀 A4 페이지 공통 규격 (건드리지 마세요!) */
         .page {
             width: 210mm;
             height: 297mm;
-            background-color: #1a1a1b !important;
+            background-color: #0f172a !important;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+            box-shadow: 0 22px 54px rgba(15, 23, 42, 0.18);
             display: flex;
             flex-direction: column;
             color: #ffffff !important;
@@ -44,7 +45,14 @@
 
         /* 페이지 내부 여백 */
         .page-cover { padding: 60px; justify-content: space-between; }
-        .page-content { padding: 45px 55px; }
+        .page-content {
+            padding: 45px 55px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 10;
+        }
 
         /* 배경 질감 (텍스처) */
         .texture {
@@ -53,10 +61,11 @@
             background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
         }
         .page-content .texture { opacity: 0.03 !important; mix-blend-mode: normal; }
+        .page-content > .footer-anchor { margin-top: auto; }
 
         /* 테마 컬러 클래스 */
-        .neon-text { color: #ccff00 !important; }
-        .neon-bg { background-color: #ccff00 !important; }
+        .neon-text { color: #60a5fa !important; }
+        .neon-bg { background-color: #60a5fa !important; }
 
         /* =========================================
            각 페이지 본문에 필요한 특수 CSS 모음
@@ -71,26 +80,26 @@
         }
         .image-upload-zone.is-uploaded { border: 1px solid rgba(255, 255, 255, 0.15) !important; }
         .is-uploaded .placeholder-content { display: none !important; }
-        .uploaded-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; z-index: 10; background-color: #1a1a1b !important; padding: 8px; }
+        .uploaded-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; z-index: 10; background-color: #0f172a !important; padding: 8px; }
 
         /* 3p: 타임라인 */
-        .timeline-item { position: relative; padding-left: 20px; border-left: 2px solid #333333; padding-bottom: 25px; }
-        .timeline-item::before { content: ''; position: absolute; left: -5px; top: 5px; width: 8px; height: 8px; border-radius: 50%; background-color: #ccff00; }
+        .timeline-item { position: relative; padding-left: 20px; border-left: 2px solid #334155; padding-bottom: 25px; }
+        .timeline-item::before { content: ''; position: absolute; left: -5px; top: 5px; width: 8px; height: 8px; border-radius: 50%; background-color: #60a5fa; }
         .timeline-item:last-child { border-left-color: transparent; padding-bottom: 0; }
 
         /* 4p, 5p: 워크북 & 도장 */
-        .example-box { background-color: #1c2310 !important; border: 1px solid #ccff00 !important; border-radius: 8px; padding: 18px; margin-bottom: 20px; }
-        .input-box { background-color: #242426 !important; border: 1px solid #444444 !important; border-radius: 6px; padding: 15px; min-height: 60px; color: #888888 !important; font-size: 14px; margin-top: 8px; }
-        .grade-stamp { position: absolute; bottom: 24px; right: 24px; border: 2px solid #ef4444; color: #ef4444; font-size: 18px; font-weight: 900; padding: 4px 16px; text-transform: uppercase; letter-spacing: 0.1em; transform: rotate(-12deg); background-color: #121212; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5); }
+        .example-box { background-color: #172554 !important; border: 1px solid #60a5fa !important; border-radius: 8px; padding: 18px; margin-bottom: 20px; }
+        .input-box { background-color: #1f2937 !important; border: 1px solid #475569 !important; border-radius: 6px; padding: 15px; min-height: 60px; color: #888888 !important; font-size: 14px; margin-top: 8px; }
+        .grade-stamp { position: absolute; bottom: 24px; right: 24px; border: 2px solid #ef4444; color: #ef4444; font-size: 18px; font-weight: 900; padding: 4px 16px; text-transform: uppercase; letter-spacing: 0.1em; transform: rotate(-12deg); background-color: #111827; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5); }
 
         /* 6p: 인터뷰 스크립트 */
-        .script-thread { position: absolute; left: 23px; top: 40px; bottom: 20px; width: 2px; background: linear-gradient(to bottom, #444, #ccff00, #444); z-index: 1; }
+        .script-thread { position: absolute; left: 23px; top: 40px; bottom: 20px; width: 2px; background: linear-gradient(to bottom, #444, #60a5fa, #444); z-index: 1; }
         .script-node { position: relative; z-index: 2; padding-left: 55px; margin-bottom: 25px; }
-        .node-icon { position: absolute; left: 8px; top: 0; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; background-color: #1a1a1b !important; border: 2px solid #333; overflow: hidden; }
+        .node-icon { position: absolute; left: 8px; top: 0; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; background-color: #0f172a !important; border: 2px solid #333; overflow: hidden; }
         .node-icon.q { border-color: #fff !important; color: #fff !important; }
-        .node-icon.a { border-color: #ccff00 !important; color: #ccff00 !important; background-color: #1a1a1b !important; }
+        .node-icon.a { border-color: #60a5fa !important; color: #60a5fa !important; background-color: #0f172a !important; }
         .interviewer-img { width: 100%; height: 100%; object-fit: cover; }
-        .star-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 32px; height: 20px; background-color: #333 !important; color: #ccff00 !important; font-size: 10px; font-weight: 900; border-radius: 4px; margin-right: 8px; margin-top: 2px; flex-shrink: 0; }
+        .star-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 32px; height: 20px; background-color: #333 !important; color: #60a5fa !important; font-size: 10px; font-weight: 900; border-radius: 4px; margin-right: 8px; margin-top: 2px; flex-shrink: 0; }
 
         /* 🖨️ PDF 인쇄 시 다중 페이지 자동 분할 기능 (핵심) */
         @media print {
@@ -112,7 +121,7 @@
     <div class="texture"></div>
 
         <!-- Decorative Neon Line -->
-        <div class="absolute top-0 right-20 w-[2px] h-48 bg-gradient-to-b from-[#ccff00] to-transparent"></div>
+        <div class="absolute top-0 right-20 w-[2px] h-48 bg-gradient-to-b from-[#60a5fa] to-transparent"></div>
         <div class="absolute top-12 right-12 text-[10px] font-mono text-zinc-600 rotate-90 tracking-[0.5em] origin-right uppercase">
             REVERSE SUCCESS // STRATEGY
         </div>
@@ -131,7 +140,7 @@
                 <span class="text-[52px] text-white leading-[1.2]">"이 스펙으로 대체 어떻게</span>
                 <span class="text-[52px] leading-[1.2]">대기업 <span class="neon-text underline decoration-4 underline-offset-8 relative">
                     [개발자]
-                    <div class="absolute -bottom-2 left-0 w-full h-2 bg-[#ccff00]/30 blur-md"></div>
+                    <div class="absolute -bottom-2 left-0 w-full h-2 bg-[#60a5fa]/30 blur-md"></div>
                 </span>가 되었을까?"</span>
             </h1>
 
@@ -148,18 +157,18 @@
             </div>
 
             <div class="w-full max-w-xl space-y-10">
-                <div class="text-left border-l-4 border-[#ccff00] pl-8 py-2 relative bg-gradient-to-r from-[#ccff00]/10 to-transparent">
-                    <i class="fa-solid fa-crosshairs absolute -left-[14px] top-1/2 -translate-y-1/2 text-[#ccff00] bg-[#1a1a1b] py-2"></i>
+                <div class="text-left border-l-4 border-[#60a5fa] pl-8 py-2 relative bg-gradient-to-r from-[#60a5fa]/10 to-transparent">
+                    <i class="fa-solid fa-crosshairs absolute -left-[14px] top-1/2 -translate-y-1/2 text-[#60a5fa] bg-[#0f172a] py-2"></i>
                     <p class="text-[24px] font-medium text-zinc-300 leading-snug">
                         웹 개발 경험 0에서 시작해 <br>
-                        <span class="text-white font-bold border-b-2 border-[#ccff00]">이력서 합격률 <span class="neon-text italic text-[32px]">40%</span></span>를 기록한
+                        <span class="text-white font-bold border-b-2 border-[#60a5fa]">이력서 합격률 <span class="neon-text italic text-[32px]">40%</span></span>를 기록한
                     </p>
                 </div>
                 
                 <!-- Graphic Stamp -->
                 <div class="relative group flex justify-center pt-4">
                     <div class="absolute inset-0 neon-bg blur-xl opacity-20"></div>
-                    <div class="relative border-4 border-[#ccff00] px-8 py-6 transform -rotate-2 shadow-2xl bg-[#1a1a1b] w-full max-w-md">
+                    <div class="relative border-4 border-[#60a5fa] px-8 py-6 transform -rotate-2 shadow-2xl bg-[#0f172a] w-full max-w-md">
                         <div class="absolute -top-4 left-1/2 -translate-x-1/2 neon-bg text-black text-[12px] font-black px-4 py-1 uppercase tracking-[0.3em] shadow-lg">
                             The Secret Formula
                         </div>
@@ -220,7 +229,7 @@
         <div class="texture"></div>
 
         <!-- Headline -->
-        <div class="relative z-10 mb-6 pl-5" style="border-left: 4px solid #ccff00 !important;">
+        <div class="relative z-10 mb-6 pl-5" style="border-left: 4px solid #60a5fa !important;">
             <h2 class="text-[30px] font-black leading-[1.3] tracking-tighter break-keep">
                 "남들보다 5년은 늦었다고 생각했습니다. <br>
                 <span style="color: #a1a1aa !important;">20대 후반, 직업군인 전역자가 마주한 현실은 차가웠습니다."</span>
@@ -231,27 +240,17 @@
         <div class="relative z-10 flex h-[240px] gap-4 mb-8">
             
             <!-- Left: 9등급 성적표 -->
-            <div class="flex-[1.6] image-upload-zone group" data-id="score" title="클릭하여 파일명 지정">
-                <img class="uploaded-img" alt="성적표" style="display:none;">
-                <i class="fa-solid fa-file-invoice text-zinc-700 text-4xl mb-3 relative z-0 placeholder-content"></i>
-                <span class="text-[11px] font-bold uppercase text-center tracking-tight leading-snug relative z-0 placeholder-content" style="color: #ccff00 !important;">
-                    [클릭하여 사진 첨부]<br>
-                    <span class="font-normal mt-1 block missing-text" style="color: #71717a !important;">사용할 사진을 선택하면 파일명이 자동 저장됩니다.</span>
-                </span>
-                <div class="absolute top-3 left-3 px-2.5 py-1.5 text-[9px] text-white font-bold tracking-widest z-30 border rounded-sm flex items-center gap-1.5" style="background-color: #000000 !important; border-color: #3f4420 !important;">
+            <div class="flex-[1.6] image-upload-zone is-uploaded">
+                <img class="uploaded-img" alt="성적표" src="../img/고교 성적 인증사진.png" style="display:block;">
+                <div class="absolute top-3 left-3 px-2.5 py-1.5 text-[9px] text-white font-bold tracking-widest z-30 border rounded-sm flex items-center gap-1.5" style="background-color: #000000 !important; border-color: #2563eb !important;">
                     <span class="neon-text">BEFORE_SPEC</span> <span style="opacity: 0.5;">//</span> 9등급 성적표
                 </div>
             </div>
 
             <!-- Right: 사회복지 학위증 -->
-            <div class="flex-1 image-upload-zone group" data-id="degree" title="클릭하여 파일명 지정">
-                <img class="uploaded-img" alt="학사학위증명서" style="display:none;">
-                <i class="fa-solid fa-graduation-cap text-zinc-700 text-4xl mb-3 relative z-0 placeholder-content"></i>
-                <span class="text-[11px] font-bold uppercase text-center tracking-tight leading-snug relative z-0 placeholder-content" style="color: #ccff00 !important;">
-                    [클릭하여 사진 첨부]<br>
-                    <span class="font-normal mt-1 block missing-text" style="color: #71717a !important;">사용할 사진을 선택하면 파일명이 자동 저장됩니다.</span>
-                </span>
-                <div class="absolute top-3 left-3 px-2.5 py-1.5 text-[9px] text-white font-bold tracking-widest z-30 border rounded-sm flex items-center gap-1.5" style="background-color: #000000 !important; border-color: #3f4420 !important;">
+            <div class="flex-1 image-upload-zone is-uploaded">
+                <img class="uploaded-img" alt="학사학위증명서" src="../img/사회복지사 인증사진.png" style="display:block;">
+                <div class="absolute top-3 left-3 px-2.5 py-1.5 text-[9px] text-white font-bold tracking-widest z-30 border rounded-sm flex items-center gap-1.5" style="background-color: #000000 !important; border-color: #2563eb !important;">
                     <span class="neon-text">BEFORE_SPEC</span> <span style="opacity: 0.5;">//</span> 사회복지 학위
                 </div>
             </div>
@@ -270,14 +269,14 @@
             </p>
             
             <!-- 핵심 강조 박스 -->
-            <div class="p-4 my-2" style="background-color: #232511 !important; border-left: 4px solid #ccff00 !important; box-shadow: none !important;">
+            <div class="p-4 my-2" style="background-color: #1e3a8a !important; border-left: 4px solid #60a5fa !important; box-shadow: none !important;">
                 <p class="text-[16px] font-black text-white italic mb-1.5 tracking-tight">"하지만 저는 그 '물경력'으로 대기업 문을 부수고 들어갔습니다."</p>
                 <p class="text-[13px]" style="color: #e4e4e7 !important;">코딩 실력보다 중요한 건, 내 경험을 기업의 언어로 재해석하는 <span class="neon-text font-bold text-[16px]">[이력서 작성 기술]</span>이었습니다. 보잘것없어 보이던 <br>제조업 경력을 인사팀이 탐내는 <span style="color: #ffffff !important; font-weight: bold;">'성과를 평가할 수 있는 이력서'</span>로 재구성한 결과, 기적이 일어났습니다.</p>
             </div>
         </div>
 
         <!-- 텍스트 + CSS 합격 그래픽 영역 -->
-        <div class="relative z-10 mt-5 border rounded-lg p-5 flex flex-col gap-4" style="background-color: #121212 !important; border-color: #333333 !important; box-shadow: none !important;">
+        <div class="relative z-10 mt-5 border rounded-lg p-5 flex flex-col gap-4" style="background-color: #111827 !important; border-color: #334155 !important; box-shadow: none !important;">
             <div class="flex items-center gap-2 mb-1 z-10">
                 <i class="fa-solid fa-bolt neon-text text-lg"></i>
                 <h3 class="text-[18px] font-black text-white tracking-tight">오직 <span class="neon-text">'이력서 전략'</span> 하나로 만든 결과</h3>
@@ -301,14 +300,14 @@
                 </div>
 
                 <!-- 우측: 합격 뱃지 -->
-                <div style="width: 150px; background-color: #1e1e1f !important; border: 1px solid #333333 !important; padding: 15px; border-radius: 6px; position: relative; transform: rotate(3deg); box-shadow: none !important;">
-                    <div style="border-bottom: 1px solid #333333 !important; padding-bottom: 5px; margin-bottom: 10px; display: flex; align-items: center; gap: 5px;">
+                <div style="width: 150px; background-color: #1e293b !important; border: 1px solid #334155 !important; padding: 15px; border-radius: 6px; position: relative; transform: rotate(3deg); box-shadow: none !important;">
+                    <div style="border-bottom: 1px solid #334155 !important; padding-bottom: 5px; margin-bottom: 10px; display: flex; align-items: center; gap: 5px;">
                         <i class="fa-solid fa-envelope-open-text text-zinc-500 text-[10px]"></i>
                         <span style="font-size: 9px; color: #555; font-family: monospace; letter-spacing: 0.1em; text-transform: uppercase;">Recruitment</span>
                     </div>
                     <p style="font-size: 14px; font-weight: bold; color: white; margin-bottom: 5px; line-height: 1.2;">최종 합격을<br>축하합니다.</p>
                     <p style="font-size: 9px; color: #71717a; line-height: 1.4;">입사 안내 및 처우 협의가<br>진행될 예정입니다.</p>
-                    <div style="position: absolute; bottom: -8px; right: -8px; background-color: #121212 !important; border: 2px solid #ccff00 !important; color: #ccff00 !important; font-size: 15px; font-weight: 900; padding: 2px 8px; transform: rotate(-12deg);">PASSED</div>
+                    <div style="position: absolute; bottom: -8px; right: -8px; background-color: #111827 !important; border: 2px solid #60a5fa !important; color: #60a5fa !important; font-size: 15px; font-weight: 900; padding: 2px 8px; transform: rotate(-12deg);">PASSED</div>
                 </div>
             </div>
         </div>
@@ -332,7 +331,7 @@
 
         <!-- 🔒 공통 헤더 (건드리지 마세요) -->
         <div class="relative z-10 flex justify-between items-center pb-3 mb-8" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
-            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #ccff00 !important;">■</span>Phase 02 // 깨달음 (Mindset Shift)</span>
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 02 // 깨달음 (Mindset Shift)</span>
             <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_03</span>
         </div>
 
@@ -341,14 +340,14 @@
         <div class="relative z-10 mb-5">
             <p class="text-[16px] text-zinc-400 font-light tracking-tight">
                 인사담당자는 당신의 <span class="font-bold" style="color: #f87171 !important; text-decoration: line-through !important; text-decoration-color: #ef4444 !important;">'노력'</span>을 채점할 수 없습니다. <br>
-                오직 <span class="font-black tracking-widest px-1" style="color: #ccff00 !important; background-color: #353d17 !important;">'결과값'</span>만 보고할 수 있을 뿐입니다.
+                오직 <span class="font-black tracking-widest px-1" style="color: #60a5fa !important; background-color: #1d4ed8 !important;">'결과값'</span>만 보고할 수 있을 뿐입니다.
             </p>
         </div>
 
         <!-- Headline -->
-        <div class="relative z-10 mb-8 pl-5" style="border-left: 4px solid #ccff00 !important;">
+        <div class="relative z-10 mb-8 pl-5" style="border-left: 4px solid #60a5fa !important;">
             <h2 class="text-[32px] font-black leading-[1.3] tracking-tighter break-keep" style="color: white !important;">
-                "당신의 이력서에 <span style="color: #ccff00 !important;">'숫자'</span>가 없다면, <br>
+                "당신의 이력서에 <span style="color: #60a5fa !important;">'숫자'</span>가 없다면, <br>
                 채점관은 당신을 <span style="color: #ef4444 !important; border-bottom: 4px solid #ef4444 !important; padding-bottom: 3px;">0점 처리</span>할 수밖에 없습니다."
             </h2>
         </div>
@@ -373,15 +372,15 @@
             </div>
 
             <!-- Right Box (Pass) -->
-            <div class="flex-1 rounded-lg p-5 relative overflow-hidden flex flex-col justify-center" style="background-color: #1c2310 !important; border: 1px solid #ccff00 !important;">
-                <div class="absolute top-0 left-0 w-full h-1" style="background-color: #ccff00 !important;"></div>
+            <div class="flex-1 rounded-lg p-5 relative overflow-hidden flex flex-col justify-center" style="background-color: #172554 !important; border: 1px solid #60a5fa !important;">
+                <div class="absolute top-0 left-0 w-full h-1" style="background-color: #60a5fa !important;"></div>
                 <div class="flex items-center gap-2 mb-3">
-                    <span class="inline-block text-black text-[10px] font-black px-2 py-1 rounded-sm uppercase tracking-widest" style="background-color: #ccff00 !important; color: black !important;">Pass</span>
+                    <span class="inline-block text-black text-[10px] font-black px-2 py-1 rounded-sm uppercase tracking-widest" style="background-color: #60a5fa !important; color: black !important;">Pass</span>
                     <span class="text-[13px] font-bold text-white">성과 중심 (즉시 채용)</span>
                 </div>
                 <div class="relative z-10">
                     <p class="text-[14px] text-zinc-200 font-medium leading-[1.6] break-keep">
-                        <span class="font-bold mr-1 text-[14px]" style="color: #ccff00 !important;">✅</span> "기존 1시간 소요되던 데이터 검수 과정을 <span class="font-black" style="color: #ccff00 !important; border-bottom: 1px solid #ccff00 !important;">자동화</span>하여 <span class="font-black" style="color: #ccff00 !important; border-bottom: 1px solid #ccff00 !important;">10분</span>으로 단축, 생산성을 <span class="text-black px-1 font-bold italic" style="background-color: #ccff00 !important;">83% 향상</span>시켰습니다."
+                        <span class="font-bold mr-1 text-[14px]" style="color: #60a5fa !important;">✅</span> "기존 1시간 소요되던 데이터 검수 과정을 <span class="font-black" style="color: #60a5fa !important; border-bottom: 1px solid #60a5fa !important;">자동화</span>하여 <span class="font-black" style="color: #60a5fa !important; border-bottom: 1px solid #60a5fa !important;">10분</span>으로 단축, 생산성을 <span class="text-black px-1 font-bold italic" style="background-color: #60a5fa !important;">83% 향상</span>시켰습니다."
                     </p>
                 </div>
             </div>
@@ -391,7 +390,7 @@
         <div class="relative z-10 flex flex-col gap-4 text-zinc-300 text-[15.5px] leading-[1.7] font-light">
             <p>
                 대부분의 비전공자가 저지르는 가장 큰 실수는 <strong class="text-white">'열심히 일한 스토리'</strong>를 쓰는 것입니다.<br>
-                하지만 인사담당자는 소설 독자가 아니라 <strong class="tracking-tight font-bold text-[16px]" style="color: #ccff00 !important; border-bottom: 2px solid #353d17 !important; padding-bottom: 2px;">확실한 성과를 낼 수 있는 인재를 뽑아야 하는 사람</strong>입니다.
+                하지만 인사담당자는 소설 독자가 아니라 <strong class="tracking-tight font-bold text-[16px]" style="color: #60a5fa !important; border-bottom: 2px solid #1d4ed8 !important; padding-bottom: 2px;">확실한 성과를 낼 수 있는 인재를 뽑아야 하는 사람</strong>입니다.
             </p>
             
             <!-- 경고 박스 -->
@@ -401,17 +400,17 @@
             </div>
 
             <p>
-                채점관이 원하는 것은 당신의 열정이 아닙니다. 그들이 보고서에 한 줄 적을 수 있는 <strong class="text-white font-bold" style="border-bottom: 2px solid #ccff00 !important; padding-bottom: 2px;">'정량적 근거'</strong>입니다.<br>
-                숫자가 들어간 문장(위 우측 박스)이 있어야 채점관은 비로소 당신에게 <strong class="text-xl font-black italic ml-1" style="color: #ccff00 !important;">A+</strong>를 줄 수 있습니다.
+                채점관이 원하는 것은 당신의 열정이 아닙니다. 그들이 보고서에 한 줄 적을 수 있는 <strong class="text-white font-bold" style="border-bottom: 2px solid #60a5fa !important; padding-bottom: 2px;">'정량적 근거'</strong>입니다.<br>
+                숫자가 들어간 문장(위 우측 박스)이 있어야 채점관은 비로소 당신에게 <strong class="text-xl font-black italic ml-1" style="color: #60a5fa !important;">A+</strong>를 줄 수 있습니다.
             </p>
             
             <p>
                 사회복지 학점은행제 출신으로 20대 후반에 늦게 시작한 저는, <br>
-                <strong class="text-white font-bold text-[16px] px-1 py-0.5 rounded-sm" style="background-color: #333333 !important;">'나의 모든 경험을 정량화된 성적표로 바꾸는 법'</strong>을 깨닫고 인생이 바뀌었습니다.
+                <strong class="text-white font-bold text-[16px] px-1 py-0.5 rounded-sm" style="background-color: #334155 !important;">'나의 모든 경험을 정량화된 성적표로 바꾸는 법'</strong>을 깨닫고 인생이 바뀌었습니다.
             </p>
 
             <div class="mt-2 text-center">
-                <p class="font-black text-[17px] leading-[1.6]" style="color: #ccff00 !important;">
+                <p class="font-black text-[17px] leading-[1.6]" style="color: #60a5fa !important;">
                     이미 당신이 가진 경험 속에 숨어있는 '숫자'를 찾아내십시오.<br>
                     그 숫자가 당신의 연봉과 합격 여부를 결정합니다.
                 </p>
@@ -437,16 +436,16 @@
 
         <!-- 🔒 공통 헤더 (건드리지 마세요) -->
         <div class="relative z-10 flex justify-between items-center pb-3 mb-6" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
-            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #ccff00 !important;">■</span>Phase 03 // 솔루션 (STAR 문장 치환술)</span>
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 03 // 솔루션 (STAR 문장 치환술)</span>
             <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_04</span>
         </div>
 
         <!-- 👇 여기에 test3.html 본문만 복사해서 넣으세요 👇 -->
         <!-- Headline -->
-        <div class="relative z-10 mb-6 pl-5" style="border-left: 4px solid #ccff00 !important;">
+        <div class="relative z-10 mb-6 pl-5" style="border-left: 4px solid #60a5fa !important;">
             <h2 class="text-[28px] font-black leading-[1.3] tracking-tighter break-keep text-white">
                 "초보 개발자도 즉시 활용 가능한 <br>
-                <span style="color: #ccff00 !important;">[정량적 STAR 문장 치환술]"</span>
+                <span style="color: #60a5fa !important;">[정량적 STAR 문장 치환술]"</span>
             </h2>
         </div>
 
@@ -454,7 +453,7 @@
         <div class="relative z-10 mb-5 text-[14.5px] leading-relaxed text-zinc-300">
             <p>
                 어려운 기술 용어는 필요 없습니다. 인사담당자가 가장 좋아하는 건 숫자로 증명된 <strong class="text-white">'성과'</strong>입니다. <br>
-                누구나 해봤을 법한 <span style="color: #ccff00 !important;" class="font-bold">'데이터 검색'</span> 업무를 예로 들어보겠습니다.
+                누구나 해봤을 법한 <span style="color: #60a5fa !important;" class="font-bold">'데이터 검색'</span> 업무를 예로 들어보겠습니다.
             </p>
         </div>
 
@@ -462,42 +461,42 @@
         <div class="relative z-10 pl-4 space-y-3 mb-6">
             
             <!-- S: Situation -->
-            <div style="background-color: #242426 !important; border: 1px solid #333333 !important; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; position: relative;">
-                <div style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background-color: #ccff00 !important; color: black !important; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; border-radius: 4px; z-index: 20;">S</div>
+            <div style="background-color: #1f2937 !important; border: 1px solid #334155 !important; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; position: relative;">
+                <div style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background-color: #60a5fa !important; color: black !important; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; border-radius: 4px; z-index: 20;">S</div>
                 <div class="ml-8">
-                    <p class="text-[11px] font-bold text-[#ccff00] mb-1 uppercase tracking-widest">Situation // 상황 설명</p>
+                    <p class="text-[11px] font-bold text-[#60a5fa] mb-1 uppercase tracking-widest">Situation // 상황 설명</p>
                     <p class="text-[13px] text-zinc-500 line-through">❌ 하수: "이전 업무 중 제품 코드를 조회했습니다."</p>
                     <p class="text-[14px] text-white font-bold leading-snug mt-1">⭕ 고수: "운영 프로세스 중 반복적인 수작업 조회가 많아 비효율이 큰 구간이 있었습니다."</p>
                 </div>
             </div>
 
             <!-- T: Problem (강조 박스) -->
-            <div style="background-color: #1c2310 !important; border: 1px solid #ccff00 !important; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; position: relative;">
-                <div style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background-color: #ccff00 !important; color: black !important; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; border-radius: 4px; z-index: 20;">T</div>
+            <div style="background-color: #172554 !important; border: 1px solid #60a5fa !important; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; position: relative;">
+                <div style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background-color: #60a5fa !important; color: black !important; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; border-radius: 4px; z-index: 20;">T</div>
                 <div class="ml-8">
-                    <p class="text-[11px] font-bold text-[#ccff00] mb-1 uppercase tracking-widest">Problem // 문제 인지 (숫자 정의)</p>
+                    <p class="text-[11px] font-bold text-[#60a5fa] mb-1 uppercase tracking-widest">Problem // 문제 인지 (숫자 정의)</p>
                     <p class="text-[13px] text-zinc-500/70 line-through">❌ 하수: "매달 데이터를 수동으로 검색하느라 시간이 오래 걸렸습니다."</p>
-                    <p class="text-[14px] text-white font-bold leading-snug mt-1">⭕ 고수: "매달 <span style="color: #ccff00 !important;">500건 이상</span>을 수동 조회하며, 월 <span style="color: #ccff00 !important;">40시간 이상</span> 소요되는 고비용 구조였습니다."</p>
+                    <p class="text-[14px] text-white font-bold leading-snug mt-1">⭕ 고수: "매달 <span style="color: #60a5fa !important;">500건 이상</span>을 수동 조회하며, 월 <span style="color: #60a5fa !important;">40시간 이상</span> 소요되는 고비용 구조였습니다."</p>
                 </div>
             </div>
 
             <!-- A: Action -->
-            <div style="background-color: #242426 !important; border: 1px solid #333333 !important; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; position: relative;">
-                <div style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background-color: #ccff00 !important; color: black !important; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; border-radius: 4px; z-index: 20;">A</div>
+            <div style="background-color: #1f2937 !important; border: 1px solid #334155 !important; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; position: relative;">
+                <div style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background-color: #60a5fa !important; color: black !important; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; border-radius: 4px; z-index: 20;">A</div>
                 <div class="ml-8">
-                    <p class="text-[11px] font-bold text-[#ccff00] mb-1 uppercase tracking-widest">Action // 해결 방안 (작은 시도)</p>
+                    <p class="text-[11px] font-bold text-[#60a5fa] mb-1 uppercase tracking-widest">Action // 해결 방안 (작은 시도)</p>
                     <p class="text-[13px] text-zinc-500 line-through">❌ 하수: "엑셀 단축키를 활용해 빠르게 검색했습니다."</p>
-                    <p class="text-[14px] text-white font-bold leading-snug mt-1">⭕ 고수: "기준 데이터를 매핑하여 <span style="color: #ccff00 !important;">VLOOKUP으로 자동 조회</span>되도록 시스템을 개선했습니다."</p>
+                    <p class="text-[14px] text-white font-bold leading-snug mt-1">⭕ 고수: "기준 데이터를 매핑하여 <span style="color: #60a5fa !important;">VLOOKUP으로 자동 조회</span>되도록 시스템을 개선했습니다."</p>
                 </div>
             </div>
 
             <!-- R: Result (강조 박스) -->
-            <div style="background-color: #1c2310 !important; border: 1px solid #ccff00 !important; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; position: relative;">
-                <div style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background-color: #ccff00 !important; color: black !important; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; border-radius: 4px; z-index: 20;">R</div>
+            <div style="background-color: #172554 !important; border: 1px solid #60a5fa !important; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; position: relative;">
+                <div style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background-color: #60a5fa !important; color: black !important; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; border-radius: 4px; z-index: 20;">R</div>
                 <div class="ml-8">
-                    <p class="text-[11px] font-bold text-[#ccff00] mb-1 uppercase tracking-widest">Result // 수치화된 성적 (결과값)</p>
+                    <p class="text-[11px] font-bold text-[#60a5fa] mb-1 uppercase tracking-widest">Result // 수치화된 성적 (결과값)</p>
                     <p class="text-[13px] text-zinc-500/70 line-through">❌ 하수: "검색이 빨라져서 다른 업무를 할 여유가 생겼습니다."</p>
-                    <p class="text-[14px] text-white font-black leading-snug mt-1">⭕ 고수: "조회 시간을 <span style="color: #ccff00 !important;">80% 단축</span>시켰으며, 월 40시간 업무를 <span style="color: #ccff00 !important;">8시간으로 최적화</span>했습니다."</p>
+                    <p class="text-[14px] text-white font-black leading-snug mt-1">⭕ 고수: "조회 시간을 <span style="color: #60a5fa !important;">80% 단축</span>시켰으며, 월 40시간 업무를 <span style="color: #60a5fa !important;">8시간으로 최적화</span>했습니다."</p>
                 </div>
             </div>
         </div>
@@ -506,14 +505,14 @@
         <div class="relative z-10 px-6 py-5 rounded-lg mb-6 border border-white/5 bg-white/5">
             <p class="text-[14.5px] leading-[1.6] text-zinc-300 break-keep">
                 중요한 것은 결과가 얼마나 대단한지가 아닙니다. <strong class="text-white">수치가 작아도 괜찮습니다.</strong> <br>
-                핵심은 내가 스스로 <span style="color: #ccff00 !important;" class="font-bold">문제를 인지</span>하고, 나만의 <span style="color: #ccff00 !important;" class="font-bold">솔루션</span>을 잡고, 해결 이후의 성과를 기록하는 <strong class="text-white">'회고할 수 있는 사람'</strong>임을 보여주는 것입니다. 그것이 인사담당자가 찾는 진짜 인재의 모습입니다.
+                핵심은 내가 스스로 <span style="color: #60a5fa !important;" class="font-bold">문제를 인지</span>하고, 나만의 <span style="color: #60a5fa !important;" class="font-bold">솔루션</span>을 잡고, 해결 이후의 성과를 기록하는 <strong class="text-white">'회고할 수 있는 사람'</strong>임을 보여주는 것입니다. 그것이 인사담당자가 찾는 진짜 인재의 모습입니다.
             </p>
         </div>
 
         <!-- 🚀 Scorer's Verdict (도장 스타일 내장) -->
-        <div class="relative z-10 p-7 rounded-lg mb-4" style="background-color: #121213 !important; border: 1px solid #333333 !important; min-height: 140px;">
+        <div class="relative z-10 p-7 rounded-lg mb-4" style="background-color: #111827 !important; border: 1px solid #334155 !important; min-height: 140px;">
             <div class="flex items-center gap-3 mb-3">
-                <i class="fa-solid fa-user-check text-xl" style="color: #ccff00 !important;"></i>
+                <i class="fa-solid fa-user-check text-xl" style="color: #60a5fa !important;"></i>
                 <span class="text-[16px] font-black text-white tracking-tight">채점관의 최종 평가</span>
             </div>
             <p class="text-[15px] text-zinc-400 leading-relaxed italic pr-32">
@@ -521,7 +520,7 @@
                 <strong class="text-white">월 32시간의 인건비를 절감</strong>할 수 있는 성과 지향적 인재임."
             </p>
             <!-- 합격 도장 -->
-            <div style="border: 4px solid #ccff00 !important; color: #ccff00 !important; padding: 5px 15px; font-size: 28px; font-weight: 900; text-transform: uppercase; transform: rotate(-12deg); display: inline-block; background-color: transparent !important; letter-spacing: 2px; position: absolute; right: 25px; top: 25px; opacity: 0.9;">SCORE A</div>
+            <div style="border: 4px solid #60a5fa !important; color: #60a5fa !important; padding: 5px 15px; font-size: 28px; font-weight: 900; text-transform: uppercase; transform: rotate(-12deg); display: inline-block; background-color: transparent !important; letter-spacing: 2px; position: absolute; right: 25px; top: 25px; opacity: 0.9;">SCORE A</div>
         </div>
 
         <!-- Footer -->
@@ -554,13 +553,13 @@
 
         <!-- 🔒 공통 헤더 (건드리지 마세요) -->
         <div class="relative z-10 flex justify-between items-center pb-3 mb-6" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
-            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #ccff00 !important;">■</span>Phase 04 // 실전 워크북 (Small Win)</span>
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 04 // 실전 워크북 (Small Win)</span>
             <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_05</span>
         </div>
 
         <!-- 👇 여기에 test4.html 본문만 복사해서 넣으세요 👇 -->
         <div class="relative z-10 mb-6">
-            <div class="p-6 border-l-4 border-[#ccff00] bg-white/5 rounded-r-lg">
+            <div class="p-6 border-l-4 border-[#60a5fa] bg-white/5 rounded-r-lg">
                 <h2 class="text-[25px] font-black leading-[1.3] tracking-tighter break-keep text-white mb-4">
                     경험의 종류는 상관없습니다. <br>
                     당신이 <span class="neon-text">'발견한 문제'</span>와 <span class="neon-text">'솔루션'</span>을 숫자로 기록하세요.
@@ -568,10 +567,10 @@
                 
                 <!-- 상단으로 이동 및 한 줄 처리된 핵심 멘트들 -->
                 <div class="space-y-2">
-                    <p class="text-[14px] font-bold text-[#ccff00] leading-snug">
+                    <p class="text-[14px] font-bold text-[#60a5fa] leading-snug">
                         채점관은 당신의 성실함이 아닌, 당신이 가져온 '변화의 수치'를 봅니다.
                     </p>
-                    <p class="text-[14px] font-bold text-[#ccff00] leading-snug">
+                    <p class="text-[14px] font-bold text-[#60a5fa] leading-snug">
                         불편함을 당연하게 여기지 않는 것, 그것이 기업이 원하는 인재의 진짜 모습입니다.
                     </p>
                     <p class="text-[13px] font-medium italic text-zinc-400 leading-snug">
@@ -650,12 +649,12 @@
     <!-- ==============================================
          [PAGE 6] 면접 활용법 (The Interview Guide)
          ============================================== -->
-    <div class="page" id="page-6" style="width: 210mm; height: 297mm; background-color: #1a1a1b !important; position: relative; overflow: hidden; display: flex; flex-direction: column; color: #ffffff !important; padding: 45px 55px;">
-        <div class="texture" style="position: absolute; inset: 0; opacity: 0.03 !important; pointer-events: none; background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');"></div>
+    <div class="page page-content" id="page-6">
+        <div class="texture"></div>
 
         <!-- 🔒 공통 헤더 (건드리지 마세요) -->
         <div class="relative z-10 flex justify-between items-center pb-2 mb-4" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
-            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #ccff00 !important;">■</span>Phase 05 // 면접 활용법 (The Interview Guide)</span>
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 05 // 면접 활용법 (The Interview Guide)</span>
             <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_06</span>
         </div>
 
@@ -664,10 +663,10 @@
         <!-- Headline Area -->
         <div class="relative z-10 mb-5">
             <h2 class="text-[27px] font-black leading-[1.3] tracking-tighter break-keep text-white mb-2">
-                방금 작성한 <span style="color: #ccff00 !important;">[STAR 문장]</span>이 면접관의 질문을 대답하는 <br> 완벽한 대본이 됩니다.
+                방금 작성한 <span style="color: #60a5fa !important;">[STAR 문장]</span>이 면접관의 질문을 대답하는 <br> 완벽한 대본이 됩니다.
             </h2>
             <div class="bg-white/5 border border-white/10 rounded-lg p-3 px-4 flex items-start gap-3">
-                <i class="fa-solid fa-circle-info mt-1" style="color: #ccff00 !important;"></i>
+                <i class="fa-solid fa-circle-info mt-1" style="color: #60a5fa !important;"></i>
                 <p class="text-[14px] leading-relaxed text-zinc-300 break-keep">
                     5페이지의 워크북은 단순한 글쓰기 연습이 아닙니다. 실전 면접에서 당황하지 않고 
                     <strong class="text-white">나의 문제 해결 능력을 가장 논리적으로 증명</strong>할 수 있는 강력한 대본입니다. 
@@ -676,7 +675,7 @@
         </div>
 
         <!-- 🚀 실전 면접 스크립트 -->
-        <div class="relative z-10 rounded-lg p-5 mb-5" style="background-color: #121213 !important; border: 1px solid rgba(255,255,255,0.1) !important;">
+        <div class="relative z-10 rounded-lg p-5 mb-5" style="background-color: #111827 !important; border: 1px solid rgba(255,255,255,0.1) !important;">
             
             <div class="flex items-center gap-2 mb-4 pb-2" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
                 <i class="fa-solid fa-microphone-lines text-zinc-400"></i>
@@ -685,11 +684,11 @@
 
             <div style="position: relative;">
                 <!-- 세로 연결선 -->
-                <div style="position: absolute; left: 23px; top: 40px; bottom: 10px; width: 2px; background-color: #333333 !important; z-index: 1;"></div>
+                <div style="position: absolute; left: 23px; top: 40px; bottom: 10px; width: 2px; background-color: #334155 !important; z-index: 1;"></div>
 
                 <!-- 면접관의 질문 -->
                 <div style="position: relative; z-index: 2; padding-left: 55px; margin-bottom: 12px;">
-                    <div style="position: absolute; left: 8px; top: 0; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background-color: #1a1a1b !important; border: 2px solid #333; overflow: hidden;">
+                    <div style="position: absolute; left: 8px; top: 0; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background-color: #0f172a !important; border: 2px solid #333; overflow: hidden;">
                         <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&auto=format&fit=crop" alt="면접관" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="flex items-center gap-2 mb-1">
@@ -703,26 +702,26 @@
 
                 <!-- 지원자의 답변 -->
                 <div style="position: relative; z-index: 2; padding-left: 55px; margin-bottom: 5px;">
-                    <div style="position: absolute; left: 8px; top: 0; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background-color: #1a1a1b !important; border: 2px solid #333; overflow: hidden;"><i class="fa-solid fa-user-check" style="color: #ccff00 !important;"></i></div>
-                    <p class="text-[12px] font-bold mb-2 tracking-widest uppercase" style="color: #ccff00 !important;">Candidate (당신의 답변)</p>
+                    <div style="position: absolute; left: 8px; top: 0; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background-color: #0f172a !important; border: 2px solid #333; overflow: hidden;"><i class="fa-solid fa-user-check" style="color: #60a5fa !important;"></i></div>
+                    <p class="text-[12px] font-bold mb-2 tracking-widest uppercase" style="color: #60a5fa !important;">Candidate (당신의 답변)</p>
                     
                     <div class="space-y-2.5">
                         <div class="flex items-start">
-                            <span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 20px; background-color: #333 !important; color: #ccff00 !important; font-size: 10px; font-weight: 900; border-radius: 4px; margin-right: 8px; margin-top: 2px; flex-shrink: 0;">S/T</span>
+                            <span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 20px; background-color: #333 !important; color: #60a5fa !important; font-size: 10px; font-weight: 900; border-radius: 4px; margin-right: 8px; margin-top: 2px; flex-shrink: 0;">S/T</span>
                             <p class="text-[14.5px] leading-relaxed text-zinc-200">
                                 "카페 근무 시절, <strong class="text-white underline decoration-zinc-600 underline-offset-4">피크 타임 대기 인원이 평균 7명 이상 대기줄이 발생하여 새로 들어오는 손님이 떠나는 상황</strong>이 발생했습니다."
                             </p>
                         </div>
                         <div class="flex items-start">
-                            <span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 20px; background-color: #333 !important; color: #ccff00 !important; font-size: 10px; font-weight: 900; border-radius: 4px; margin-right: 8px; margin-top: 2px; flex-shrink: 0;">A</span>
+                            <span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 20px; background-color: #333 !important; color: #60a5fa !important; font-size: 10px; font-weight: 900; border-radius: 4px; margin-right: 8px; margin-top: 2px; flex-shrink: 0;">A</span>
                             <p class="text-[14.5px] leading-relaxed text-zinc-200">
-                                "이를 개선하고자, <strong class="font-bold" style="color: #ccff00 !important;">주문의 70%가 특정 메뉴에 집중됨을 파악하고 피크 전 미리 준비하는 '선제조 스탠바이'로 방식을 변경</strong>했습니다."
+                                "이를 개선하고자, <strong class="font-bold" style="color: #60a5fa !important;">주문의 70%가 특정 메뉴에 집중됨을 파악하고 피크 전 미리 준비하는 '선제조 스탠바이'로 방식을 변경</strong>했습니다."
                             </p>
                         </div>
                         <div class="flex items-start">
-                            <span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 20px; background-color: #333 !important; color: #ccff00 !important; font-size: 10px; font-weight: 900; border-radius: 4px; margin-right: 8px; margin-top: 2px; flex-shrink: 0;">R</span>
+                            <span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 20px; background-color: #333 !important; color: #60a5fa !important; font-size: 10px; font-weight: 900; border-radius: 4px; margin-right: 8px; margin-top: 2px; flex-shrink: 0;">R</span>
                             <p class="text-[14.5px] leading-relaxed text-zinc-200">
-                                "그 결과, 주문 후 음료가 나가는 속도가 빨라져, <strong class="font-bold underline underline-offset-4" style="color: #ccff00 !important; text-decoration-color: #ccff00 !important;">피크 타임 평균 대기 줄이 3명 이하로 유지</strong>할 수 있었습니다. 덕분에 긴 대기 시간으로 인해 발길을 돌리던 고객들의 이탈을 방지하여, <strong class="font-bold underline underline-offset-4" style="color: #ccff00 !important; text-decoration-color: #ccff00 !important;">피크 시간대 매출을 전월 대비 15% 이상 향상</strong>시키는 성과를 거두었습니다."
+                                "그 결과, 주문 후 음료가 나가는 속도가 빨라져, <strong class="font-bold underline underline-offset-4" style="color: #60a5fa !important; text-decoration-color: #60a5fa !important;">피크 타임 평균 대기 줄이 3명 이하로 유지</strong>할 수 있었습니다. 덕분에 긴 대기 시간으로 인해 발길을 돌리던 고객들의 이탈을 방지하여, <strong class="font-bold underline underline-offset-4" style="color: #60a5fa !important; text-decoration-color: #60a5fa !important;">피크 시간대 매출을 전월 대비 15% 이상 향상</strong>시키는 성과를 거두었습니다."
                             </p>
                         </div>
                     </div>
@@ -735,22 +734,22 @@
             <h3 class="text-[15px] font-black text-white px-1 mb-1.5">💡 이 문장이 합격을 부르는 3가지 이유</h3>
             
             <div class="grid grid-cols-1 gap-2">
-                <div class="rounded-md px-3.5 py-2.5 flex items-start gap-3" style="background-color: #242426 !important; border: 1px solid #333333 !important;">
-                    <i class="fa-solid fa-chart-pie text-lg mt-0.5" style="color: #ccff00 !important;"></i>
+                <div class="rounded-md px-3.5 py-2.5 flex items-start gap-3" style="background-color: #1f2937 !important; border: 1px solid #334155 !important;">
+                    <i class="fa-solid fa-chart-pie text-lg mt-0.5" style="color: #60a5fa !important;"></i>
                     <div>
                         <p class="text-[14.5px] font-bold text-white leading-none mb-1">평가 가능한 명확한 성과</p>
                         <p class="text-[12.5px] text-zinc-400 leading-snug break-keep">"열심히 했습니다"라는 주관적인 답변대신, 내가 이룬 성과를 면접관이 즉시 납득할 수 있도록 수치화된 데이터로 대답했습니다.</p>
                     </div>
                 </div>
-                <div class="rounded-md px-3.5 py-2.5 flex items-start gap-3" style="background-color: #242426 !important; border: 1px solid #333333 !important;">
-                    <i class="fa-solid fa-seedling text-lg mt-0.5" style="color: #ccff00 !important;"></i>
+                <div class="rounded-md px-3.5 py-2.5 flex items-start gap-3" style="background-color: #1f2937 !important; border: 1px solid #334155 !important;">
+                    <i class="fa-solid fa-seedling text-lg mt-0.5" style="color: #60a5fa !important;"></i>
                     <div>
                         <p class="text-[14.5px] font-bold text-white leading-none mb-1">스스로 문제를 찾고 성장하는 인재</p>
                         <p class="text-[12.5px] text-zinc-400 leading-snug break-keep">단순히 주어진 일만 하는 것이 아니라, 문제를 파악하고 해결책을 찾아 결과를 내는 '매일 성장하는 주도적 인재'임을 증명합니다.</p>
                     </div>
                 </div>
-                <div class="rounded-md px-3.5 py-2.5 flex items-start gap-3" style="background-color: #242426 !important; border: 1px solid #333333 !important;">
-                    <i class="fa-solid fa-briefcase text-lg mt-0.5" style="color: #ccff00 !important;"></i>
+                <div class="rounded-md px-3.5 py-2.5 flex items-start gap-3" style="background-color: #1f2937 !important; border: 1px solid #334155 !important;">
+                    <i class="fa-solid fa-briefcase text-lg mt-0.5" style="color: #60a5fa !important;"></i>
                     <div>
                         <p class="text-[14.5px] font-bold text-white leading-none mb-1">기업의 언어(효율화) 장착</p>
                         <p class="text-[12.5px] text-zinc-400 leading-snug break-keep">아무리 사소한 경험이라도 기업이 가장 좋아하는 '시간 단축과 비용 절감'이라는 철저한 비즈니스 관점으로 번역해 냈습니다.</p>
@@ -762,7 +761,7 @@
         <!-- 👆 6페이지 본문 끝 👆 -->
 
         <!-- 🔒 공통 푸터 (건드리지 마세요) -->
-        <div class="relative z-10 mt-auto pt-4" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
+        <div class="relative z-10 mt-auto pt-4 footer-anchor" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
             <div class="flex justify-between items-end" style="display: flex !important; justify-content: space-between !important; align-items: flex-end !important;">
                 <span class="text-lg font-black tracking-tighter italic" style="color: rgba(255,255,255,0.9) !important;">
                     제이노트(J-Note) <span class="text-[10px] font-light not-italic ml-1" style="opacity: 0.4 !important;">출판</span>
@@ -771,79 +770,5 @@
             </div>
         </div>
     </div>
-
-
-    <!-- ==========================================
-         플로팅 버튼 & 자바스크립트 영역 (그대로 두시면 됩니다)
-         ========================================== -->
-    <div class="fixed bottom-8 right-8 flex flex-col gap-4 no-print">
-        <button id="reset-img-btn" class="bg-zinc-800 text-zinc-300 px-6 py-3 rounded-full font-bold shadow-xl hover:bg-zinc-700 transition-colors text-sm flex items-center justify-center gap-2">
-            <i class="fa-solid fa-eraser"></i> 이미지 캐시 지우기
-        </button>
-        <button onclick="window.print()" class="neon-bg text-black px-6 py-4 rounded-full font-black shadow-2xl hover:scale-105 transition-transform flex items-center justify-center gap-3">
-            <i class="fa-solid fa-file-pdf text-xl"></i>
-            <span>PDF로 저장하기</span>
-        </button>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const fileInput = document.createElement('input');
-            fileInput.type = 'file'; fileInput.accept = 'image/*'; fileInput.style.display = 'none';
-            document.body.appendChild(fileInput);
-
-            let currentTargetZone = null;
-            const STORAGE_PREFIX = 'jnote_img_name_';
-
-            document.querySelectorAll('.image-upload-zone').forEach(zone => {
-                const zoneId = zone.getAttribute('data-id');
-                const savedFileName = localStorage.getItem(STORAGE_PREFIX + zoneId);
-                const img = zone.querySelector('img.uploaded-img');
-                const placeholderText = zone.querySelector('.missing-text');
-
-                if(img) {
-                    img.onload = () => { zone.classList.add('is-uploaded'); img.style.display = 'block'; };
-                    img.onerror = () => {
-                        zone.classList.remove('is-uploaded'); img.style.display = 'none';
-                        if (savedFileName && placeholderText) { placeholderText.innerHTML = `img 폴더에 <strong class="text-white">${savedFileName}</strong> 를 넣어주세요.`; }
-                    };
-                    if (savedFileName) { img.src = './img/' + savedFileName; }
-                }
-
-                zone.addEventListener('click', (e) => {
-                    e.stopPropagation(); currentTargetZone = zone; fileInput.click();
-                });
-            });
-
-            fileInput.addEventListener('change', (event) => {
-                const file = event.target.files[0];
-                if (file && currentTargetZone) {
-                    const zoneId = currentTargetZone.getAttribute('data-id');
-                    const fileName = file.name;
-                    if (zoneId) { localStorage.setItem(STORAGE_PREFIX + zoneId, fileName); }
-
-                    const reader = new FileReader();
-                    reader.onload = (e) => {
-                        let img = currentTargetZone.querySelector('img.uploaded-img');
-                        if(img) {
-                            img.src = e.target.result; img.style.display = 'block';
-                            currentTargetZone.classList.add('is-uploaded');
-                            const placeholderText = currentTargetZone.querySelector('.missing-text');
-                            if (placeholderText) { placeholderText.innerHTML = `img 폴더에 <strong class="text-white">${fileName}</strong> 를 넣어주세요.`; }
-                        }
-                    };
-                    reader.readAsDataURL(file);
-                }
-                fileInput.value = ''; 
-            });
-
-            document.getElementById('reset-img-btn').addEventListener('click', () => {
-                if(confirm('기억된 파일명을 모두 지우시겠습니까?')) {
-                    localStorage.removeItem(STORAGE_PREFIX + 'score'); localStorage.removeItem(STORAGE_PREFIX + 'degree');
-                    window.location.reload();
-                }
-            });
-        });
-    </script>
 </body>
 </html>
