@@ -1,0 +1,61 @@
+<svg width="1200" height="1600" viewBox="0 0 1200 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1080" y2="1520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="0.5" stop-color="#172554"/>
+      <stop offset="1" stop-color="#1D4ED8"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="251" y1="248" x2="949" y2="1261" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white"/>
+      <stop offset="1" stop-color="#EAF2FF"/>
+    </linearGradient>
+    <linearGradient id="badge" x1="0" y1="0" x2="232" y2="76" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#2563EB"/>
+    </linearGradient>
+    <filter id="shadow" x="183" y="182" width="836" height="1147" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="34"/>
+      <feGaussianBlur stdDeviation="34"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0.0588235 0 0 0 0 0.0901961 0 0 0 0 0.164706 0 0 0 0.22 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_2"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_2" result="shape"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="1600" rx="56" fill="url(#bg)"/>
+  <circle cx="1008" cy="252" r="238" fill="#60A5FA" fill-opacity="0.14"/>
+  <circle cx="174" cy="1412" r="210" fill="#BFDBFE" fill-opacity="0.08"/>
+  <path d="M132 168H1068" stroke="white" stroke-opacity="0.12" stroke-width="2" stroke-dasharray="10 10"/>
+  <path d="M132 1432H1068" stroke="white" stroke-opacity="0.12" stroke-width="2" stroke-dasharray="10 10"/>
+  <g filter="url(#shadow)">
+    <rect x="251" y="248" width="698" height="1009" rx="34" fill="url(#panel)"/>
+  </g>
+  <rect x="303" y="314" width="232" height="76" rx="38" fill="url(#badge)"/>
+  <text x="419" y="361" fill="white" font-size="32" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="800" text-anchor="middle">J-NOTE</text>
+  <text x="304" y="474" fill="#0F172A" font-size="62" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="800">비전공자 역전</text>
+  <text x="304" y="542" fill="#0F172A" font-size="62" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="800">이력서 합격</text>
+  <text x="304" y="610" fill="#0F172A" font-size="62" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="800">문장 공식</text>
+  <text x="304" y="676" fill="#475569" font-size="26" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="600">평범한 경험을 합격권 성과로 바꾸는 실전 문장 설계도</text>
+  <rect x="304" y="736" width="592" height="2" fill="#DBEAFE"/>
+  <rect x="304" y="802" width="234" height="132" rx="22" fill="#EFF6FF"/>
+  <rect x="569" y="802" width="327" height="132" rx="22" fill="#F8FAFC"/>
+  <text x="336" y="850" fill="#2563EB" font-size="22" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="800">POINT 1</text>
+  <text x="336" y="892" fill="#0F172A" font-size="34" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="700">성과 중심 문장</text>
+  <text x="336" y="926" fill="#64748B" font-size="20" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="600">애매한 경력도 합격권 서류로 정리</text>
+  <text x="601" y="850" fill="#0F172A" font-size="22" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="800">POINT 2</text>
+  <text x="601" y="892" fill="#0F172A" font-size="34" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="700">STAR 연결 구조</text>
+  <text x="601" y="926" fill="#64748B" font-size="20" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="600">서류와 면접 답변을 한 번에 정리</text>
+  <rect x="304" y="1002" width="592" height="118" rx="24" fill="#0F172A"/>
+  <text x="338" y="1054" fill="#93C5FD" font-size="20" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="800">RESULT</text>
+  <text x="338" y="1097" fill="white" font-size="32" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="700">작은 경험도 합격 문장으로 바꾸는 전자책</text>
+  <g transform="translate(792 1180) rotate(-8)">
+    <rect x="0" y="0" width="248" height="112" rx="24" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.18" stroke-width="2"/>
+    <text x="124" y="50" fill="#F8FAFC" font-size="24" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="800" text-anchor="middle">9등급</text>
+    <text x="124" y="84" fill="#BFDBFE" font-size="22" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="700" text-anchor="middle">대기업 합격</text>
+  </g>
+  <g transform="translate(866 120) rotate(12)">
+    <rect x="0" y="0" width="210" height="86" rx="20" fill="#111827" stroke="#60A5FA" stroke-width="3"/>
+    <text x="105" y="55" fill="#60A5FA" font-size="34" font-family="Pretendard, Apple SD Gothic Neo, Noto Sans KR, sans-serif" font-weight="900" text-anchor="middle">PASSED</text>
+  </g>
+</svg>

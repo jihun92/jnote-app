@@ -252,6 +252,43 @@ input {
         linear-gradient(135deg, #0f172a 0%, #1e40af 100%);
 }
 
+.book-thumb.is-primary-book {
+    background:
+        radial-gradient(circle at top right, rgba(59, 130, 246, 0.2), transparent 28%),
+        radial-gradient(circle at bottom left, rgba(37, 99, 235, 0.16), transparent 24%),
+        linear-gradient(180deg, rgba(15, 23, 42, 0.1), rgba(15, 23, 42, 0.34)),
+        linear-gradient(135deg, #0f172a 0%, #172554 52%, #1d4ed8 100%);
+}
+
+.book-thumb.is-primary-book img {
+    left: 50%;
+    right: auto;
+    bottom: 16px;
+    transform: translateX(-50%);
+    width: 54%;
+    height: auto;
+    max-height: calc(100% - 38px);
+    object-fit: contain;
+    opacity: 1;
+    mix-blend-mode: normal;
+    filter: drop-shadow(0 20px 26px rgba(15, 23, 42, 0.24));
+}
+
+.book-thumb.is-primary-book::after {
+    content: none;
+}
+
+.book-thumb.is-primary-book .book-thumb-copy {
+    display: none;
+}
+
+.book-thumb.is-primary-book .status-pill {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    z-index: 3;
+}
+
 .book-card.is-coming-soon {
     border-color: rgba(203, 213, 225, 0.9);
     box-shadow: 0 16px 28px rgba(15, 23, 42, 0.05);
@@ -296,6 +333,10 @@ input {
     z-index: 2;
     margin-top: 18px;
     max-width: 88%;
+}
+
+.is-hidden-copy {
+    display: none;
 }
 
 .book-thumb-subtitle {
@@ -670,6 +711,25 @@ input {
 
 .book-card-info {
     padding: 18px 22px 22px;
+}
+
+.book-card-heading {
+    margin-bottom: 12px;
+}
+
+.book-card-heading h3 {
+    margin: 0 0 8px;
+    color: var(--ink);
+    font-size: 28px;
+    line-height: 1.12;
+    letter-spacing: -0.04em;
+}
+
+.book-card-subtitle {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.6;
 }
 
 .book-card-info p {

@@ -149,12 +149,13 @@ function openPurchase(book) {
 function createBookCard(book) {
     const isPublished = book.status === "published";
     const unlocked = isPublished && hasAccess(book.id);
+    const isPrimaryBook = book.id === "resume-master-book";
     const statusClass = !isPublished ? "status-locked" : unlocked ? "status-unlocked" : "status-locked";
     const statusText = !isPublished ? "출간 예정" : unlocked ? "열람 가능" : "미리보기 제공";
     const accessText = !isPublished ? "현재 제작 중입니다" : unlocked ? "전체 열람 가능" : "샘플 공개 10%";
     const availabilityClass = !isPublished ? "book-availability is-coming-soon" : "book-availability";
     const cardClass = !isPublished ? "book-card is-coming-soon" : "book-card";
-    const thumbClass = !isPublished ? "book-thumb is-coming-soon" : "book-thumb";
+    const thumbClass = !isPublished ? "book-thumb is-coming-soon" : isPrimaryBook ? "book-thumb is-primary-book" : "book-thumb";
     const readAction = isPublished
         ? unlocked
             ? `<a class="button button-primary" href="./book.html?book=${book.id}&read=1">전자책 읽기</a>`
@@ -168,18 +169,26 @@ function createBookCard(book) {
                 </div>
             `
         : "";
+    const primaryHeading = isPrimaryBook
+        ? `
+                <div class="book-card-heading">
+                    <h3>${book.title}</h3>
+                    <p class="book-card-subtitle">${book.subtitle}</p>
+                </div>
+            `
+        : "";
     return `
         <article class="${cardClass}">
             <div class="${thumbClass}">
                 <span class="status-pill ${statusClass}">${statusText}</span>
-                ${!isPublished ? `
-                ` : `<img src="${book.accentImage}" alt="${book.title} 썸네일">`}
-                <div class="book-thumb-copy">
+                ${!isPublished ? "" : `<img src="${book.accentImage}" alt="${book.title} 썸네일">`}
+                <div class="book-thumb-copy ${isPrimaryBook ? "is-hidden-copy" : ""}">
                     <h3>${book.title}</h3>
                     <p class="book-thumb-subtitle">${book.subtitle}</p>
                 </div>
             </div>
             <div class="book-card-info">
+                ${primaryHeading}
                 <div class="${availabilityClass}">${accessText}</div>
                 <p>${book.description}</p>
                 ${actions}
@@ -294,11 +303,12 @@ function renderIntroPage() {
             <section class="intro-sales-hero">
                 <div class="shell intro-sales-grid">
                     <div>
-                        <div class="eyebrow">국비지원 · 비전공자 전용 서류 통과 가이드</div>
+                        <div class="eyebrow">국비지원 · 비전공자를 위한 서류 광탈 탈출 치트키</div>
                         <h1>화려한 기술 스택보다 중요한 건, 내 코드를 비즈니스 가치로 번역하는 능력입니다.</h1>
                         <p class="hero-copy">
-                            고교 9등급, 사회복지사 출신. 평범한 국비지원 프로젝트 하나로 대기업 서류를 통과한
-                            이력서 언어 최적화 공식을 전자책 형태로 정리했습니다. 기능 나열이 아니라 문제 해결과 비즈니스 임팩트 중심으로 문장을 다시 쓰는 방법을 담았습니다.
+                            9등급 사회복지사였던 제가 대기업 서류 문을 열었던 방식은 대단한 스펙이 아니라
+                            평범한 경험을 회사가 탐내는 성과 문장으로 바꾸는 것이었습니다. 이 전자책은 그 흐름을
+                            바로 따라 쓰고 적용할 수 있게 압축한 실전용 설계도입니다.
                         </p>
                         <div class="hero-actions">
                             <a class="button button-primary" href="${unlocked ? `./book.html?book=${book.id}&read=1` : `./book.html?book=${book.id}`}">${unlocked ? "전자책 읽기" : "전자책 샘플 보기"}</a>
@@ -307,15 +317,15 @@ function renderIntroPage() {
                         <div class="trust-strip">
                             <div class="trust-item">
                                 <strong>12페이지 압축</strong>
-                                <span>핵심 문장 공식을 빠르게 이해할 수 있게 구성했습니다.</span>
+                                <span>길게 헤매지 않고 바로 적용할 합격 문장만 추려 담았습니다.</span>
                             </div>
                             <div class="trust-item">
                                 <strong>STAR 기반</strong>
-                                <span>서류 문장과 면접 답변을 동시에 정리하는 프레임입니다.</span>
+                                <span>서류 문장과 면접 답변이 한 번에 연결되는 구조입니다.</span>
                             </div>
                             <div class="trust-item">
                                 <strong>웹북 열람형</strong>
-                                <span>구매 후 코드로 즉시 열람하고 계속 복습할 수 있습니다.</span>
+                                <span>구매 후 바로 열람하고 필요할 때마다 다시 꺼내 볼 수 있습니다.</span>
                             </div>
                         </div>
                     </div>
@@ -325,21 +335,21 @@ function renderIntroPage() {
                             <span class="cover-label">Resume Language Playbook</span>
                             <h2>${book.title}</h2>
                             <p class="cover-copy">
-                                작은 프로젝트 경험도 회사가 이해하는 문제 해결 언어로 바꾸면 서류 통과 가능성이 달라집니다.
-                                이 전자책은 그 변환 과정을 바로 적용 가능한 문장 단위로 보여줍니다.
+                                작은 프로젝트, 보조 업무, 평범한 국비지원 경험도 회사가 뽑고 싶은 성과처럼 보이게
+                                바꾸면 서류 통과율은 달라집니다. 이 전자책은 그 치환 과정을 문장 단위로 바로 보여줍니다.
                             </p>
                             <div class="cover-stats">
                                 <div class="cover-stat">
                                     <strong>9,900원</strong>
-                                    <span>낮은 진입 비용</span>
+                                    <span>가볍게 시작</span>
                                 </div>
                                 <div class="cover-stat">
-                                    <strong>실전형</strong>
-                                    <span>복붙 가능한 구조</span>
+                                    <strong>즉시 적용</strong>
+                                    <span>바로 써먹는 문장 구조</span>
                                 </div>
                                 <div class="cover-stat">
                                     <strong>웹 열람</strong>
-                                    <span>구매 후 코드 해제</span>
+                                    <span>구매 후 바로 확인</span>
                                 </div>
                             </div>
                         </article>
@@ -400,17 +410,17 @@ function renderIntroPage() {
                         <article class="landing-solution-card feature-card">
                             <div class="accent-number">Point 1</div>
                             <strong>작은 경험의 강점 찾기</strong>
-                            <p>국비지원 팀 프로젝트의 작은 역할, 개인 실습, 보조 업무 같은 평범한 경험을 면접관이 읽을 수 있는 주도적 문제 해결 사례로 구조화하는 기준을 제공합니다.</p>
+                            <p>국비지원 팀 프로젝트의 작은 역할, 개인 실습, 보조 업무 같은 평범한 경험도 면접관이 읽는 성과 사례로 바꾸는 기준을 제공합니다.</p>
                         </article>
                         <article class="landing-solution-card feature-card">
                             <div class="accent-number">Point 2</div>
                             <strong>이력서 합격 문장 공식</strong>
-                            <p>열심히 개발했습니다, 소통을 잘합니다 같은 모호한 표현을 제거하고 실무자들이 이해하는 객관적이고 세련된 비즈니스 단어와 문장 구조로 바꾸는 법을 담았습니다.</p>
+                            <p>열심히 했습니다, 소통을 잘합니다 같은 애매한 표현을 빼고 회사가 뽑고 싶어지는 성과 문장으로 바꾸는 법을 담았습니다.</p>
                         </article>
                         <article class="landing-solution-card feature-card is-primary">
                             <div class="accent-number">Point 3</div>
                             <strong>이력서와 면접 답변을 동시에 연결하는 프로세스</strong>
-                            <p>STAR 템플릿에 맞춰 빈칸을 채우면 서류 제출용 텍스트와 면접 1분 답변, 꼬리 질문 방어 스크립트가 한 번에 정리되도록 설계했습니다.</p>
+                            <p>STAR 템플릿에 맞춰 빈칸만 채우면 서류용 문장과 면접 답변, 꼬리 질문 대응까지 한 번에 정리되도록 설계했습니다.</p>
                         </article>
                     </div>
                 </div>
@@ -423,7 +433,7 @@ function renderIntroPage() {
                             효율이 떨어지는 자소서 첨삭에<br>
                             돈과 시간을 낭비하지 마세요.
                         </h2>
-                        <p>정확한 공식만 알면 이력서 작성 시간은 짧아지고, 문장의 설득력은 높아집니다.</p>
+                        <p>복잡한 첨삭 없이도 문장 공식을 알면 평범한 경험이 합격권 이력서로 훨씬 빠르게 정리됩니다.</p>
 
                         <article class="price-card">
                             <div class="price-number">9,900<span>원</span></div>
@@ -432,8 +442,8 @@ function renderIntroPage() {
                                 <button class="button button-secondary" type="button" id="introPurchaseButton">구매 링크 열기</button>
                             </div>
                             <div class="price-note">
-                                결제 후 발급받은 코드로 웹북을 즉시 열람할 수 있습니다.<br>
-                                구매 이후에는 책장에서 원하는 전자책을 선택해 계속 복습할 수 있습니다.
+                                결제 후 발급받은 코드로 바로 열람할 수 있습니다.<br>
+                                필요할 때마다 다시 열어 문장을 복기하고 바로 자기 이력서에 적용할 수 있습니다.
                             </div>
                         </article>
                     </div>
