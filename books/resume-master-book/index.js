@@ -4,8 +4,8 @@ window.BOOK_REGISTRY["resume-master-book"] = {
     id: "resume-master-book",
     status: "published",
     title: "비전공자 역전 이력서 합격 문장 공식",
-    subtitle: "평범한 경험을 합격권 성과로 바꾸는 문장 치트키",
-    description: "9등급 사회복지 학점은행제, 중소기업 제조업 경험으로도 대기업 서류를 통과하게 만든 문장 설계법을 STAR 구조로 정리한 전자책입니다.",
+    subtitle: "당신의 경험을 합격 가능한 문장으로 바꾸는 실전 설계도",
+    description: "경험이 부족한 것이 아니라, 기업 언어로 바꾸는 구조가 없었던 것입니다. 비전공자·국비지원·중소기업 경험도 서류와 면접에서 통하는 합격 문장으로 재구성하는 전자책입니다.",
     coverImage: "./img/resume-cover.png",
     accentImage: "./img/resume-cover.png",
     tags: ["이력서 전략", "STAR 기법", "면접 활용"],
@@ -17,11 +17,13 @@ window.BOOK_REGISTRY["resume-master-book"] = {
         mobile: 9200
     },
     contents: [
-        { title: "01. 시작", summary: "비전공자 경력의 출발점과 서류 합격의 전환점" },
-        { title: "02. 관점", summary: "노력보다 수치가 중요한 이유" },
-        { title: "03. 공식", summary: "STAR로 경험을 기업 언어로 변환" },
-        { title: "04. 실전", summary: "단순 업무를 합격 문장으로 바꾸는 예시" },
-        { title: "05. 활용", summary: "면접 답변으로 이어지는 구조" }
+        { title: "01. 역전의 서막", summary: "왜 경험이 서류에서 죽는가, 그리고 무엇이 문제였는가" },
+        { title: "02. 채점 기준", summary: "노력보다 수치가 먼저 보이는 이유" },
+        { title: "03. PARL", summary: "지원동기와 포부를 설득 구조로 쓰는 법" },
+        { title: "04. STAR", summary: "성과와 경험을 기업 언어로 바꾸는 법" },
+        { title: "05. 워크북", summary: "내 경험을 숫자와 결과값으로 정리하는 법" },
+        { title: "06. 면접 활용", summary: "자소서 문장을 말로 증명하는 법" },
+        { title: "07. 최종 실행", summary: "바로 적용하는 체크리스트와 요약" }
     ],
     previewBlocks: [
         {

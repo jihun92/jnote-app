@@ -303,12 +303,12 @@ function renderIntroPage() {
             <section class="intro-sales-hero">
                 <div class="shell intro-sales-grid">
                     <div>
-                        <div class="eyebrow">국비지원 · 비전공자를 위한 서류 광탈 탈출 치트키</div>
-                        <h1>화려한 기술 스택보다 중요한 건, 내 코드를 비즈니스 가치로 번역하는 능력입니다.</h1>
+                        <div class="eyebrow">비전공자 · 국비지원 · 중소기업 경력을 위한 합격 문장 설계도</div>
+                        <h1>당신이 계속 떨어지는 이유는 경험이 부족해서가 아니라, 그 경험을 합격 문장으로 바꾸는 구조가 없었기 때문입니다.</h1>
                         <p class="hero-copy">
-                            9등급 사회복지사였던 제가 대기업 서류 문을 열었던 방식은 대단한 스펙이 아니라
-                            평범한 경험을 회사가 탐내는 성과 문장으로 바꾸는 것이었습니다. 이 전자책은 그 흐름을
-                            바로 따라 쓰고 적용할 수 있게 압축한 실전용 설계도입니다.
+                            이 전자책은 자기소개서를 예쁘게 쓰는 법을 설명하는 책이 아닙니다.
+                            평범해 보이는 경험을 기업이 이해하는 언어로 재번역하고, 서류와 면접에서 통하는
+                            합격 문장으로 바꾸는 구조를 바로 적용할 수 있게 정리한 실전용 설계도입니다.
                         </p>
                         <div class="hero-actions">
                             <a class="button button-primary" href="${unlocked ? `./book.html?book=${book.id}&read=1` : `./book.html?book=${book.id}`}">${unlocked ? "전자책 읽기" : "전자책 샘플 보기"}</a>
@@ -316,12 +316,12 @@ function renderIntroPage() {
                         </div>
                         <div class="trust-strip">
                             <div class="trust-item">
-                                <strong>12페이지 압축</strong>
-                                <span>길게 헤매지 않고 바로 적용할 합격 문장만 추려 담았습니다.</span>
+                                <strong>구조 중심 설계</strong>
+                                <span>감이 아니라 PARL과 STAR 구조로 다시 쓰는 흐름을 정리했습니다.</span>
                             </div>
                             <div class="trust-item">
-                                <strong>STAR 기반</strong>
-                                <span>서류 문장과 면접 답변이 한 번에 연결되는 구조입니다.</span>
+                                <strong>서류와 면접 연결</strong>
+                                <span>자기소개서 문장이 면접 답변까지 이어지도록 설계했습니다.</span>
                             </div>
                             <div class="trust-item">
                                 <strong>웹북 열람형</strong>
@@ -335,8 +335,9 @@ function renderIntroPage() {
                             <span class="cover-label">Resume Language Playbook</span>
                             <h2>${book.title}</h2>
                             <p class="cover-copy">
-                                작은 프로젝트, 보조 업무, 평범한 국비지원 경험도 회사가 뽑고 싶은 성과처럼 보이게
-                                바꾸면 서류 통과율은 달라집니다. 이 전자책은 그 치환 과정을 문장 단위로 바로 보여줍니다.
+                                작은 프로젝트, 보조 업무, 평범한 국비지원 경험도
+                                합격 가능한 문장 구조로 바꾸면 결과는 달라집니다.
+                                이 전자책은 그 치환 과정을 문장 단위로 바로 보여줍니다.
                             </p>
                             <div class="cover-stats">
                                 <div class="cover-stat">
