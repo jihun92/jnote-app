@@ -66,6 +66,85 @@
         /* 테마 컬러 클래스 */
         .neon-text { color: #60a5fa !important; }
         .neon-bg { background-color: #60a5fa !important; }
+        .card-main { background-color: #111827 !important; border: 1px solid #334155 !important; border-radius: 12px; }
+        .card-example { background: linear-gradient(180deg, rgba(37,99,235,0.16) 0%, rgba(15,23,42,0.58) 100%) !important; border: 1px solid rgba(96,165,250,0.28) !important; border-radius: 12px; }
+        .card-warning { background-color: #111827 !important; border: 1px solid rgba(248,113,113,0.28) !important; border-radius: 12px; }
+        .page-content .card-main.p-5,
+        .page-content .card-example.p-5,
+        .page-content .card-warning.p-5 { padding: 1rem !important; }
+        .page-content .card-main.p-4,
+        .page-content .card-example.p-4,
+        .page-content .card-warning.p-4 { padding: 0.875rem !important; }
+        .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 14px; }
+        .compare-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 14px;
+            padding: 12px;
+            min-height: 132px;
+            background-color: #0f172a !important;
+        }
+        .compare-item::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 4px;
+        }
+        .compare-item.is-wrong {
+            border: 1px solid rgba(248,113,113,0.34) !important;
+            background:
+                linear-gradient(180deg, rgba(127, 29, 29, 0.22) 0%, rgba(15, 23, 42, 0.96) 42%) !important;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), 0 10px 24px rgba(127, 29, 29, 0.12);
+        }
+        .compare-item.is-wrong::before {
+            background: linear-gradient(90deg, rgba(248,113,113,0.95) 0%, rgba(248,113,113,0.18) 100%);
+        }
+        .compare-item.is-right {
+            border: 1px solid rgba(96,165,250,0.34) !important;
+            background:
+                linear-gradient(180deg, rgba(30, 64, 175, 0.24) 0%, rgba(15, 23, 42, 0.96) 42%) !important;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.03), 0 10px 24px rgba(30, 64, 175, 0.12);
+        }
+        .compare-item.is-right::before {
+            background: linear-gradient(90deg, rgba(96,165,250,0.95) 0%, rgba(96,165,250,0.18) 100%);
+        }
+        #page-11 .card-main.p-5,
+        #page-11 .card-example.p-5 { padding: 0.875rem !important; }
+        #page-11 .card-main.p-4,
+        #page-11 .card-example.p-4,
+        #page-11 .card-warning.p-4 { padding: 0.75rem !important; }
+        #page-11 .p-6 { padding: 1rem !important; }
+        #page-11 .mb-6 { margin-bottom: 1rem !important; }
+        #page-11 .mb-5 { margin-bottom: 0.875rem !important; }
+        #page-11 .mb-4 { margin-bottom: 0.75rem !important; }
+        #page-13 .card-main.p-5,
+        #page-13 .card-warning.p-5,
+        #page-13 .card-example.p-5 { padding: 0.875rem !important; }
+        #page-13 .card-main.p-4,
+        #page-13 .card-warning.p-4,
+        #page-13 .card-example.p-4 { padding: 0.75rem !important; }
+        #page-13 .p-6 { padding: 1rem !important; }
+        #page-13 .mb-5 { margin-bottom: 0.875rem !important; }
+        #page-13 .mb-4 { margin-bottom: 0.75rem !important; }
+        #page-13 .grid.grid-cols-2 { gap: 0.75rem !important; }
+        #page-13 h2.text-\[34px\] { font-size: 30px !important; line-height: 1.18 !important; }
+        #page-13 p.text-\[16px\] { font-size: 15px !important; line-height: 1.68 !important; }
+        #page-13 p.text-\[15px\] { font-size: 14px !important; }
+        #page-13 p.text-\[13px\] { line-height: 1.72 !important; }
+        #page-13 .space-y-3 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.55rem !important; }
+        #page-13 .space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.45rem !important; }
+        #page-5 .card-main.p-5,
+        #page-5 .card-warning.p-5,
+        #page-5 .card-example.p-5 { padding: 0.875rem !important; }
+        #page-5 .card-main.p-4,
+        #page-5 .card-warning.p-4,
+        #page-5 .card-example.p-4 { padding: 0.75rem !important; }
+        #page-5 .mb-6 { margin-bottom: 1rem !important; }
+        #page-5 .mb-5 { margin-bottom: 0.875rem !important; }
+        #page-5 .mb-4 { margin-bottom: 0.75rem !important; }
+        #page-5 .compare-item { min-height: 118px; }
 
         /* =========================================
            각 페이지 본문에 필요한 특수 CSS 모음
@@ -120,90 +199,45 @@
         <!-- 👇 여기에 test.html의 1페이지 <div class="page"> 안쪽 내용을 통째로 복사해서 붙여넣으세요 👇 -->
     <div class="texture"></div>
 
-        <!-- Decorative Neon Line -->
         <div class="absolute top-0 right-20 w-[2px] h-48 bg-gradient-to-b from-[#60a5fa] to-transparent"></div>
         <div class="absolute top-12 right-12 text-[10px] font-mono text-zinc-600 rotate-90 tracking-[0.5em] origin-right uppercase">
-            REVERSE SUCCESS // STRATEGY
+            COVER // J-NOTE
         </div>
 
-        <!-- Top: Badge -->
-        <div class="relative z-10 flex flex-col items-center mt-20">
-            <div class="inline-block px-6 py-2 neon-bg text-black text-[14px] font-black tracking-[0.3em] uppercase rounded-full shadow-[0_10px_30px_rgba(204,255,0,0.2)]">
-                비전공자 역전의 아이콘
-            </div>
-        </div>
-
-        <!-- Middle: Catchphrase & Specs -->
-        <div class="relative z-10 text-center flex flex-col items-center mt-12">
-            
-            <h1 class="font-black tracking-tighter mb-10 flex flex-col items-center gap-1">
-                <span class="text-[52px] text-white leading-[1.2]">"이 스펙으로 대체 어떻게</span>
-                <span class="text-[52px] leading-[1.2]">대기업 <span class="neon-text underline decoration-4 underline-offset-8 relative">
-                    [개발자]
-                    <div class="absolute -bottom-2 left-0 w-full h-2 bg-[#60a5fa]/30 blur-md"></div>
-                </span>가 되었을까?"</span>
-            </h1>
-
-            <!-- Reordered Specs with [BEFORE] tag -->
-            <div class="flex flex-col items-center gap-4 mb-12 w-full max-w-md">
-                <div class="w-full py-4 bg-white/5 border border-white/10 rounded-lg backdrop-blur-sm text-center shadow-lg relative">
-                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-zinc-700 text-zinc-300 text-[10px] font-black px-3 py-1 rounded-sm tracking-[0.2em]">[ BEFORE ]</span>
-                    <p class="text-lg font-bold text-zinc-200 tracking-tight">고교 9등급 <span class="text-zinc-600 font-light mx-3">|</span> <span class="text-zinc-400">사회복지 학점은행제</span></p>
-                </div>
-                <div class="w-full py-4 bg-white/5 border border-white/10 rounded-lg backdrop-blur-sm text-center shadow-lg relative">
-                    <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-zinc-700 text-zinc-300 text-[10px] font-black px-3 py-1 rounded-sm tracking-[0.2em]">[ BEFORE ]</span>
-                    <p class="text-lg font-bold text-zinc-200 tracking-tight">직업군인 전역 <span class="text-zinc-600 font-light mx-3">|</span> <span class="text-zinc-400">비전공자의 시작점</span></p>
-                </div>
+        <div class="relative z-10 flex flex-col justify-center h-full">
+            <div class="inline-flex self-start px-5 py-2 rounded-full text-[12px] font-black tracking-[0.28em] uppercase mb-10" style="background-color: rgba(37,99,235,0.14) !important; color: #60a5fa !important; border: 1px solid rgba(96,165,250,0.2) !important;">
+                비전공자 취업 전략 시리즈 01
             </div>
 
-            <div class="w-full max-w-xl space-y-10">
-                <div class="text-left border-l-4 border-[#60a5fa] pl-8 py-2 relative bg-gradient-to-r from-[#60a5fa]/10 to-transparent">
-                    <i class="fa-solid fa-crosshairs absolute -left-[14px] top-1/2 -translate-y-1/2 text-[#60a5fa] bg-[#0f172a] py-2"></i>
-                    <p class="text-[24px] font-medium text-zinc-300 leading-snug">
-                        웹 개발 경험 0에서 시작해 <br>
-                        <span class="text-white font-bold border-b-2 border-[#60a5fa]">이력서 합격률 <span class="neon-text italic text-[32px]">40%</span></span>를 기록한
-                    </p>
-                </div>
-                
-                <!-- Graphic Stamp -->
-                <div class="relative group flex justify-center pt-4">
-                    <div class="absolute inset-0 neon-bg blur-xl opacity-20"></div>
-                    <div class="relative border-4 border-[#60a5fa] px-8 py-6 transform -rotate-2 shadow-2xl bg-[#0f172a] w-full max-w-md">
-                        <div class="absolute -top-4 left-1/2 -translate-x-1/2 neon-bg text-black text-[12px] font-black px-4 py-1 uppercase tracking-[0.3em] shadow-lg">
-                            The Secret Formula
-                        </div>
-                        <p class="text-[28px] font-black text-white tracking-tighter flex items-center justify-center gap-3 mt-2">
-                            <i class="fa-solid fa-bolt neon-text"></i>
-                            비전공자 [문장 치환술]
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Bottom Info -->
-        <div class="relative z-10 flex flex-col items-center gap-8 mt-6">
-            <div class="relative text-center w-full px-10">
-                <i class="fa-solid fa-quote-left absolute -top-4 left-4 text-4xl neon-text opacity-10"></i>
-                <p class="text-white font-bold text-[20px] tracking-tight mb-2">
-                    "0원짜리 경력을 1억짜리 이력으로 바꾸는 기술"
-                </p>
-                <p class="neon-text font-black text-[28px] italic tracking-tight">
-                    "당신은 늦은 게 아니라, <br>가치를 증명할 '언어'가 없는 것입니다."
+            <div class="max-w-4xl">
+                <p class="text-[18px] font-bold tracking-[0.24em] uppercase mb-5" style="color: #60a5fa !important;">J-NOTE EBOOK</p>
+                <h1 class="font-black tracking-tighter text-white leading-[1.1] mb-8">
+                    <span class="block text-[60px]">비전공자 역전 이력서</span>
+                    <span class="block text-[60px]"><span class="neon-text">합격 문장 공식</span></span>
+                </h1>
+                <p class="text-[24px] leading-[1.65] text-zinc-200 max-w-3xl mb-8">
+                    평범한 경험을 <strong class="text-white">대기업 서류 통과 문장</strong>으로 바꾸는 법
                 </p>
             </div>
-            
-            <div class="w-full flex justify-between items-end pt-8 border-t border-white/10">
-                <div class="flex flex-col">
-                    <span class="text-[12px] font-bold neon-text tracking-[0.4em] uppercase mb-2">[검증된 성공 공식]</span>
-                    <span class="text-3xl font-black tracking-tighter italic">제이노트(J-Note) <span class="text-sm font-light not-italic opacity-40 ml-2">출판</span></span>
+
+            <div class="card-example p-5 max-w-3xl">
+                <p class="text-[18px] font-bold text-white leading-[1.7]">
+                    당신이 합격하지 못하는 이유는 <span class="neon-text">스펙</span>이 아니라,
+                    <br>경험을 <span class="neon-text">성과 문장</span>으로 바꾸는 방법을 모르고 있기 때문입니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="relative z-10 w-full flex justify-between items-end pt-6 border-t border-white/10">
+            <div class="flex flex-col">
+                <span class="text-[12px] font-bold neon-text tracking-[0.35em] uppercase mb-2">[문장으로 뒤집는 취업 전략]</span>
+                <span class="text-3xl font-black tracking-tighter italic">제이노트(J-Note) <span class="text-sm font-light not-italic opacity-40 ml-2">출판</span></span>
+            </div>
+            <div class="text-right flex flex-col items-end">
+                <div class="flex gap-1 mb-2">
+                    <div class="w-1.5 h-4 neon-bg"></div><div class="w-1.5 h-4 neon-bg"></div><div class="w-1.5 h-4 neon-bg"></div><div class="w-1.5 h-4 neon-bg"></div><div class="w-1.5 h-4 neon-bg"></div>
                 </div>
-                <div class="text-right flex flex-col items-end">
-                    <div class="flex gap-1 mb-2">
-                        <div class="w-1.5 h-4 neon-bg"></div><div class="w-1.5 h-4 neon-bg"></div><div class="w-1.5 h-4 neon-bg"></div><div class="w-1.5 h-4 neon-bg"></div><div class="w-1.5 h-4 neon-bg"></div>
-                    </div>
-                    <span class="text-[12px] font-mono opacity-30">RELEASE_VER: 2026.02</span>
-                </div>
+                <span class="text-[12px] font-mono opacity-30">RELEASE_VER: 2026.02</span>
             </div>
         </div>
         <div class="absolute left-0 top-0 w-16 h-full bg-gradient-to-r from-black/80 to-transparent pointer-events-none"></div>
@@ -220,8 +254,13 @@
 
         <!-- 🔒 공통 헤더 (건드리지 마세요) -->
         <div class="relative z-10 flex justify-between items-center pb-3 mb-5" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
-            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="neon-text mr-2">■</span>Phase 01 // 역전의 서막</span>
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="neon-text mr-2">■</span>INTRO // 역전의 서막</span>
             <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_02</span>
+        </div>
+
+        <div class="relative z-10 flex items-center justify-between mb-5">
+            <span class="text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full card-chip">도입 페이지</span>
+            <span class="text-[11px] text-zinc-400 tracking-widest">WHY THIS BOOK</span>
         </div>
 
         <!-- 👇 여기에 test1.html의 <div class="relative z-10 mb-6 border-l-4..."> 부터 푸터 직전까지만 복사해서 넣으세요 👇 -->
@@ -276,7 +315,7 @@
         </div>
 
         <!-- 텍스트 + CSS 합격 그래픽 영역 -->
-        <div class="relative z-10 mt-5 border rounded-lg p-5 flex flex-col gap-4" style="background-color: #111827 !important; border-color: #334155 !important; box-shadow: none !important;">
+        <div class="relative z-10 mt-5 card-main p-5 flex flex-col gap-4">
             <div class="flex items-center gap-2 mb-1 z-10">
                 <i class="fa-solid fa-bolt neon-text text-lg"></i>
                 <h3 class="text-[18px] font-black text-white tracking-tight">오직 <span class="neon-text">'이력서 전략'</span> 하나로 만든 결과</h3>
@@ -331,8 +370,13 @@
 
         <!-- 🔒 공통 헤더 (건드리지 마세요) -->
         <div class="relative z-10 flex justify-between items-center pb-3 mb-8" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
-            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 02 // 깨달음 (Mindset Shift)</span>
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>FOUNDATION // 깨달음</span>
             <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_03</span>
+        </div>
+
+        <div class="relative z-10 flex items-center justify-between mb-5">
+            <span class="text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full card-chip">핵심 관점</span>
+            <span class="text-[11px] text-zinc-400 tracking-widest">MINDSET SHIFT</span>
         </div>
 
         <!-- 👇 여기에 test2.html 본문만 복사해서 넣으세요 👇 -->
@@ -355,7 +399,7 @@
         <!-- 🚀 시각적 A/B 대조 섹션 -->
         <div class="relative z-10 flex gap-5 mb-8 h-[180px]">
             <!-- Left Box (Bad) -->
-            <div class="flex-1 rounded-lg p-5 relative overflow-hidden flex flex-col justify-center" style="background-color: #2c1a1a !important; border: 1px solid #7f1d1d !important;">
+            <div class="flex-1 card-warning p-5 relative overflow-hidden flex flex-col justify-center">
                 <div class="absolute top-0 left-0 w-full h-1" style="background-color: #ef4444 !important;"></div>
                 <div class="flex items-center gap-2 mb-3">
                     <span class="inline-block text-[10px] font-black px-2 py-1 rounded-sm uppercase tracking-widest" style="background-color: #450a0a !important; color: #f87171 !important;">Bad</span>
@@ -372,7 +416,7 @@
             </div>
 
             <!-- Right Box (Pass) -->
-            <div class="flex-1 rounded-lg p-5 relative overflow-hidden flex flex-col justify-center" style="background-color: #172554 !important; border: 1px solid #60a5fa !important;">
+            <div class="flex-1 card-example p-5 relative overflow-hidden flex flex-col justify-center">
                 <div class="absolute top-0 left-0 w-full h-1" style="background-color: #60a5fa !important;"></div>
                 <div class="flex items-center gap-2 mb-3">
                     <span class="inline-block text-black text-[10px] font-black px-2 py-1 rounded-sm uppercase tracking-widest" style="background-color: #60a5fa !important; color: black !important;">Pass</span>
@@ -394,7 +438,7 @@
             </p>
             
             <!-- 경고 박스 -->
-            <div class="p-4 my-1" style="background-color: #271616 !important; border-left: 4px solid #ef4444 !important;">
+            <div class="card-warning p-4 my-1" style="border-left: 4px solid #ef4444 !important;">
                 <p class="text-[15px] text-white font-bold mb-1 tracking-tight">자, 위 빨간색 문장들에 몇 점을 줄 수 있을까요?</p>
                 <p class="text-[14px] font-medium" style="color: #f87171 !important;">인사팀조차 상사에게 '이 사람은 성실해서 뽑았습니다'라고 보고할 수 없습니다.<br>왜냐하면 '평가할 수 없는 이력서'이기 때문이죠.</p>
             </div>
@@ -429,112 +473,568 @@
     </div>
 
     <!-- ==========================================
-         [PAGE 4] 솔루션
+         [PAGE 4] PARL 오프닝
          ========================================== -->
     <div class="page page-content" id="page-4">
         <div class="texture"></div>
 
-        <!-- 🔒 공통 헤더 (건드리지 마세요) -->
         <div class="relative z-10 flex justify-between items-center pb-3 mb-6" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
-            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 03 // 솔루션 (STAR 문장 치환술)</span>
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 03 // 로열티형 문항 공략 (PARL)</span>
             <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_04</span>
         </div>
 
-        <!-- 👇 여기에 test3.html 본문만 복사해서 넣으세요 👇 -->
-        <!-- Headline -->
-        <div class="relative z-10 mb-6 pl-5" style="border-left: 4px solid #60a5fa !important;">
-            <h2 class="text-[28px] font-black leading-[1.3] tracking-tighter break-keep text-white">
-                "초보 개발자도 즉시 활용 가능한 <br>
-                <span style="color: #60a5fa !important;">[정량적 STAR 문장 치환술]"</span>
+        <div class="relative z-10 rounded-xl p-6 mb-5" style="background: linear-gradient(180deg, rgba(37,99,235,0.16) 0%, rgba(15,23,42,0.88) 100%) !important; border: 1px solid rgba(96,165,250,0.24) !important;">
+            <p class="text-[11px] font-black tracking-[0.24em] uppercase mb-4" style="color: #60a5fa !important;">Chapter 01</p>
+            <h2 class="text-[34px] font-black leading-[1.2] tracking-tighter break-keep text-white mb-4">
+                지원동기와 포부는 <br>
+                <span style="color: #60a5fa !important;">PARL로 쓴다</span>
             </h2>
-        </div>
-
-        <!-- Intro Text -->
-        <div class="relative z-10 mb-5 text-[14.5px] leading-relaxed text-zinc-300">
-            <p>
-                어려운 기술 용어는 필요 없습니다. 인사담당자가 가장 좋아하는 건 숫자로 증명된 <strong class="text-white">'성과'</strong>입니다. <br>
-                누구나 해봤을 법한 <span style="color: #60a5fa !important;" class="font-bold">'데이터 검색'</span> 업무를 예로 들어보겠습니다.
+            <p class="text-[16px] leading-[1.75] text-zinc-200 break-keep max-w-[85%]">
+                지원동기는 개인적인 다짐을 적는 칸이 아닙니다.
+                <strong class="text-white">왜 이 회사이고, 왜 이 직무인지</strong>를 설득 가능한 흐름으로 보여주는 제안서에 가깝습니다.
             </p>
         </div>
 
-        <!-- 🚀 STAR Framework Section (스타일 내장형) -->
-        <div class="relative z-10 pl-4 space-y-3 mb-6">
-            
-            <!-- S: Situation -->
-            <div style="background-color: #1f2937 !important; border: 1px solid #334155 !important; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; position: relative;">
-                <div style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background-color: #60a5fa !important; color: black !important; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; border-radius: 4px; z-index: 20;">S</div>
-                <div class="ml-8">
-                    <p class="text-[11px] font-bold text-[#60a5fa] mb-1 uppercase tracking-widest">Situation // 상황 설명</p>
-                    <p class="text-[13px] text-zinc-500 line-through">❌ 하수: "이전 업무 중 제품 코드를 조회했습니다."</p>
-                    <p class="text-[14px] text-white font-bold leading-snug mt-1">⭕ 고수: "운영 프로세스 중 반복적인 수작업 조회가 많아 비효율이 큰 구간이 있었습니다."</p>
+        <div class="relative z-10 grid grid-cols-[1.15fr_0.85fr] gap-5 mb-5">
+            <div class="card-main p-5">
+                <p class="text-[12px] font-black tracking-widest uppercase mb-3" style="color: #60a5fa !important;">이 장의 핵심</p>
+                <div class="space-y-3 text-[14px] leading-[1.75] text-zinc-300">
+                    <p>• 막연한 관심 표현을 <strong class="text-white">회사 관점의 제안서</strong>로 바꾸는 법</p>
+                    <p>• <strong class="text-white">문제 인식 → 방향 일치 → 경험 연결 → 기여</strong> 흐름으로 쓰는 법</p>
+                    <p>• 실제 예시를 따라가며 <strong class="text-white">지원동기 한 편</strong>을 완성하는 법</p>
                 </div>
             </div>
 
-            <!-- T: Problem (강조 박스) -->
-            <div style="background-color: #172554 !important; border: 1px solid #60a5fa !important; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; position: relative;">
-                <div style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background-color: #60a5fa !important; color: black !important; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; border-radius: 4px; z-index: 20;">T</div>
-                <div class="ml-8">
-                    <p class="text-[11px] font-bold text-[#60a5fa] mb-1 uppercase tracking-widest">Problem // 문제 인지 (숫자 정의)</p>
-                    <p class="text-[13px] text-zinc-500/70 line-through">❌ 하수: "매달 데이터를 수동으로 검색하느라 시간이 오래 걸렸습니다."</p>
-                    <p class="text-[14px] text-white font-bold leading-snug mt-1">⭕ 고수: "매달 <span style="color: #60a5fa !important;">500건 이상</span>을 수동 조회하며, 월 <span style="color: #60a5fa !important;">40시간 이상</span> 소요되는 고비용 구조였습니다."</p>
+            <div class="card-main p-5 flex flex-col justify-between">
+                <div>
+                    <p class="text-[12px] font-black tracking-widest uppercase mb-3" style="color: #60a5fa !important;">PARL이 강한 문항</p>
+                    <div class="space-y-2 text-[13px] leading-[1.65] text-zinc-200">
+                        <p>• 지원동기와 입사 후 포부</p>
+                        <p>• 회사 또는 제품에 공감한 이유</p>
+                        <p>• 핵심가치와 나의 방향 연결</p>
+                    </div>
                 </div>
-            </div>
-
-            <!-- A: Action -->
-            <div style="background-color: #1f2937 !important; border: 1px solid #334155 !important; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; position: relative;">
-                <div style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background-color: #60a5fa !important; color: black !important; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; border-radius: 4px; z-index: 20;">A</div>
-                <div class="ml-8">
-                    <p class="text-[11px] font-bold text-[#60a5fa] mb-1 uppercase tracking-widest">Action // 해결 방안 (작은 시도)</p>
-                    <p class="text-[13px] text-zinc-500 line-through">❌ 하수: "엑셀 단축키를 활용해 빠르게 검색했습니다."</p>
-                    <p class="text-[14px] text-white font-bold leading-snug mt-1">⭕ 고수: "기준 데이터를 매핑하여 <span style="color: #60a5fa !important;">VLOOKUP으로 자동 조회</span>되도록 시스템을 개선했습니다."</p>
-                </div>
-            </div>
-
-            <!-- R: Result (강조 박스) -->
-            <div style="background-color: #172554 !important; border: 1px solid #60a5fa !important; border-radius: 8px; padding: 16px 18px; margin-bottom: 12px; position: relative;">
-                <div style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 36px; height: 36px; background-color: #60a5fa !important; color: black !important; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 18px; border-radius: 4px; z-index: 20;">R</div>
-                <div class="ml-8">
-                    <p class="text-[11px] font-bold text-[#60a5fa] mb-1 uppercase tracking-widest">Result // 수치화된 성적 (결과값)</p>
-                    <p class="text-[13px] text-zinc-500/70 line-through">❌ 하수: "검색이 빨라져서 다른 업무를 할 여유가 생겼습니다."</p>
-                    <p class="text-[14px] text-white font-black leading-snug mt-1">⭕ 고수: "조회 시간을 <span style="color: #60a5fa !important;">80% 단축</span>시켰으며, 월 40시간 업무를 <span style="color: #60a5fa !important;">8시간으로 최적화</span>했습니다."</p>
+                <div class="mt-4 pt-4" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
+                    <p class="text-[12px] font-black tracking-widest uppercase mb-2" style="color: #f87171 !important;">적용 기준</p>
+                    <p class="text-[13px] leading-[1.75] text-zinc-300 break-keep">
+                        PARL은 모든 문항에 쓰는 만능 공식이 아닙니다.
+                        <strong class="text-white">"가고 싶다"</strong>가 아니라
+                        <strong class="text-white">"왜 이 회사와 내가 맞는가"</strong>를 보여주는 로열티형 문항에 강합니다.
+                    </p>
                 </div>
             </div>
         </div>
 
-        <!-- 🚀 대표님 추가 멘트 섹션 -->
-        <div class="relative z-10 px-6 py-5 rounded-lg mb-6 border border-white/5 bg-white/5">
-            <p class="text-[14.5px] leading-[1.6] text-zinc-300 break-keep">
-                중요한 것은 결과가 얼마나 대단한지가 아닙니다. <strong class="text-white">수치가 작아도 괜찮습니다.</strong> <br>
-                핵심은 내가 스스로 <span style="color: #60a5fa !important;" class="font-bold">문제를 인지</span>하고, 나만의 <span style="color: #60a5fa !important;" class="font-bold">솔루션</span>을 잡고, 해결 이후의 성과를 기록하는 <strong class="text-white">'회고할 수 있는 사람'</strong>임을 보여주는 것입니다. 그것이 인사담당자가 찾는 진짜 인재의 모습입니다.
-            </p>
-        </div>
-
-        <!-- 🚀 Scorer's Verdict (도장 스타일 내장) -->
-        <div class="relative z-10 p-7 rounded-lg mb-4" style="background-color: #111827 !important; border: 1px solid #334155 !important; min-height: 140px;">
+        <div class="relative z-10 card-main p-4 mb-6">
             <div class="flex items-center gap-3 mb-3">
-                <i class="fa-solid fa-user-check text-xl" style="color: #60a5fa !important;"></i>
-                <span class="text-[16px] font-black text-white tracking-tight">채점관의 최종 평가</span>
+                <span class="inline-flex items-center justify-center w-8 h-8 rounded-full font-black text-black" style="background-color: #60a5fa !important;">!</span>
+                <p class="text-[17px] font-black text-white tracking-tight">이 장에서 얻게 되는 것</p>
             </div>
-            <p class="text-[15px] text-zinc-400 leading-relaxed italic pr-32">
-                "이 지원자는 단순 업무를 기술적으로 개선하여 <br>
-                <strong class="text-white">월 32시간의 인건비를 절감</strong>할 수 있는 성과 지향적 인재임."
+            <p class="text-[14px] leading-[1.85] text-zinc-300 break-keep">
+                이 장을 끝내면 지원동기를 단순한 희망 표현이 아니라
+                <strong class="text-white">회사에 내미는 제안서</strong>로 바꾸는 흐름을 갖게 됩니다.
+                이후 페이지에서는 페르소나 예시를 따라가며 실제 문장 한 편을 완성합니다.
             </p>
-            <!-- 합격 도장 -->
-            <div style="border: 4px solid #60a5fa !important; color: #60a5fa !important; padding: 5px 15px; font-size: 28px; font-weight: 900; text-transform: uppercase; transform: rotate(-12deg); display: inline-block; background-color: transparent !important; letter-spacing: 2px; position: absolute; right: 25px; top: 25px; opacity: 0.9;">SCORE A</div>
         </div>
 
-        <!-- Footer -->
-        <div class="relative z-10 mt-auto pt-6" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
+        <div class="relative z-10 grid grid-cols-2 gap-4 mb-6">
+            <div class="card-warning p-4">
+                <p class="text-[11px] font-black tracking-widest uppercase mb-3" style="color: #f87171 !important;">실패 문장</p>
+                <p class="text-[14px] font-bold text-white leading-[1.7] break-keep">
+                    "개발이 재미있어서 성취감을 느껴 지원했습니다."
+                </p>
+                <p class="mt-3 text-[11px] leading-[1.7] text-zinc-300 break-keep">
+                    관심 표현은 있지만, 왜 이 회사인지와 내 경험 연결이 빠져 있어 설득력이 약합니다.
+                </p>
+            </div>
+            <div class="card-example p-4">
+                <p class="text-[11px] font-black tracking-widest uppercase mb-3" style="color: #60a5fa !important;">합격 문장</p>
+                <p class="text-[14px] font-bold text-white leading-[1.7] break-keep">
+                    문제를 인식하고, 회사 방향에 공감하고, 내 경험을 연결한 뒤, 기여로 끝내야 합니다.
+                </p>
+                <p class="mt-3 text-[11px] leading-[1.7] text-zinc-100 break-keep">
+                    PARL은 좋은 감정보다 <strong class="text-white">문제 인식 → 방향 일치 → 경험 연결 → 기여</strong>를 보여주는 구조입니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="relative z-10 mt-auto pt-5" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
             <div class="flex justify-between items-end" style="display: flex !important; justify-content: space-between !important; align-items: flex-end !important;">
-                <span class="text-lg font-black tracking-tighter italic" style="color: rgba(255,255,255,0.9) !important;">
-                    제이노트(J-Note) <span class="text-[10px] font-light not-italic ml-1" style="opacity: 0.4 !important;">출판</span>
-                </span>
+                <span class="text-lg font-black tracking-tighter italic" style="color: rgba(255,255,255,0.9) !important;">제이노트(J-Note) <span class="text-[10px] font-light not-italic ml-1" style="opacity: 0.4 !important;">출판</span></span>
                 <span class="text-[9px] font-mono tracking-widest" style="opacity: 0.3 !important;">CONFIDENTIAL REPORT</span>
             </div>
         </div>
     </div>
 
-        <!-- 👆 4페이지 본문 끝 👆 -->
+    <!-- ==========================================
+         [PAGE 5] PARL 실전 구성
+         ========================================== -->
+    <div class="page page-content" id="page-5">
+        <div class="texture"></div>
+
+        <div class="relative z-10 flex justify-between items-center pb-3 mb-6" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 03 // PARL 실전 구성</span>
+            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_05</span>
+        </div>
+
+        <div class="relative z-10 flex items-center justify-between mb-4">
+            <span class="text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full" style="color: #60a5fa !important; background-color: rgba(37,99,235,0.12) !important; border: 1px solid rgba(96,165,250,0.2) !important;">설명 페이지</span>
+            <span class="text-[11px] text-zinc-400 tracking-widest">PARL 1/4</span>
+        </div>
+
+        <div class="relative z-10 mb-5 pl-5" style="border-left: 4px solid #60a5fa !important;">
+            <h2 class="text-[26px] font-black leading-[1.35] tracking-tighter break-keep text-white">
+                지금부터는 <span style="color: #60a5fa !important;">가상의 인물</span>을 통해, <br>
+                PARL이 실제 문장으로 완성되는 과정을 보겠습니다.
+            </h2>
+        </div>
+
+        <div class="relative z-10 grid grid-cols-[0.9fr_1.1fr] gap-5 mb-5">
+            <div class="card-main p-4">
+                <p class="text-[12px] font-black tracking-widest uppercase mb-3" style="color: #60a5fa !important;">Persona</p>
+                <p class="text-[22px] font-black text-white tracking-tight mb-3">안랩 지원 희망자 김군</p>
+                <div class="space-y-2 text-[13px] leading-[1.65] text-zinc-300">
+                    <p><strong class="text-white">이름</strong> 김군 / 26세</p>
+                    <p><strong class="text-white">전공</strong> 사회복지학과</p>
+                    <p><strong class="text-white">배경</strong> 군 복무 후 카페 근무 1년</p>
+                    <p><strong class="text-white">교육</strong> 국비지원 웹 개발 부트캠프 수료</p>
+                    <p><strong class="text-white">자격 준비</strong> 정보처리기사 필기 준비 중</p>
+                    <p><strong class="text-white">직무</strong> 백엔드 개발자</p>
+                    <p><strong class="text-white">지원 기업</strong> 안랩(AhnLab)</p>
+                </div>
+                <div class="mt-4 card-example p-4" style="border-left: 3px solid #60a5fa !important;">
+                    <p class="text-[12px] font-black tracking-widest uppercase mb-2" style="color: #60a5fa !important;">문제 인식의 출발점</p>
+                    <p class="text-[12px] text-zinc-100 leading-[1.75] break-keep">
+                        카페 근무 중 카드 결제 오류로 약 1시간 동안 결제가 중단되는 일을 겪었고,
+                        동시에 쇼핑몰 결제 과정에서 가짜 결제창으로 인해 개인정보가 유출된 뉴스를 접하며
+                        시스템 안정성과 보안의 중요성을 강하게 인식했습니다.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card-main p-4">
+                <div class="mb-4 pl-4" style="border-left: 3px solid #60a5fa !important;">
+                    <p class="text-[22px] font-black text-white tracking-tight leading-[1.4]">
+                        왜 굳이 <span style="color: #60a5fa !important;">페르소나</span>가 필요할까?
+                    </p>
+                </div>
+                <div class="space-y-3 text-[13px] leading-[1.8] text-zinc-300">
+                    <p>지원동기를 배울 때 가장 어려운 부분은 <strong class="text-white">"내 상황에 어떻게 적용하지?"</strong>라는 감각이 안 오는 것입니다.</p>
+                    <p>많은 분들이 이론은 이해하지만, 막상 자기소개서에 쓰려면 손이 멈춥니다. <strong class="text-white">"내 경험은 별거 아닌데?"</strong>라는 생각이 들기 때문입니다.</p>
+                    <p>그래서 이 장에서는 실제 인물처럼 설정된 페르소나를 통해, <strong class="text-white">한 문장 한 문장 어떻게 지원동기가 완성되는지</strong>를 보여드리겠습니다.</p>
+                    <p class="font-bold text-white">여러분은 김군의 흐름을 따라가며, 본인 상황에도 그대로 적용할 수 있는 실전형 글쓰기 감각을 얻게 됩니다.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative z-10">
+            <div class="card-main p-5">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 rounded-md flex items-center justify-center font-black text-black text-[18px]" style="background-color: #60a5fa !important;">P</div>
+                    <div>
+                        <p class="text-[11px] font-black tracking-widest uppercase" style="color: #60a5fa !important;">Problem</p>
+                        <p class="text-[16px] font-black text-white">문제를 인식한 순간</p>
+                    </div>
+                </div>
+                <p class="text-[13px] text-zinc-300 leading-[1.75] mb-3 break-keep">
+                    P는 <strong class="text-white">"내가 왜 이 일을 하게 되었는가"</strong>의 출발점입니다.
+                    막연하게 관심이 생겼다고 쓰는 것이 아니라,
+                    <strong class="text-white">실제로 어떤 문제를 보고 그 중요성을 느꼈는가</strong>를 스토리로 보여주는 단계입니다.
+                </p>
+                <div class="compare-grid">
+                    <div class="compare-item is-wrong">
+                        <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #f87171 !important;">실패 문장</p>
+                        <p class="text-[11px] leading-[1.65] text-zinc-200 break-keep">
+                            "결제 보안 사고 기사들을 접하면서 보안의 중요성을 느꼈고, 자연스럽게 이 분야에 관심을 갖게 됐습니다."
+                        </p>
+                    </div>
+                    <div class="compare-item is-right">
+                        <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #60a5fa !important;">합격 문장</p>
+                        <p class="text-[11px] leading-[1.65] text-zinc-100 break-keep">
+                            "가짜 결제창으로 고객 정보가 유출된 뉴스를 보며, 보안 문제가 사용자 신뢰와 실제 피해로 이어질 수 있음을 느꼈습니다."
+                        </p>
+                    </div>
+                </div>
+                <p class="text-[12px] text-zinc-400 leading-[1.75] mt-3 break-keep">
+                    많은 분들이 직접 겪은 일이 없어서 P단계부터 어려워합니다. 하지만 직접 겪지 않은 뉴스, 주변 사례, 프로젝트 중 마주친 문제라도
+                    <strong class="text-white">그 사건을 통해 문제의식과 인사이트를 얻었다면</strong> 충분히 활용할 수 있습니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="relative z-10 mt-auto pt-5" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
+            <div class="flex justify-between items-end" style="display: flex !important; justify-content: space-between !important; align-items: flex-end !important;">
+                <span class="text-lg font-black tracking-tighter italic" style="color: rgba(255,255,255,0.9) !important;">제이노트(J-Note) <span class="text-[10px] font-light not-italic ml-1" style="opacity: 0.4 !important;">출판</span></span>
+                <span class="text-[9px] font-mono tracking-widest" style="opacity: 0.3 !important;">CONFIDENTIAL REPORT</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         [PAGE 6] PARL A
+         ========================================== -->
+    <div class="page page-content" id="page-6">
+        <div class="texture"></div>
+
+        <div class="relative z-10 flex justify-between items-center pb-3 mb-6" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 03 // PARL 작성 단계</span>
+            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_06</span>
+        </div>
+
+        <div class="relative z-10 flex items-center justify-between mb-4">
+            <span class="text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full" style="color: #60a5fa !important; background-color: rgba(37,99,235,0.12) !important; border: 1px solid rgba(96,165,250,0.2) !important;">단계 학습</span>
+            <span class="text-[11px] text-zinc-400 tracking-widest">PARL 2/4</span>
+        </div>
+
+        <div class="relative z-10 mb-5 pl-5" style="border-left: 4px solid #60a5fa !important;">
+            <h2 class="text-[26px] font-black leading-[1.35] tracking-tighter break-keep text-white">
+                문제의식 다음에는, <br>
+                <span style="color: #60a5fa !important;">회사와 방향을 맞추는 단계</span>가 필요합니다.
+            </h2>
+        </div>
+
+        <div class="relative z-10 card-main p-5 mb-5">
+            <div class="flex items-center gap-3 mb-3">
+                <div class="w-9 h-9 rounded-md flex items-center justify-center font-black text-black text-[18px]" style="background-color: #60a5fa !important;">A</div>
+                <div>
+                    <p class="text-[11px] font-black tracking-widest uppercase" style="color: #60a5fa !important;">Alignment</p>
+                    <p class="text-[16px] font-black text-white">회사와 방향을 맞추기</p>
+                </div>
+            </div>
+            <p class="text-[13px] text-zinc-300 leading-[1.75] mb-3 break-keep">
+                A는 <strong class="text-white">"가고 싶습니다"</strong>를 쓰는 단계가 아닙니다.
+                내가 중요하게 느낀 문제를 이 회사도 같은 방향으로 해결하고 있다는 점을 보여주는,
+                <strong class="text-white">공감의 연결 단계</strong>입니다.
+            </p>
+            <div class="compare-grid">
+                    <div class="compare-item is-wrong">
+                        <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #f87171 !important;">실패 문장</p>
+                        <p class="text-[11px] leading-[1.65] text-zinc-200 break-keep">
+                            "안랩은 국내 대표 보안 기업으로 성장 가능성이 크고, 저 역시 그 안에서 많이 배우며 함께 성장할 수 있다고 생각했습니다."
+                        </p>
+                    </div>
+                <div class="compare-item is-right">
+                    <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #60a5fa !important;">합격 문장</p>
+                    <p class="text-[11px] leading-[1.65] text-zinc-100 break-keep">
+                        "안랩은 보안 신뢰를 지키는 기술력을 꾸준히 증명해 왔고, 제가 중요하게 느낀 문제를 같은 방향에서 해결하고 있었습니다."
+                    </p>
+                </div>
+            </div>
+            <p class="text-[12px] text-zinc-400 leading-[1.75] mt-3 break-keep">
+                Alignment 단계에서는 복잡한 논리를 길게 쓰지 않아도 됩니다.
+                <strong class="text-white">"내가 중요하게 생각한 문제를 이 회사도 같은 방향으로 해결하고 있다"</strong>
+                이 한 가지가 분명하게 드러나면 충분합니다.
+            </p>
+        </div>
+
+        <div class="relative z-10 card-main p-4 mb-4">
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
+                여기까지가 지원동기의 앞 절반입니다.
+                <strong class="text-white">문제를 인식하고, 그 문제를 해결하는 회사의 방향에 공감하는 단계</strong>까지 잡아두면
+                지원동기는 더 이상 추상적인 희망 표현이 아니라 설득 가능한 구조를 갖게 됩니다.
+            </p>
+        </div>
+
+        <div class="relative z-10 card-main p-4 mb-4">
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
+                다음 페이지에서는 이 공감을 <strong class="text-white">실제 경험과 입사 후 기여</strong>로 연결하는
+                R과 L 단계를 이어서 보겠습니다.
+            </p>
+        </div>
+
+        <div class="relative z-10 mt-auto pt-5" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
+            <div class="flex justify-between items-end" style="display: flex !important; justify-content: space-between !important; align-items: flex-end !important;">
+                <span class="text-lg font-black tracking-tighter italic" style="color: rgba(255,255,255,0.9) !important;">제이노트(J-Note) <span class="text-[10px] font-light not-italic ml-1" style="opacity: 0.4 !important;">출판</span></span>
+                <span class="text-[9px] font-mono tracking-widest" style="opacity: 0.3 !important;">CONFIDENTIAL REPORT</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         [PAGE 7] PARL R/L
+         ========================================== -->
+    <div class="page page-content" id="page-7">
+        <div class="texture"></div>
+
+        <div class="relative z-10 flex justify-between items-center pb-3 mb-6" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 03 // PARL 작성 단계</span>
+            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_07</span>
+        </div>
+
+        <div class="relative z-10 flex items-center justify-between mb-4">
+            <span class="text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full" style="color: #60a5fa !important; background-color: rgba(37,99,235,0.12) !important; border: 1px solid rgba(96,165,250,0.2) !important;">단계 학습</span>
+            <span class="text-[11px] text-zinc-400 tracking-widest">PARL 3/4</span>
+        </div>
+
+        <div class="relative z-10 mb-5 pl-5" style="border-left: 4px solid #60a5fa !important;">
+            <h2 class="text-[26px] font-black leading-[1.35] tracking-tighter break-keep text-white">
+                공감만으로는 부족합니다. <br>
+                <span style="color: #60a5fa !important;">실천과 기여</span>까지 이어져야 합니다.
+            </h2>
+        </div>
+
+        <div class="relative z-10 grid grid-cols-2 gap-4 mb-5">
+            <div class="card-main p-5">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 rounded-md flex items-center justify-center font-black text-black text-[18px]" style="background-color: #60a5fa !important;">R</div>
+                    <div>
+                        <p class="text-[11px] font-black tracking-widest uppercase" style="color: #60a5fa !important;">Relevance</p>
+                        <p class="text-[16px] font-black text-white">내 경험을 연결하기</p>
+                    </div>
+                </div>
+                <p class="text-[13px] text-zinc-300 leading-[1.75] mb-3 break-keep">
+                    R은 단순히 공감했다에서 멈추지 않고,
+                    <strong class="text-white">"그래서 나는 이런 노력을 했다"</strong>로 이어가는 단계입니다.
+                    이 단계에서 중요한 건 큰 성취보다 <strong class="text-white">방향의 일관성</strong>입니다.
+                </p>
+                <div class="compare-grid">
+                    <div class="compare-item is-wrong">
+                        <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #f87171 !important;">실패 문장</p>
+                        <p class="text-[11px] leading-[1.65] text-zinc-200 break-keep">
+                            "부트캠프에서 진행한 쇼핑몰 프로젝트에서도 백엔드 기능을 구현하며 실무에 필요한 경험을 차근차근 쌓았습니다."
+                        </p>
+                    </div>
+                    <div class="compare-item is-right">
+                        <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #60a5fa !important;">합격 문장</p>
+                        <p class="text-[11px] leading-[1.65] text-zinc-100 break-keep">
+                            "입력값 검증과 예외 처리를 구현해 서비스 신뢰성을 높였고, 테스트 과정에서 다른 팀보다 절반 가까이 적은 오류가 발견됐습니다."
+                        </p>
+                    </div>
+                </div>
+                <p class="text-[12px] text-zinc-400 leading-[1.75] mt-3 break-keep">
+                    이 단계에서 중요한 건 결과의 크기보다 <strong class="text-white">방향의 일관성</strong>입니다.
+                    즉, 보안이 중요하다고 느꼈고, 안랩의 방향에 공감했으며, 실제로 관련된 프로젝트 경험을 쌓았다는 흐름이 연결되면 됩니다.
+                </p>
+            </div>
+
+            <div class="card-main p-5">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 rounded-md flex items-center justify-center font-black text-black text-[18px]" style="background-color: #60a5fa !important;">L</div>
+                    <div>
+                        <p class="text-[11px] font-black tracking-widest uppercase" style="color: #60a5fa !important;">Link</p>
+                        <p class="text-[16px] font-black text-white">입사 후 기여로 마무리</p>
+                    </div>
+                </div>
+                <p class="text-[13px] text-zinc-300 leading-[1.75] mb-3 break-keep">
+                    L은 결론입니다.
+                    길게 설명하기보다 <strong class="text-white">내가 준비한 방향과 회사가 나아가는 방향이 이어지는 순간</strong>을 한 문장으로 정리하면 됩니다.
+                </p>
+                <div class="compare-grid">
+                    <div class="compare-item is-wrong">
+                        <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #f87171 !important;">실패 문장</p>
+                        <p class="text-[11px] leading-[1.65] text-zinc-200 break-keep">
+                            "입사 후에는 맡은 업무를 빠르게 익히고, 조직에 잘 적응하며 안정적으로 기여하는 개발자가 되고 싶습니다."
+                        </p>
+                    </div>
+                    <div class="compare-item is-right">
+                        <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #60a5fa !important;">합격 문장</p>
+                        <p class="text-[11px] leading-[1.65] text-zinc-100 break-keep">
+                            "사용자 신뢰를 중심에 두는 백엔드 개발자로서 안랩의 안정적이고 신뢰받는 서비스 구축에 기여하고 싶습니다."
+                        </p>
+                    </div>
+                </div>
+                <p class="text-[12px] text-zinc-400 leading-[1.75] mt-3 break-keep">
+                    L은 길게 쓰지 않아도 됩니다. 한 문장 안에서 <strong class="text-white">나의 강점과 회사의 가치</strong>가 자연스럽게 만나면,
+                    그것만으로도 훌륭한 지원동기의 결론이 됩니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="relative z-10 card-warning p-4 mb-3">
+            <div class="flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-triangle-exclamation text-sm" style="color: #f87171 !important;"></i>
+                <p class="text-[15px] font-black text-white">P 단계에서 꼭 주의할 점</p>
+            </div>
+            <p class="text-[12px] text-zinc-300 leading-[1.75] break-keep">
+                많은 지원자가 P를 쓸 때 회사의 부족한 점을 지적하려고 합니다.
+                하지만 P에서 말하는 문제는 <strong class="text-white">회사의 문제가 아니라 내가 중요하게 느낀 문제</strong>여야 합니다.
+                즉, 회사를 평가하는 문장이 아니라 <strong class="text-white">나의 문제의식과 가치관이 드러나는 문장</strong>이어야 합니다.
+            </p>
+            <div class="mt-2 text-[11px] leading-[1.7] text-zinc-400 break-keep">
+                기준은 단순합니다. <strong class="text-white">"이 이야기를 면접관이 들었을 때 기분 나쁘게 들릴 것 같은가?"</strong>
+                그렇다면 그건 좋은 문제 제기가 아니라 지적에 가깝습니다.
+            </div>
+        </div>
+
+        <div class="relative z-10 card-main p-3 mb-4">
+            <p class="text-[12px] leading-[1.75] text-zinc-300 break-keep">
+                정리하면, PARL은
+                <strong class="text-white">문제를 인식하고 → 회사와 방향을 맞추고 → 내 경험을 연결하고 → 기여로 마무리하는 구조</strong>입니다.
+                이 흐름만 잡아도 지원동기는 개인의 다짐이 아니라, 기업을 설득하는 제안서로 바뀝니다.
+            </p>
+        </div>
+
+        <div class="relative z-10 mt-auto pt-5" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
+            <div class="flex justify-between items-end" style="display: flex !important; justify-content: space-between !important; align-items: flex-end !important;">
+                <span class="text-lg font-black tracking-tighter italic" style="color: rgba(255,255,255,0.9) !important;">제이노트(J-Note) <span class="text-[10px] font-light not-italic ml-1" style="opacity: 0.4 !important;">출판</span></span>
+                <span class="text-[9px] font-mono tracking-widest" style="opacity: 0.3 !important;">CONFIDENTIAL REPORT</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         [PAGE 8] PARL 완성본
+         ========================================== -->
+    <div class="page page-content" id="page-8">
+        <div class="texture"></div>
+
+        <div class="relative z-10 flex justify-between items-center pb-3 mb-6" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 03 // PARL 완성본</span>
+            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_08</span>
+        </div>
+
+        <div class="relative z-10 flex items-center justify-between mb-4">
+            <span class="text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full" style="color: #60a5fa !important; background-color: rgba(37,99,235,0.12) !important; border: 1px solid rgba(96,165,250,0.2) !important;">결과물 페이지</span>
+            <span class="text-[11px] text-zinc-400 tracking-widest">PARL 4/4</span>
+        </div>
+
+        <div class="relative z-10 mb-4 pl-5" style="border-left: 4px solid #60a5fa !important;">
+            <h2 class="text-[26px] font-black leading-[1.35] tracking-tighter break-keep text-white">
+                네 단계를 모두 연결하면, <br>
+                <span style="color: #60a5fa !important;">회사에 제출 가능한 지원동기 한 편</span>이 완성됩니다.
+            </h2>
+        </div>
+
+        <div class="relative z-10 card-example p-6 mb-4">
+            <div class="flex items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-2">
+                <i class="fa-solid fa-file-lines text-lg" style="color: #60a5fa !important;"></i>
+                    <p class="text-[18px] font-black text-white tracking-tight">PARL 최종 완성 예시</p>
+                </div>
+                <span class="text-[10px] font-black tracking-widest uppercase px-3 py-1 rounded-full" style="color: #60a5fa !important; background-color: rgba(255,255,255,0.06) !important; border: 1px solid rgba(96,165,250,0.2) !important;">COPY READY</span>
+            </div>
+            <div class="card-example p-6">
+                <p class="text-[13px] font-bold tracking-widest uppercase mb-4" style="color: #60a5fa !important;">[사용자의 불편을 줄이기 위해 고민하는 백엔드 개발자]</p>
+                <p class="text-[14px] text-zinc-100 leading-[1.95] break-keep">
+                    온라인 쇼핑몰 결제 과정에서 가짜 결제창으로 인해 결제가 중단되는 사고 뉴스를 보았습니다.
+                    이 사건을 보며 기술적 오류 하나가 사용자 신뢰 전체를 무너뜨릴 수 있음을 느꼈습니다.
+                    안랩은 매년 글로벌 보안 평가에서 최고 수준의 신뢰를 유지하며, 사람과 기업의 안전을 지키는 기술력을 증명해 왔습니다.
+                    이러한 방향성에 공감하며 안랩과 함께 성장하고 싶다는 목표가 생겼습니다.
+                    프로젝트를 진행하면서도 서비스 신뢰성을 높이기 위해 입력값 검증과 예외 처리를 꼼꼼히 구현했고,
+                    그 결과 테스트 과정에서 다른 팀보다 절반 가까이 적은 오류가 발견되는 성과가 있었습니다.
+                    이러한 경험을 바탕으로, 사용자 신뢰를 중심에 두는 백엔드 개발자로서 안랩의 안정적이고 신뢰받는 서비스 구축에 기여하고 싶습니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="relative z-10 card-main p-3 mb-3">
+            <div class="flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-tag text-sm" style="color: #60a5fa !important;"></i>
+                <p class="text-[14px] font-black text-white">프로필 헤드라인 전략</p>
+            </div>
+            <p class="text-[11px] text-zinc-300 leading-[1.7] break-keep">
+                자기소개서를 잘 써도 읽는 사람이 끝까지 집중하지 않으면 의미가 없습니다.
+                그래서 각 항목의 시작 부분에 <strong class="text-white">짧고 명확한 한 줄 요약문</strong>, 즉 프로필 헤드라인을 두는 전략이 효과적입니다.
+                예를 들어 <span class="text-white font-bold">"사용자의 불편을 줄이기 위해 고민하는 백엔드 개발자"</span>처럼
+                자신의 강점을 먼저 정의하면, 면접관은 글을 읽기 전부터 지원자의 방향을 기억하게 됩니다.
+                즉, 방금 위의 최종 완성본도 이 헤드라인 전략이 적용된 예시라고 보면 됩니다.
+            </p>
+        </div>
+
+        <div class="relative z-10 card-main p-3 mb-3">
+            <div class="flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-book-open text-sm" style="color: #60a5fa !important;"></i>
+                <p class="text-[14px] font-black text-white">마무리</p>
+            </div>
+            <p class="text-[11px] text-zinc-300 leading-[1.7] break-keep">
+                PARL은 <strong class="text-white">왜 이 회사인가, 왜 이 직무인가</strong>를 묻는 로열티형 문항에 최적화된 실전 구조입니다.
+                반면 다음 장의 STAR는 <strong class="text-white">무엇을 해왔는가, 어떤 성과를 냈는가</strong>를 묻는 기술형·성과형 문항에 활용되는 작성 구조입니다.
+                두 구조를 함께 사용할 때, 비로소 <strong class="text-white">스토리로 설득하고 근거로 증명하는 자기소개서</strong>가 완성됩니다.
+            </p>
+            <div class="mt-2 text-[11px] leading-[1.7] text-zinc-400 break-keep">
+                이제 여러분은 "왜 이 일을 하고 싶은가"에서 출발해,
+                "이 회사와 함께 성장할 이유"까지 자연스럽게 이어지는 지원동기를 만들 수 있습니다.
+                다음 장에서는 여기에 <strong class="text-white">성과와 수치</strong>를 입히는 STAR 작성법을 보겠습니다.
+            </div>
+        </div>
+
+        <div class="relative z-10 rounded-lg p-4 mb-4" style="background: linear-gradient(180deg, rgba(37,99,235,0.14) 0%, rgba(15,23,42,0.72) 100%) !important; border: 1px solid rgba(96,165,250,0.22) !important;">
+            <p class="text-[11px] font-black tracking-widest uppercase mb-2" style="color: #60a5fa !important;">Next Chapter</p>
+            <p class="text-[17px] font-black text-white leading-[1.55] break-keep">
+                다음은 <span style="color: #60a5fa !important;">성과와 경험을 STAR로 증명하는 장</span>입니다.
+            </p>
+        </div>
+
+        <div class="relative z-10 mt-auto pt-5" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
+            <div class="flex justify-between items-end" style="display: flex !important; justify-content: space-between !important; align-items: flex-end !important;">
+                <span class="text-lg font-black tracking-tighter italic" style="color: rgba(255,255,255,0.9) !important;">제이노트(J-Note) <span class="text-[10px] font-light not-italic ml-1" style="opacity: 0.4 !important;">출판</span></span>
+                <span class="text-[9px] font-mono tracking-widest" style="opacity: 0.3 !important;">CONFIDENTIAL REPORT</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         [PAGE 9] 솔루션
+         ========================================== -->
+    <div class="page page-content" id="page-9">
+        <div class="texture"></div>
+
+        <!-- 🔒 공통 헤더 (건드리지 마세요) -->
+        <div class="relative z-10 flex justify-between items-center pb-3 mb-6" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 04 // 솔루션 (STAR 문장 치환술)</span>
+            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_09</span>
+        </div>
+        <div class="relative z-10 rounded-xl p-6 mb-5" style="background: linear-gradient(180deg, rgba(37,99,235,0.16) 0%, rgba(15,23,42,0.88) 100%) !important; border: 1px solid rgba(96,165,250,0.24) !important;">
+            <p class="text-[11px] font-black tracking-[0.24em] uppercase mb-4" style="color: #60a5fa !important;">Chapter 02</p>
+            <h2 class="text-[34px] font-black leading-[1.2] tracking-tighter break-keep text-white mb-4">
+                성과와 경험은 <br>
+                <span style="color: #60a5fa !important;">STAR로 증명한다</span>
+            </h2>
+            <p class="text-[16px] leading-[1.75] text-zinc-200 break-keep max-w-[85%]">
+                성과형 문항은 지원 이유를 다시 설명하는 칸이 아닙니다.
+                <strong class="text-white">실제로 문제를 해결하고 결과를 만든 사람인지</strong>를 증명하는 구간입니다.
+            </p>
+        </div>
+
+        <div class="relative z-10 grid grid-cols-[0.95fr_1.05fr] gap-5 mb-5">
+            <div class="card-main p-5">
+                <p class="text-[12px] font-black tracking-widest uppercase mb-3" style="color: #60a5fa !important;">이 장의 핵심</p>
+                <div class="space-y-3 text-[13px] leading-[1.8] text-zinc-300">
+                    <p>1. 작은 경험도 <strong class="text-white">문제 해결 사례</strong>로 바꾸는 법</p>
+                    <p>2. <strong class="text-white">상황, 역할, 행동, 결과</strong>를 분리해 쓰는 법</p>
+                    <p>3. 숫자와 변화량으로 <strong class="text-white">성과를 선명하게 보이게 하는 법</strong></p>
+                    <p>4. 최종적으로 <strong class="text-white">면접까지 이어질 문장</strong>을 만드는 법</p>
+                </div>
+            </div>
+            <div class="card-main p-5">
+                <p class="text-[12px] font-black tracking-widest uppercase mb-3" style="color: #60a5fa !important;">이번 장의 예시 인물</p>
+                <p class="text-[20px] font-black text-white tracking-tight mb-3">안랩 지원 희망자 김군</p>
+                <div class="space-y-2 text-[13px] leading-[1.7] text-zinc-300">
+                    <p><strong class="text-white">전공</strong> 사회복지학과 / 비전공자 출신</p>
+                    <p><strong class="text-white">교육</strong> 국비지원 웹 개발 부트캠프 수료</p>
+                    <p><strong class="text-white">직무</strong> 백엔드 개발자</p>
+                    <p><strong class="text-white">경험</strong> 쇼핑몰 백엔드 프로젝트 구현</p>
+                </div>
+                <div class="mt-4 card-example p-4" style="border-left: 3px solid #60a5fa !important;">
+                    <p class="text-[12px] text-zinc-100 leading-[1.75] break-keep">
+                        여기서는 PARL에서 보았던 김군의 지원 이유가 아니라,
+                        <strong class="text-white">문제를 어떻게 해결하고 성과를 만들었는가</strong>를 STAR 구조로 다시 정리합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative z-10 px-6 py-5 rounded-lg mb-6 border border-white/5 bg-white/5">
+            <p class="text-[14.5px] leading-[1.6] text-zinc-300 break-keep">
+                중요한 것은 결과가 얼마나 대단한지가 아닙니다. <strong class="text-white">작은 문제라도 스스로 인식하고 해결한 경험</strong>이면 충분합니다.
+                기업이 보고 싶은 것은 문제의 크기가 아니라, <strong class="text-white">문제를 인식하고 해결하려는 태도와 사고의 흐름</strong>이기 때문입니다.
+            </p>
+        </div>
+
+        <div class="relative z-10 card-main p-5 mb-4">
+            <div class="flex items-center gap-3 mb-3">
+                <i class="fa-solid fa-diagram-project text-xl" style="color: #60a5fa !important;"></i>
+                <span class="text-[16px] font-black text-white tracking-tight">STAR는 이런 흐름을 보여주는 구조입니다</span>
+            </div>
+            <p class="text-[14px] text-zinc-300 leading-[1.8] break-keep">
+                <strong class="text-white">S</strong> Situation(상황),
+                <strong class="text-white">T</strong> Task(과제),
+                <strong class="text-white">A</strong> Action(행동),
+                <strong class="text-white">R</strong> Result(결과).
+                즉, 단순히 무엇을 했는지가 아니라
+                <strong class="text-white">문제를 어떻게 인식하고, 해결하고, 성과를 만들었는가</strong>를 구체적인 흐름으로 보여주는 방식입니다.
+            </p>
+        </div>
 
         <!-- 🔒 공통 푸터 (건드리지 마세요) -->
         <div class="relative z-10 mt-auto pt-5" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
@@ -546,26 +1046,278 @@
     </div>
 
     <!-- ==========================================
-         [PAGE 5] 워크북
+         [PAGE 10] STAR 단계별 작성
          ========================================== -->
-    <div class="page page-content" id="page-5">
+    <div class="page page-content" id="page-10">
         <div class="texture"></div>
 
         <!-- 🔒 공통 헤더 (건드리지 마세요) -->
         <div class="relative z-10 flex justify-between items-center pb-3 mb-6" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
-            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 04 // 실전 워크북 (Small Win)</span>
-            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_05</span>
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 04 // STAR 단계별 작성</span>
+            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_10</span>
         </div>
 
-        <!-- 👇 여기에 test4.html 본문만 복사해서 넣으세요 👇 -->
+        <div class="relative z-10 flex items-center justify-between mb-4">
+            <span class="text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full" style="color: #60a5fa !important; background-color: rgba(37,99,235,0.12) !important; border: 1px solid rgba(96,165,250,0.2) !important;">단계 학습</span>
+            <span class="text-[11px] text-zinc-400 tracking-widest">STAR 1/2</span>
+        </div>
+
+        <div class="relative z-10 mb-5 pl-5" style="border-left: 4px solid #60a5fa !important;">
+            <h2 class="text-[26px] font-black leading-[1.35] tracking-tighter break-keep text-white">
+                같은 경험도 STAR로 쓰면, <br>
+                <span style="color: #60a5fa !important;">문제 해결 능력을 증명하는 문장</span>이 됩니다.
+            </h2>
+        </div>
+
+        <div class="relative z-10 grid grid-cols-2 gap-4 mb-5">
+            <div class="card-main p-5">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 rounded-md flex items-center justify-center font-black text-black text-[18px]" style="background-color: #60a5fa !important;">S</div>
+                    <div>
+                        <p class="text-[11px] font-black tracking-widest uppercase" style="color: #60a5fa !important;">Situation</p>
+                        <p class="text-[16px] font-black text-white">어떤 문제가 있었는가?</p>
+                    </div>
+                </div>
+                <p class="text-[13px] text-zinc-300 leading-[1.75] mb-3 break-keep">
+                    Situation은 어떤 배경에서 문제가 발생했는지를 짧고 구체적으로 보여주는 구간입니다.
+                    <strong class="text-white">무슨 프로젝트였는지 + 어떤 문제가 있었는지</strong>가 함께 보여야 합니다.
+                </p>
+                <div class="compare-grid">
+                    <div class="compare-item is-wrong">
+                        <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #f87171 !important;">실패 문장</p>
+                        <p class="text-[11px] leading-[1.65] text-zinc-200 break-keep">
+                            "프로젝트 후반부에 사용자 수가 늘어나면서 페이지가 다소 느려지는 문제가 있었고, 이를 개선할 필요가 있었습니다."
+                        </p>
+                    </div>
+                    <div class="compare-item is-right">
+                        <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #60a5fa !important;">합격 문장</p>
+                        <p class="text-[11px] leading-[1.65] text-zinc-100 break-keep">
+                            "상품 목록 페이지가 매 요청마다 DB 전체 조회를 반복해, 동시 접속 시 화면이 지연되는 문제가 있었습니다."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-main p-5">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 rounded-md flex items-center justify-center font-black text-black text-[18px]" style="background-color: #60a5fa !important;">T</div>
+                    <div>
+                        <p class="text-[11px] font-black tracking-widest uppercase" style="color: #60a5fa !important;">Task</p>
+                        <p class="text-[16px] font-black text-white">나의 역할과 목표는 무엇인가?</p>
+                    </div>
+                </div>
+                <p class="text-[13px] text-zinc-300 leading-[1.75] mb-3 break-keep">
+                    Task에서는 내가 맡은 역할과 해결 목표를 함께 제시합니다.
+                    단순히 맡은 일이 아니라, <strong class="text-white">무엇을 해결해야 했는가</strong>가 보여야 합니다.
+                </p>
+                <div class="compare-grid">
+                    <div class="compare-item is-wrong">
+                        <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #f87171 !important;">실패 문장</p>
+                        <p class="text-[11px] leading-[1.65] text-zinc-200 break-keep">
+                            "저는 백엔드 개발을 담당하며 전반적인 기능 구현과 함께 성능 개선도 같이 챙겨야 하는 역할을 맡았습니다."
+                        </p>
+                    </div>
+                    <div class="compare-item is-right">
+                        <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #60a5fa !important;">합격 문장</p>
+                        <p class="text-[11px] leading-[1.65] text-zinc-100 break-keep">
+                            "백엔드 담당으로서 API 응답 속도를 개선하고, 트래픽이 몰려도 안정적으로 작동하도록 개선하는 과제를 맡았습니다."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative z-10 grid grid-cols-2 gap-4 mb-4">
+            <div class="card-main p-5">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 rounded-md flex items-center justify-center font-black text-black text-[18px]" style="background-color: #60a5fa !important;">A</div>
+                    <div>
+                        <p class="text-[11px] font-black tracking-widest uppercase" style="color: #60a5fa !important;">Action</p>
+                        <p class="text-[16px] font-black text-white">어떻게 해결했는가?</p>
+                    </div>
+                </div>
+                <p class="text-[13px] text-zinc-300 leading-[1.75] mb-3 break-keep">
+                    Action은 STAR의 핵심입니다.
+                    단순히 무엇을 실행했는지가 아니라, <strong class="text-white">왜 그 방식을 선택했고 어떻게 해결했는가</strong>까지 보여줘야 합니다.
+                </p>
+                <div class="compare-grid">
+                    <div class="compare-item is-wrong">
+                        <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #f87171 !important;">실패 문장</p>
+                        <p class="text-[11px] leading-[1.65] text-zinc-200 break-keep">
+                            "응답 속도를 높이기 위해 여러 방법을 검토했고, 캐싱과 쿼리 개선 같은 방향으로 성능을 보완했습니다."
+                        </p>
+                    </div>
+                    <div class="compare-item is-right">
+                        <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #60a5fa !important;">합격 문장</p>
+                        <p class="text-[11px] leading-[1.65] text-zinc-100 break-keep">
+                            "DB 전체 조회 반복이 병목임을 확인한 뒤, 메모리 캐싱과 필요한 컬럼만 선택하는 쿼리 최적화를 적용했습니다."
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-main p-5">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 rounded-md flex items-center justify-center font-black text-black text-[18px]" style="background-color: #60a5fa !important;">R</div>
+                    <div>
+                        <p class="text-[11px] font-black tracking-widest uppercase" style="color: #60a5fa !important;">Result</p>
+                        <p class="text-[16px] font-black text-white">어떤 성과와 배움을 얻었는가?</p>
+                    </div>
+                </div>
+                <p class="text-[13px] text-zinc-300 leading-[1.75] mb-3 break-keep">
+                    Result는 수치 중심의 정량적 변화를 보여주는 것이 가장 좋습니다.
+                    여기에 <strong class="text-white">무엇을 배웠는가</strong>까지 더해지면 완성도가 높아집니다.
+                </p>
+                <div class="compare-grid">
+                    <div class="compare-item is-wrong">
+                        <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #f87171 !important;">실패 문장</p>
+                        <p class="text-[11px] leading-[1.65] text-zinc-200 break-keep">
+                            "개선 이후 이전보다 서비스가 더 안정적으로 동작했고, 사용자 입장에서도 체감 성능이 좋아졌다고 볼 수 있었습니다."
+                        </p>
+                    </div>
+                    <div class="compare-item is-right">
+                        <p class="text-[10px] font-black tracking-widest uppercase mb-2" style="color: #60a5fa !important;">합격 문장</p>
+                        <p class="text-[11px] leading-[1.65] text-zinc-100 break-keep">
+                            "페이지 응답 속도가 평균 4초에서 2초대로 줄었고, 이 경험을 통해 작은 기술 개선이 사용자 경험에 큰 영향을 준다는 점을 배웠습니다."
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative z-10 card-main p-4 mb-4">
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
+                정리하면 STAR는 단순히 "무엇을 했다"를 나열하는 구조가 아닙니다.
+                <strong class="text-white">문제를 인식하고, 해결하고, 성과를 만들고, 거기서 배운 흐름</strong>을 보여주는 구조입니다.
+            </p>
+        </div>
+
+        <!-- 🔒 공통 푸터 (건드리지 마세요) -->
+        <div class="relative z-10 mt-auto pt-5" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
+            <div class="flex justify-between items-end" style="display: flex !important; justify-content: space-between !important; align-items: flex-end !important;">
+                <span class="text-lg font-black tracking-tighter italic" style="color: rgba(255,255,255,0.9) !important;">제이노트(J-Note) <span class="text-[10px] font-light not-italic ml-1" style="opacity: 0.4 !important;">출판</span></span>
+                <span class="text-[9px] font-mono tracking-widest" style="opacity: 0.3 !important;">CONFIDENTIAL REPORT</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         [PAGE 11] STAR 후킹과 통합 예시
+         ========================================== -->
+    <div class="page page-content" id="page-11">
+        <div class="texture"></div>
+
+        <div class="relative z-10 flex justify-between items-center pb-3 mb-6" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 04 // 두괄식 후킹과 프로필 헤드라인</span>
+            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_11</span>
+        </div>
+
+        <div class="relative z-10 flex items-center justify-between mb-4">
+            <span class="text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full" style="color: #60a5fa !important; background-color: rgba(37,99,235,0.12) !important; border: 1px solid rgba(96,165,250,0.2) !important;">결과물 페이지</span>
+            <span class="text-[11px] text-zinc-400 tracking-widest">STAR 2/2</span>
+        </div>
+
+        <div class="relative z-10 mb-5 pl-5" style="border-left: 4px solid #60a5fa !important;">
+            <h2 class="text-[26px] font-black leading-[1.35] tracking-tighter break-keep text-white">
+                구조만 맞추는 걸로 끝나지 않습니다. <br>
+                <span style="color: #60a5fa !important;">두괄식 후킹</span>으로 시선을 먼저 잡아야 합니다.
+            </h2>
+        </div>
+
+        <div class="relative z-10 card-main p-4 mb-4">
+            <p class="text-[14px] leading-[1.8] text-zinc-300 break-keep">
+                면접관은 긴 서사를 끝까지 듣기 전에 이미 판단을 시작합니다.
+                그래서 STAR 구조를 시작하기 전에
+                <strong class="text-white">결과의 핵심을 한 줄로 먼저 던지는 두괄식 후킹</strong>이 필요합니다.
+            </p>
+            <div class="mt-4 card-example p-4" style="border-left: 4px solid #60a5fa !important;">
+                <p class="text-[13px] text-white leading-[1.8] break-keep">
+                    <strong class="text-white">[성과 요약 한 줄]</strong>을 먼저 던지고,
+                    그 다음에 왜 그런 성과가 나왔는지 STAR 구조로 풀어주면 됩니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="relative z-10 grid grid-cols-2 gap-4 mb-5">
+            <div class="card-main p-5">
+                <p class="text-[12px] font-black tracking-widest uppercase mb-3" style="color: #f87171 !important;">집중도 낮은 서사형 시작</p>
+                <p class="text-[13px] leading-[1.8] text-zinc-400 break-keep">
+                    부트캠프 과정에서 백엔드 개발을 맡았고, 우리 팀은 쇼핑몰을 개발했습니다.
+                    저는 상품 목록 페이지를 담당했고, 당시 로딩 속도가 느려서…
+                </p>
+            </div>
+            <div class="card-main p-5">
+                <p class="text-[12px] font-black tracking-widest uppercase mb-3" style="color: #60a5fa !important;">두괄식 후킹 시작</p>
+                <p class="text-[13px] leading-[1.8] text-zinc-100 break-keep">
+                    사용자 경험을 수치로 개선하는 백엔드 개발자입니다.
+                    상품 목록 페이지 속도를 절반으로 줄인 경험이 있습니다.
+                    그 과정에서 병목 구간을 찾아 캐싱과 쿼리 최적화를 적용했습니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="relative z-10 card-example p-6 mb-4">
+            <div class="flex items-center justify-between gap-3 mb-4">
+                <div class="flex items-center gap-2">
+                <i class="fa-solid fa-file-lines text-lg" style="color: #60a5fa !important;"></i>
+                    <p class="text-[18px] font-black text-white tracking-tight">두괄식 후킹 + 프로필 헤드라인 통합 예시</p>
+                </div>
+                <span class="text-[10px] font-black tracking-widest uppercase px-3 py-1 rounded-full" style="color: #60a5fa !important; background-color: rgba(255,255,255,0.06) !important; border: 1px solid rgba(96,165,250,0.2) !important;">BEST EXAMPLE</span>
+            </div>
+            <div class="card-example p-6">
+                <p class="text-[13px] font-bold tracking-widest uppercase mb-3" style="color: #60a5fa !important;">[사용자 경험을 수치로 개선하는 백엔드 개발자]</p>
+                <p class="text-[13px] font-bold text-white leading-[1.9] mb-3 break-keep">
+                    부트캠프 팀 프로젝트에서 상품 목록 페이지의 속도를 기존 대비 50% 감축한 경험이 있습니다.
+                </p>
+                <p class="text-[13px] text-zinc-100 leading-[1.9] break-keep">
+                    부트캠프 팀 프로젝트에서 상품 목록 페이지의 로딩 속도가 느려 다수의 사용자가 동시에 접속하면 화면이 지연되는 문제가 있었습니다.
+                    백엔드 담당으로서 API 응답 속도를 개선하고 트래픽이 몰려도 안정적으로 작동하도록 개선하는 과제를 맡았습니다.
+                    원인을 분석해보니 DB 전체 조회가 반복되고 있었고, 요청이 많아질수록 부하가 급격히 증가하고 있었습니다.
+                    이를 개선하기 위해 메모리 캐싱을 적용해 동일 요청 시 DB 접근을 최소화했고, 필요한 컬럼만 선택하도록 쿼리도 수정했습니다.
+                    개선 후 페이지 응답 속도가 약 50% 단축되었고, 동시에 접속해도 지연이 거의 사라졌습니다.
+                    이 경험을 통해 작은 기술적 개선이 사용자 경험에 큰 영향을 준다는 점을 배웠습니다.
+                </p>
+            </div>
+        </div>
+
+        <div class="relative z-10 rounded-lg p-4 mb-4" style="background: linear-gradient(180deg, rgba(37,99,235,0.14) 0%, rgba(15,23,42,0.72) 100%) !important; border: 1px solid rgba(96,165,250,0.22) !important;">
+            <p class="text-[11px] font-black tracking-widest uppercase mb-2" style="color: #60a5fa !important;">Next Step</p>
+            <p class="text-[17px] font-black text-white leading-[1.55] break-keep">
+                다음 페이지에서 <span style="color: #60a5fa !important;">내 경험을 직접 적용하는 워크북</span>으로 넘어갑니다.
+            </p>
+        </div>
+
+        <!-- 🔒 공통 푸터 (건드리지 마세요) -->
+        <div class="relative z-10 mt-auto pt-4 footer-anchor" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
+            <div class="flex justify-between items-end" style="display: flex !important; justify-content: space-between !important; align-items: flex-end !important;">
+                <span class="text-lg font-black tracking-tighter italic" style="color: rgba(255,255,255,0.9) !important;">
+                    제이노트(J-Note) <span class="text-[10px] font-light not-italic ml-1" style="opacity: 0.4 !important;">출판</span>
+                </span>
+                <span class="text-[9px] font-mono tracking-widest" style="opacity: 0.3 !important;">CONFIDENTIAL REPORT</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         [PAGE 12] 워크북
+         ========================================== -->
+    <div class="page page-content" id="page-12">
+        <div class="texture"></div>
+
+        <div class="relative z-10 flex justify-between items-center pb-3 mb-6" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>WORKBOOK // 실전 적용</span>
+            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_12</span>
+        </div>
+
+        <div class="relative z-10 flex items-center justify-between mb-5">
+            <span class="text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full" style="color: #60a5fa !important; background-color: rgba(37,99,235,0.12) !important; border: 1px solid rgba(96,165,250,0.2) !important;">실전 적용 페이지</span>
+            <span class="text-[11px] text-zinc-400 tracking-widest">WRITE IT YOURSELF</span>
+        </div>
+
         <div class="relative z-10 mb-6">
             <div class="p-6 border-l-4 border-[#60a5fa] bg-white/5 rounded-r-lg">
                 <h2 class="text-[25px] font-black leading-[1.3] tracking-tighter break-keep text-white mb-4">
                     경험의 종류는 상관없습니다. <br>
                     당신이 <span class="neon-text">'발견한 문제'</span>와 <span class="neon-text">'솔루션'</span>을 숫자로 기록하세요.
                 </h2>
-                
-                <!-- 상단으로 이동 및 한 줄 처리된 핵심 멘트들 -->
                 <div class="space-y-2">
                     <p class="text-[14px] font-bold text-[#60a5fa] leading-snug">
                         채점관은 당신의 성실함이 아닌, 당신이 가져온 '변화의 수치'를 봅니다.
@@ -573,24 +1325,20 @@
                     <p class="text-[14px] font-bold text-[#60a5fa] leading-snug">
                         불편함을 당연하게 여기지 않는 것, 그것이 기업이 원하는 인재의 진짜 모습입니다.
                     </p>
-                    <p class="text-[13px] font-medium italic text-zinc-400 leading-snug">
-                    </p>
                 </div>
             </div>
         </div>
 
-        <!-- Intro Text -->
         <div class="relative z-10 mb-6 text-[14px] leading-relaxed text-zinc-400">
             <p class="mb-4 text-[16px] text-white font-bold leading-snug">
                 <i class="fa-solid fa-play neon-text mr-2"></i>
-                자, 이제 배운 내용을 바탕으로 <span class="neon-text">실제 나의 경험을 이 기법으로 직접 적용</span>해 보겠습니다.
+                이제 배운 내용을 바탕으로 <span class="neon-text">실제 나의 경험을 이 구조에 직접 적용</span>해 보겠습니다.
             </p>
             <p class="text-[13px] bg-white/5 p-3 rounded border border-white/10 italic">
                 <span class="text-white font-bold mr-1">💡 Tip:</span> 정량 수치는 완벽할 필요는 없습니다. 경험적으로 추정하되, 면접에서 근거를 설명했을 때 납득 가능한 수준이면 충분합니다.
             </p>
         </div>
 
-        <!-- 🚀 STAR Case Study: Cafe Example -->
         <div class="relative z-10 example-box">
             <div class="flex items-center gap-2 mb-3">
                 <i class="fa-solid fa-mug-hot neon-text"></i>
@@ -607,37 +1355,29 @@
                 </div>
                 <div class="text-[13px] leading-snug">
                     <span class="font-black neon-text mr-2">R</span>
-                    <span class="text-zinc-200">주문 후 음료가 나가는 속도가 빨라져, 평균 대기 줄이 3명 이하로 유지되어 고객들의 이탈을 방지하여 피크 시간대 <br>매출을 전월 대비 15% 이상 향상되었습니다</span>
+                    <span class="text-zinc-200">주문 후 음료가 나가는 속도가 빨라져, 평균 대기 줄이 3명 이하로 유지되어 고객들의 이탈을 방지하여 피크 시간대 매출을 전월 대비 15% 이상 향상되었습니다</span>
                 </div>
             </div>
         </div>
 
-        <!-- 🚀 Workbook Section -->
         <div class="relative z-10 space-y-5 mb-8">
             <h3 class="text-[18px] font-black text-white flex items-center gap-2">
                 <i class="fa-solid fa-pen-to-square neon-text"></i> 나의 경험 바꾸기
             </h3>
-            
             <div>
                 <p class="text-[13px] font-bold text-zinc-400">1. 내가 직접 겪었거나 발견한 비효율 <span class="text-[11px] font-normal ml-1 opacity-60">(반복 수동 작업, 병목 현상 등)</span></p>
                 <div class="input-box">[ 자신만의 경험을 통해 여기에 작성해보세요 ]</div>
             </div>
-
             <div>
                 <p class="text-[13px] font-bold text-zinc-400">2. 나만의 해결 솔루션 <span class="text-[11px] font-normal ml-1 opacity-60">(프로세스 단순화, 사전 준비 체계 구축 등)</span></p>
                 <div class="input-box">[ 자신만의 경험을 통해 여기에 작성해보세요 ]</div>
             </div>
-
             <div>
                 <p class="text-[13px] font-bold text-zinc-400">3. 결과로 나타난 숫자 <span class="text-[11px] font-normal ml-1 opacity-60">(시간 00% 단축, 비용 00원 절감 등)</span></p>
                 <div class="input-box">[ 자신만의 경험을 통해 여기에 작성해보세요 ]</div>
             </div>
         </div>
 
-
-        <!-- 👆 5페이지 본문 끝 👆 -->
-
-        <!-- 🔒 공통 푸터 (건드리지 마세요) -->
         <div class="relative z-10 mt-auto pt-5" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
             <div class="flex justify-between items-end" style="display: flex !important; justify-content: space-between !important; align-items: flex-end !important;">
                 <span class="text-lg font-black tracking-tighter italic" style="color: rgba(255,255,255,0.9) !important;">제이노트(J-Note) <span class="text-[10px] font-light not-italic ml-1" style="opacity: 0.4 !important;">출판</span></span>
@@ -647,120 +1387,284 @@
     </div>
 
     <!-- ==============================================
-         [PAGE 6] 면접 활용법 (The Interview Guide)
+         [PAGE 13] 면접 준비의 시작
          ============================================== -->
-    <div class="page page-content" id="page-6">
+    <div class="page page-content" id="page-13">
         <div class="texture"></div>
 
-        <!-- 🔒 공통 헤더 (건드리지 마세요) -->
         <div class="relative z-10 flex justify-between items-center pb-2 mb-4" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
-            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 05 // 면접 활용법 (The Interview Guide)</span>
-            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_06</span>
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 06 // 면접 활용법 (The Interview Guide)</span>
+            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_13</span>
         </div>
 
-        <!-- 👇 여기에 test5.html (6페이지) 본문만 복사해서 넣으세요 👇 -->
+        <div class="relative z-10 flex items-center justify-between mb-4">
+            <span class="text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full" style="color: #60a5fa !important; background-color: rgba(37,99,235,0.12) !important; border: 1px solid rgba(96,165,250,0.2) !important;">면접 원리 페이지</span>
+            <span class="text-[11px] text-zinc-400 tracking-widest">INTERVIEW 1/3</span>
+        </div>
 
-        <!-- Headline Area -->
-        <div class="relative z-10 mb-5">
-            <h2 class="text-[27px] font-black leading-[1.3] tracking-tighter break-keep text-white mb-2">
-                방금 작성한 <span style="color: #60a5fa !important;">[STAR 문장]</span>이 면접관의 질문을 대답하는 <br> 완벽한 대본이 됩니다.
+        <div class="relative z-10 rounded-xl p-6 mb-5" style="background: linear-gradient(180deg, rgba(37,99,235,0.16) 0%, rgba(15,23,42,0.88) 100%) !important; border: 1px solid rgba(96,165,250,0.24) !important;">
+            <p class="text-[11px] font-black tracking-[0.24em] uppercase mb-4" style="color: #60a5fa !important;">Chapter 03</p>
+            <h2 class="text-[34px] font-black leading-[1.2] tracking-tighter break-keep text-white mb-4">
+                면접은 <br>
+                <span style="color: #60a5fa !important;">자기소개서를 말로 증명하는 자리</span>다
             </h2>
-            <div class="bg-white/5 border border-white/10 rounded-lg p-3 px-4 flex items-start gap-3">
-                <i class="fa-solid fa-circle-info mt-1" style="color: #60a5fa !important;"></i>
-                <p class="text-[14px] leading-relaxed text-zinc-300 break-keep">
-                    5페이지의 워크북은 단순한 글쓰기 연습이 아닙니다. 실전 면접에서 당황하지 않고 
-                    <strong class="text-white">나의 문제 해결 능력을 가장 논리적으로 증명</strong>할 수 있는 강력한 대본입니다. 
+            <p class="text-[16px] leading-[1.75] text-zinc-200 break-keep max-w-[85%]">
+                면접은 새로운 이야기를 만드는 시험이 아닙니다.
+                PARL과 STAR로 정리한 내용을 <strong class="text-white">질문에 맞게 꺼내 설명하는 과정</strong>에 가깝습니다.
+            </p>
+        </div>
+
+        <div class="relative z-10 card-main p-5 mb-4">
+            <div class="flex items-center gap-2 mb-3">
+                <i class="fa-solid fa-link text-sm" style="color: #60a5fa !important;"></i>
+                <p class="text-[15px] font-black text-white">자기소개서와 면접은 끊어져 있지 않습니다</p>
+            </div>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
+                지원동기 문항을 PARL로 정리했다면 면접에서 <strong class="text-white">"왜 우리 회사인가요?"</strong>에 답할 수 있고,
+                경험 문항을 STAR로 정리했다면 <strong class="text-white">"문제를 해결한 경험을 말해보세요"</strong>에 바로 답할 수 있습니다.
+                즉, 면접 준비의 핵심은 새 답을 만드는 것이 아니라 <strong class="text-white">이미 쓴 내용을 말하기 좋은 구조로 재배치하는 것</strong>입니다.
+            </p>
+        </div>
+
+        <div class="relative z-10 grid grid-cols-2 gap-4 mb-4">
+            <div class="card-main p-5">
+                <p class="text-[12px] font-black tracking-widest uppercase mb-3" style="color: #60a5fa !important;">질문 유형별 꺼내는 구조</p>
+                <div class="space-y-3 text-[13px] leading-[1.75] text-zinc-300">
+                    <p><strong class="text-white">지원동기 / 왜 우리 회사인가</strong><br><span class="text-zinc-400">PARL 구조로 답합니다.</span></p>
+                    <p><strong class="text-white">입사 후 포부 / 어떤 개발자가 되고 싶은가</strong><br><span class="text-zinc-400">PARL 구조로 답합니다.</span></p>
+                    <p><strong class="text-white">실패 경험 / 성과 경험 / 문제 해결 경험</strong><br><span class="text-zinc-400">STAR 구조로 답합니다.</span></p>
+                </div>
+            </div>
+            <div class="card-main p-5">
+                <p class="text-[12px] font-black tracking-widest uppercase mb-3" style="color: #60a5fa !important;">면접에서 실제로 평가되는 것</p>
+                <div class="space-y-2 text-[13px] leading-[1.8] text-zinc-300">
+                    <p>• 질문 의도를 정확히 이해했는가</p>
+                    <p>• 결론부터 구조적으로 답했는가</p>
+                    <p>• 경험을 근거와 수치로 설명했는가</p>
+                    <p>• 자기소개서와 모순 없이 일관되게 답했는가</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="relative z-10 card-warning p-4 mb-4">
+            <div class="flex items-center gap-2 mb-2">
+                <i class="fa-solid fa-crosshairs text-sm" style="color: #60a5fa !important;"></i>
+                <p class="text-[15px] font-black text-white">스펙을 지적하는 질문의 진짜 목적</p>
+            </div>
+            <p class="text-[12px] text-zinc-300 leading-[1.75] break-keep">
+                면접에서 <strong class="text-white">"비전공자인데 왜 개발을 하려고 하나요?"</strong>,
+                <strong class="text-white">"경력이 조금 약한 것 같은데 바로 적응할 수 있을까요?"</strong> 같은 질문을 들으면
+                많은 지원자들이 곧바로 <strong class="text-white">"역시 나는 스펙이 부족한가 보다"</strong>라고 받아들입니다.
+                하지만 이런 질문의 핵심은 스펙 자체를 비판하려는 데 있지 않습니다.
+            </p>
+            <p class="text-[12px] text-zinc-300 leading-[1.75] mt-2 break-keep">
+                면접관이 실제로 보고 싶은 것은
+                <strong class="text-white">그 질문 앞에서 지원자가 어떤 태도와 해석을 보여주는가</strong>입니다.
+                즉, 약점을 인정하되 방어적으로 반응하지 않는지,
+                부족한 점을 어떤 노력과 성장의 언어로 설명하는지,
+                앞으로 어떻게 보완할 사람인지를 보는 것입니다.
+            </p>
+            <div class="mt-3 card-example p-3" style="border-left: 4px solid #60a5fa !important;">
+                <p class="text-[12px] font-black text-white leading-[1.75] break-keep">
+                    결국 이 질문의 본질은 <span style="color: #60a5fa !important;">"스펙이 완벽한가"</span>가 아니라,
+                    <span style="color: #60a5fa !important;">"자신의 현재 위치를 어떻게 해석하고 어떤 자세로 앞으로 나아갈 사람인가"</span>입니다.
                 </p>
             </div>
         </div>
 
-        <!-- 🚀 실전 면접 스크립트 -->
-        <div class="relative z-10 rounded-lg p-5 mb-5" style="background-color: #111827 !important; border: 1px solid rgba(255,255,255,0.1) !important;">
-            
-            <div class="flex items-center gap-2 mb-4 pb-2" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
-                <i class="fa-solid fa-microphone-lines text-zinc-400"></i>
-                <h3 class="text-[14px] font-bold text-zinc-300 tracking-widest uppercase">실전 면접 시뮬레이션</h3>
+        <div class="relative z-10 card-main p-4 mb-4">
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
+                정리하면 면접은 <strong class="text-white">분위기 게임</strong>이 아니라 <strong class="text-white">구조 게임</strong>입니다.
+                질문이 나오면 먼저 이것이 지원동기형인지 경험형인지 구분하고,
+                그에 맞춰 PARL 또는 STAR를 꺼내 말하면 됩니다.
+            </p>
+        </div>
+
+        <div class="relative z-10 mt-auto pt-4 footer-anchor" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
+            <div class="flex justify-between items-end" style="display: flex !important; justify-content: space-between !important; align-items: flex-end !important;">
+                <span class="text-lg font-black tracking-tighter italic" style="color: rgba(255,255,255,0.9) !important;">
+                    제이노트(J-Note) <span class="text-[10px] font-light not-italic ml-1" style="opacity: 0.4 !important;">출판</span>
+                </span>
+                <span class="text-[9px] font-mono tracking-widest" style="opacity: 0.3 !important;">CONFIDENTIAL REPORT</span>
             </div>
+        </div>
+    </div>
 
-            <div style="position: relative;">
-                <!-- 세로 연결선 -->
-                <div style="position: absolute; left: 23px; top: 40px; bottom: 10px; width: 2px; background-color: #334155 !important; z-index: 1;"></div>
+    <!-- ==============================================
+         [PAGE 14] 면접 실전 시뮬레이션 - PARL
+         ============================================== -->
+    <div class="page page-content" id="page-14">
+        <div class="texture"></div>
 
-                <!-- 면접관의 질문 -->
-                <div style="position: relative; z-index: 2; padding-left: 55px; margin-bottom: 12px;">
-                    <div style="position: absolute; left: 8px; top: 0; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background-color: #0f172a !important; border: 2px solid #333; overflow: hidden;">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=150&auto=format&fit=crop" alt="면접관" style="width: 100%; height: 100%; object-fit: cover;">
-                    </div>
-                    <div class="flex items-center gap-2 mb-1">
-                        <p class="text-[12px] font-bold text-zinc-400 tracking-widest uppercase">Interviewer</p>
-                        <span class="text-[10px] bg-white/10 text-zinc-400 px-1.5 py-0.5 rounded-sm">면접관</span>
-                    </div>
-                    <p class="text-[15.5px] font-bold text-white leading-relaxed p-3 rounded-md inline-block" style="background-color: rgba(255,255,255,0.05) !important; border: 1px solid rgba(255,255,255,0.05) !important;">
-                        "업무 수행 중 발생한 문제를 주도적으로 해결한 사례가 있나요?"
-                    </p>
+        <div class="relative z-10 flex justify-between items-center pb-2 mb-4" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 06 // 면접 활용법 (The Interview Guide)</span>
+            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_14</span>
+        </div>
+
+        <div class="relative z-10 flex items-center justify-between mb-4">
+            <span class="text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full" style="color: #60a5fa !important; background-color: rgba(37,99,235,0.12) !important; border: 1px solid rgba(96,165,250,0.2) !important;">PARL 변환 예시</span>
+            <span class="text-[11px] text-zinc-400 tracking-widest">INTERVIEW 2/3</span>
+        </div>
+
+        <div class="relative z-10 mb-4 pl-5" style="border-left: 4px solid #60a5fa !important;">
+            <h2 class="text-[27px] font-black leading-[1.3] tracking-tighter break-keep text-white">
+                지원동기 답변은 <span style="color: #60a5fa !important;">자소서 문장 그대로 읽는 것</span>이 아니라, <br>
+                <span style="color: #60a5fa !important;">PARL 흐름을 말하기용으로 풀어내는 것</span>입니다.
+            </h2>
+        </div>
+
+        <div class="relative z-10 grid grid-cols-2 gap-4 mb-4">
+            <div class="card-warning p-4">
+                <p class="text-[12px] font-black tracking-widest uppercase mb-3" style="color: #f87171 !important;">자소서 문장 그대로 말하면</p>
+                <p class="text-[13px] leading-[1.8] text-zinc-200 break-keep">
+                    "사용자 신뢰를 중심에 두는 백엔드 개발자로서 안랩의 안정적이고 신뢰받는 서비스 구축에 기여하고 싶습니다."
+                </p>
+                <p class="text-[12px] leading-[1.75] text-zinc-400 mt-3 break-keep">
+                    문장 자체는 좋지만, 면접에서는 다소 문어체이고 추상적으로 들릴 수 있습니다.
+                </p>
+            </div>
+            <div class="card-example p-4">
+                <p class="text-[12px] font-black tracking-widest uppercase mb-3" style="color: #60a5fa !important;">면접 답변용으로 바꾸면</p>
+                <p class="text-[13px] leading-[1.8] text-zinc-100 break-keep">
+                    "저는 사용자가 불편을 겪지 않는 서비스를 만드는 개발자가 되고 싶습니다.
+                    그래서 단순히 기능 구현보다 안정성과 신뢰를 더 중요하게 보고 있고,
+                    그런 방향에서 안랩이 추구하는 가치와 제 경험이 잘 맞는다고 생각했습니다."
+                </p>
+            </div>
+        </div>
+
+        <div class="relative z-10 card-main p-4 mb-4">
+            <div class="flex items-center gap-2 mb-3">
+                <i class="fa-solid fa-microphone-lines text-sm" style="color: #60a5fa !important;"></i>
+                <p class="text-[15px] font-black text-white">면접 질문에 PARL로 답하는 흐름</p>
+            </div>
+            <div class="space-y-2 text-[13px] leading-[1.8] text-zinc-300">
+                <p><strong class="text-white">P</strong> 왜 이 문제를 중요하게 보게 되었는지 말합니다.</p>
+                <p><strong class="text-white">A</strong> 그래서 왜 이 회사 방향에 공감했는지 연결합니다.</p>
+                <p><strong class="text-white">R</strong> 그 방향과 맞닿아 있는 내 경험을 짧게 붙입니다.</p>
+                <p><strong class="text-white">L</strong> 마지막에 입사 후 어떤 기여를 하고 싶은지 정리합니다.</p>
+            </div>
+        </div>
+
+        <div class="relative z-10 card-example p-5 mb-4">
+            <div class="flex items-center justify-between gap-3 mb-3">
+                <p class="text-[16px] font-black text-white">실전 면접 예시: "왜 안랩에 지원했나요?"</p>
+                <span class="text-[10px] font-black tracking-widest uppercase px-3 py-1 rounded-full" style="color: #60a5fa !important; background-color: rgba(255,255,255,0.06) !important; border: 1px solid rgba(96,165,250,0.2) !important;">PARL</span>
+            </div>
+            <p class="text-[13px] leading-[1.9] text-zinc-100 break-keep">
+                "저는 보안 문제가 단순한 기술 이슈가 아니라 사용자 신뢰와 실제 피해로 이어질 수 있다는 점을 중요하게 생각하게 됐습니다.
+                그런 관점에서 안랩은 신뢰를 지키는 기술력을 꾸준히 증명해 온 회사라고 봤고, 그 방향이 제가 중요하게 여기는 기준과 맞았습니다.
+                부트캠프 프로젝트에서도 입력값 검증과 예외 처리를 꼼꼼하게 구현하면서 안정성을 우선하는 경험을 쌓았습니다.
+                입사 후에도 사용자 신뢰를 중심에 두는 백엔드 개발자로 성장하며 안정적인 서비스 구축에 기여하고 싶습니다."
+            </p>
+        </div>
+
+        <div class="relative z-10 card-main p-4 mb-4">
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
+                핵심은 자기소개서 문장을 그대로 암기하는 것이 아니라,
+                <strong class="text-white">같은 내용이라도 말하기 좋은 구어체와 결론 중심 구조로 바꾸는 것</strong>입니다.
+            </p>
+        </div>
+
+        <div class="relative z-10 mt-auto pt-4 footer-anchor" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
+            <div class="flex justify-between items-end" style="display: flex !important; justify-content: space-between !important; align-items: flex-end !important;">
+                <span class="text-lg font-black tracking-tighter italic" style="color: rgba(255,255,255,0.9) !important;">
+                    제이노트(J-Note) <span class="text-[10px] font-light not-italic ml-1" style="opacity: 0.4 !important;">출판</span>
+                </span>
+                <span class="text-[9px] font-mono tracking-widest" style="opacity: 0.3 !important;">CONFIDENTIAL REPORT</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==============================================
+         [PAGE 15] 면접 실전 시뮬레이션 - STAR
+         ============================================== -->
+    <div class="page page-content" id="page-15">
+        <div class="texture"></div>
+
+        <div class="relative z-10 flex justify-between items-center pb-2 mb-4" style="border-bottom: 1px solid rgba(255,255,255,0.1) !important;">
+            <span class="text-[11px] font-bold text-zinc-500 tracking-widest"><span class="mr-2" style="color: #60a5fa !important;">■</span>Phase 06 // 면접 활용법 (The Interview Guide)</span>
+            <span class="text-[10px] font-mono text-zinc-500 tracking-widest">PAGE_15</span>
+        </div>
+
+        <div class="relative z-10 flex items-center justify-between mb-4">
+            <span class="text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full" style="color: #60a5fa !important; background-color: rgba(37,99,235,0.12) !important; border: 1px solid rgba(96,165,250,0.2) !important;">STAR 변환 예시</span>
+            <span class="text-[11px] text-zinc-400 tracking-widest">INTERVIEW 3/3</span>
+        </div>
+
+        <div class="relative z-10 mb-4 pl-5" style="border-left: 4px solid #60a5fa !important;">
+            <h2 class="text-[27px] font-black leading-[1.3] tracking-tighter break-keep text-white">
+                경험형 질문은 <span style="color: #60a5fa !important;">STAR 순서</span>로 대답하면 됩니다. <br>
+                다만 면접에서는 <span style="color: #60a5fa !important;">결론을 먼저</span> 던져야 합니다.
+            </h2>
+        </div>
+
+        <div class="relative z-10 grid grid-cols-2 gap-4 mb-4">
+            <div class="card-warning p-4">
+                <p class="text-[12px] font-black tracking-widest uppercase mb-3" style="color: #f87171 !important;">설명만 많은 답변</p>
+                <p class="text-[13px] leading-[1.8] text-zinc-200 break-keep">
+                    "부트캠프에서 쇼핑몰 프로젝트를 했는데, 상품 목록 페이지를 맡았고 여러 문제를 보면서 개선을 진행했습니다..."
+                </p>
+                <p class="text-[12px] leading-[1.75] text-zinc-400 mt-3 break-keep">
+                    듣는 사람 입장에서는 결론이 늦고, 무엇을 얼마나 개선했는지 바로 잡히지 않습니다.
+                </p>
+            </div>
+            <div class="card-example p-4">
+                <p class="text-[12px] font-black tracking-widest uppercase mb-3" style="color: #60a5fa !important;">결론이 먼저 보이는 답변</p>
+                <p class="text-[13px] leading-[1.8] text-zinc-100 break-keep">
+                    "상품 목록 페이지 속도를 절반 수준으로 줄인 경험이 있습니다.
+                    당시 병목 원인을 분석해 캐싱과 쿼리 최적화를 적용했고, 그 결과 동시 접속 상황에서도 지연을 크게 줄일 수 있었습니다."
+                </p>
+            </div>
+        </div>
+
+        <div class="relative z-10 card-example p-5 mb-4" style="border: 1px solid rgba(255,255,255,0.1) !important;">
+            <div class="flex items-center justify-between gap-3 mb-3">
+                <p class="text-[16px] font-black text-white">실전 면접 예시: "문제를 해결한 경험을 말해보세요."</p>
+                <span class="text-[10px] font-black tracking-widest uppercase px-3 py-1 rounded-full" style="color: #60a5fa !important; background-color: rgba(255,255,255,0.06) !important; border: 1px solid rgba(96,165,250,0.2) !important;">STAR</span>
+            </div>
+            <div class="space-y-3">
+                <p class="text-[13px] leading-[1.85] text-zinc-100 break-keep">
+                    "부트캠프 팀 프로젝트에서 상품 목록 페이지 응답 속도를 약 50% 줄인 경험이 있습니다.
+                    당시 해당 페이지는 요청마다 DB 전체 조회를 반복하고 있어서, 사용자가 몰리면 화면이 지연되는 문제가 있었습니다."
+                </p>
+                <p class="text-[13px] leading-[1.85] text-zinc-100 break-keep">
+                    "백엔드 담당으로서 응답 속도를 개선하고, 트래픽이 몰려도 안정적으로 동작하도록 만드는 것이 제 역할이었습니다.
+                    원인을 확인한 뒤 메모리 캐싱을 적용했고, 필요한 컬럼만 조회하도록 쿼리도 수정했습니다."
+                </p>
+                <p class="text-[13px] leading-[1.85] text-zinc-100 break-keep">
+                    "그 결과 페이지 응답 속도가 평균 4초대에서 2초대로 줄었고, 동시에 접속해도 지연이 크게 완화됐습니다.
+                    이 경험을 통해 성능 개선은 단순한 기술 과제가 아니라 사용자 경험을 직접 바꾸는 일이라는 점을 배웠습니다."
+                </p>
+            </div>
+        </div>
+
+        <div class="relative z-10 grid grid-cols-2 gap-4 mb-4">
+            <div class="card-main p-4">
+                <p class="text-[12px] font-black tracking-widest uppercase mb-3" style="color: #60a5fa !important;">면접 직전 체크리스트</p>
+                <div class="space-y-2 text-[13px] leading-[1.8] text-zinc-300">
+                    <p>• 이 질문이 지원동기형인지 경험형인지 먼저 구분했는가</p>
+                    <p>• PARL 또는 STAR 중 어떤 구조를 쓸지 먼저 정했는가</p>
+                    <p>• 첫 문장에서 결론이나 성과를 먼저 말했는가</p>
                 </div>
-
-                <!-- 지원자의 답변 -->
-                <div style="position: relative; z-index: 2; padding-left: 55px; margin-bottom: 5px;">
-                    <div style="position: absolute; left: 8px; top: 0; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background-color: #0f172a !important; border: 2px solid #333; overflow: hidden;"><i class="fa-solid fa-user-check" style="color: #60a5fa !important;"></i></div>
-                    <p class="text-[12px] font-bold mb-2 tracking-widest uppercase" style="color: #60a5fa !important;">Candidate (당신의 답변)</p>
-                    
-                    <div class="space-y-2.5">
-                        <div class="flex items-start">
-                            <span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 20px; background-color: #333 !important; color: #60a5fa !important; font-size: 10px; font-weight: 900; border-radius: 4px; margin-right: 8px; margin-top: 2px; flex-shrink: 0;">S/T</span>
-                            <p class="text-[14.5px] leading-relaxed text-zinc-200">
-                                "카페 근무 시절, <strong class="text-white underline decoration-zinc-600 underline-offset-4">피크 타임 대기 인원이 평균 7명 이상 대기줄이 발생하여 새로 들어오는 손님이 떠나는 상황</strong>이 발생했습니다."
-                            </p>
-                        </div>
-                        <div class="flex items-start">
-                            <span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 20px; background-color: #333 !important; color: #60a5fa !important; font-size: 10px; font-weight: 900; border-radius: 4px; margin-right: 8px; margin-top: 2px; flex-shrink: 0;">A</span>
-                            <p class="text-[14.5px] leading-relaxed text-zinc-200">
-                                "이를 개선하고자, <strong class="font-bold" style="color: #60a5fa !important;">주문의 70%가 특정 메뉴에 집중됨을 파악하고 피크 전 미리 준비하는 '선제조 스탠바이'로 방식을 변경</strong>했습니다."
-                            </p>
-                        </div>
-                        <div class="flex items-start">
-                            <span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 20px; background-color: #333 !important; color: #60a5fa !important; font-size: 10px; font-weight: 900; border-radius: 4px; margin-right: 8px; margin-top: 2px; flex-shrink: 0;">R</span>
-                            <p class="text-[14.5px] leading-relaxed text-zinc-200">
-                                "그 결과, 주문 후 음료가 나가는 속도가 빨라져, <strong class="font-bold underline underline-offset-4" style="color: #60a5fa !important; text-decoration-color: #60a5fa !important;">피크 타임 평균 대기 줄이 3명 이하로 유지</strong>할 수 있었습니다. 덕분에 긴 대기 시간으로 인해 발길을 돌리던 고객들의 이탈을 방지하여, <strong class="font-bold underline underline-offset-4" style="color: #60a5fa !important; text-decoration-color: #60a5fa !important;">피크 시간대 매출을 전월 대비 15% 이상 향상</strong>시키는 성과를 거두었습니다."
-                            </p>
-                        </div>
-                    </div>
+            </div>
+            <div class="card-main p-4">
+                <p class="text-[12px] font-black tracking-widest uppercase mb-3" style="color: #60a5fa !important;">답변 중 점검할 것</p>
+                <div class="space-y-2 text-[13px] leading-[1.8] text-zinc-300">
+                    <p>• 설명이 아니라 문제-행동-성과 흐름으로 말하고 있는가</p>
+                    <p>• 추상어 대신 수치와 근거를 말하고 있는가</p>
+                    <p>• 자기소개서와 다른 말로 스스로 모순을 만들고 있지 않은가</p>
                 </div>
             </div>
         </div>
 
-        <!-- 🚀 3가지 체크리스트 -->
-        <div class="relative z-10 space-y-2 mb-4">
-            <h3 class="text-[15px] font-black text-white px-1 mb-1.5">💡 이 문장이 합격을 부르는 3가지 이유</h3>
-            
-            <div class="grid grid-cols-1 gap-2">
-                <div class="rounded-md px-3.5 py-2.5 flex items-start gap-3" style="background-color: #1f2937 !important; border: 1px solid #334155 !important;">
-                    <i class="fa-solid fa-chart-pie text-lg mt-0.5" style="color: #60a5fa !important;"></i>
-                    <div>
-                        <p class="text-[14.5px] font-bold text-white leading-none mb-1">평가 가능한 명확한 성과</p>
-                        <p class="text-[12.5px] text-zinc-400 leading-snug break-keep">"열심히 했습니다"라는 주관적인 답변대신, 내가 이룬 성과를 면접관이 즉시 납득할 수 있도록 수치화된 데이터로 대답했습니다.</p>
-                    </div>
-                </div>
-                <div class="rounded-md px-3.5 py-2.5 flex items-start gap-3" style="background-color: #1f2937 !important; border: 1px solid #334155 !important;">
-                    <i class="fa-solid fa-seedling text-lg mt-0.5" style="color: #60a5fa !important;"></i>
-                    <div>
-                        <p class="text-[14.5px] font-bold text-white leading-none mb-1">스스로 문제를 찾고 성장하는 인재</p>
-                        <p class="text-[12.5px] text-zinc-400 leading-snug break-keep">단순히 주어진 일만 하는 것이 아니라, 문제를 파악하고 해결책을 찾아 결과를 내는 '매일 성장하는 주도적 인재'임을 증명합니다.</p>
-                    </div>
-                </div>
-                <div class="rounded-md px-3.5 py-2.5 flex items-start gap-3" style="background-color: #1f2937 !important; border: 1px solid #334155 !important;">
-                    <i class="fa-solid fa-briefcase text-lg mt-0.5" style="color: #60a5fa !important;"></i>
-                    <div>
-                        <p class="text-[14.5px] font-bold text-white leading-none mb-1">기업의 언어(효율화) 장착</p>
-                        <p class="text-[12.5px] text-zinc-400 leading-snug break-keep">아무리 사소한 경험이라도 기업이 가장 좋아하는 '시간 단축과 비용 절감'이라는 철저한 비즈니스 관점으로 번역해 냈습니다.</p>
-                    </div>
-                </div>
-            </div>
+        <div class="relative z-10 card-main p-4 mb-4">
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
+                여기까지 준비됐다면 면접은 더 이상 즉흥적으로 버티는 자리가 아닙니다.
+                <strong class="text-white">이미 준비된 구조를 질문에 맞게 꺼내 증명하는 자리</strong>가 됩니다.
+            </p>
         </div>
 
-        <!-- 👆 6페이지 본문 끝 👆 -->
-
-        <!-- 🔒 공통 푸터 (건드리지 마세요) -->
         <div class="relative z-10 mt-auto pt-4 footer-anchor" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
             <div class="flex justify-between items-end" style="display: flex !important; justify-content: space-between !important; align-items: flex-end !important;">
                 <span class="text-lg font-black tracking-tighter italic" style="color: rgba(255,255,255,0.9) !important;">

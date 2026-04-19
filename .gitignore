@@ -1,2 +1,5 @@
 node_modules/
 test-results/
+tmp_master.png
+tmp_reader.png
+tmp_word_export/
