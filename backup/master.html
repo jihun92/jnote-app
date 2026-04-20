@@ -326,6 +326,26 @@
             letter-spacing: 0.16em !important;
             text-transform: uppercase !important;
         }
+        .star-step-page > .card-main:first-of-type,
+        .star-step-page .star-main-card {
+            min-height: 272px;
+        }
+        .star-step-page .card-example.p-4 {
+            min-height: 182px;
+        }
+        .star-step-page .card-main.p-4 {
+            min-height: 88px;
+        }
+        .star-step-page .compare-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .star-step-page .card-main p,
+        .star-step-page .card-example p,
+        .star-step-page .card-warning p {
+            text-wrap: pretty;
+        }
         #page-5 .mb-6 { margin-bottom: 1rem !important; }
         #page-5 .mb-5 { margin-bottom: 0.875rem !important; }
         #page-5 .mb-4 { margin-bottom: 0.75rem !important; }
@@ -1059,52 +1079,28 @@
             <span class="text-[10px] font-mono text-zinc-500 tracking-widest">08</span>
         </div>
 
-        <div class="relative z-10 flex items-center justify-between mb-4">
-            <span class="section-label text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full">Problem</span>
-            <span class="text-[11px] text-zinc-400 tracking-widest">왜 이 일을 중요하게 느꼈는가</span>
-        </div>
-
-        <div class="relative z-10 mb-5 pl-5" style="border-left: 4px solid #60a5fa !important;">
-            <h2 class="page-title break-keep">
-                P는 관심 표현이 아니라, <br>
-                <span style="color: #60a5fa !important;">문제를 인식한 출발점</span>을 보여주는 단계입니다.
-            </h2>
-        </div>
-
-        <div class="relative z-10 card-main p-5 mb-4">
+        <div class="relative z-10 card-main star-main-card p-5 mb-4">
+            <div class="flex items-center gap-4 mb-3">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center font-black text-black text-[28px]" style="background-color: #60a5fa !important;">P</div>
+                <div>
+                    <p class="eyebrow mb-1" style="color: #60a5fa !important;">Problem</p>
+                    <h2 class="page-title">문제를 인식한 출발점</h2>
+                </div>
+            </div>
             <p class="lead-copy break-keep">
                 많은 지원자가 지원동기를 <strong class="text-white">"관심이 생겼습니다"</strong>로 시작합니다.
                 하지만 기업이 더 귀를 기울이는 문장은
                 <strong class="text-white">"저는 실제로 이런 문제를 보고, 그 중요성을 느꼈습니다"</strong>입니다.
                 즉 P단계는 <strong class="text-white">문제를 인식하고 인사이트를 얻은 순간</strong>을 스토리로 보여주는 구간입니다.
             </p>
-        </div>
-
-        <div class="relative z-10 card-example p-4 mb-4">
-            <p class="eyebrow mb-3" style="color: #60a5fa !important;">민수의 사례</p>
-            <p class="text-[13px] leading-[1.85] text-zinc-100 break-keep">
-                민수는 대학 시절, 쇼핑몰 결제 과정에서 <strong class="text-white">가짜 결제창으로 개인정보와 카드 정보가 유출된 뉴스</strong>를 접했습니다.
-                이 경험을 통해 보안이 무너지면 단순한 기술 문제가 아니라, <strong class="text-white">무고한 사람들이 실제 피해를 입을 수 있다</strong>는 점을 인식하게 됐습니다.
-            </p>
-        </div>
-
-        <div class="relative z-10 card-main p-4 mb-4">
-            <div class="flex items-center gap-2 mb-3">
-                <i class="fa-solid fa-pen-ruler text-sm" style="color: #60a5fa !important;"></i>
-                <p class="mini-title">작성 포인트</p>
+            <div class="mt-3 space-y-2 text-[13px] leading-[1.8] text-zinc-300">
+                <p>• P에서는 <strong class="text-white">사건</strong>과 <strong class="text-white">인사이트</strong>가 함께 보여야 합니다.</p>
+                <p>• 직접 겪은 일이 아니어도 <strong class="text-white">왜 이 문제가 중요하다고 느꼈는지</strong>가 분명하면 충분합니다.</p>
+                <p>• 핵심은 관심 표현이 아니라 <strong class="text-white">문제의식을 갖게 된 순간</strong>을 잡아주는 것입니다.</p>
             </div>
-            <div class="space-y-2 text-[13px] leading-[1.8] text-zinc-300">
-                <p><strong class="text-white">사건(Situation)</strong> 무엇을 보았고 어떤 일이 있었는지 간단히 씁니다.</p>
-                <p><strong class="text-white">인사이트(Insight)</strong> 그래서 왜 이 문제가 중요하다고 느꼈는지 연결합니다.</p>
-                <p>직접 겪은 일이 아니어도 <strong class="text-white">문제의식과 깨달음</strong>이 분명하면 충분히 출발점이 됩니다.</p>
-            </div>
-        </div>
-
-        <div class="relative z-10 card-example p-4 mb-4">
-            <p class="eyebrow mb-3" style="color: #60a5fa !important;">1단계 초안 예시</p>
-            <p class="text-[13px] leading-[1.85] text-zinc-100 break-keep">
-                온라인 쇼핑몰 결제 과정에서 가짜 결제창으로 인해 정보가 유출되는 사고 뉴스를 보았습니다.
-                이 사건을 보며 기술적 오류 하나가 사용자 신뢰 전체를 무너뜨릴 수 있음을 느꼈습니다.
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
+                예를 들어 민수는 쇼핑몰 결제 과정에서 <strong class="text-white">가짜 결제창으로 개인정보와 카드 정보가 유출된 뉴스</strong>를 접했고,
+                이 경험을 통해 보안이 무너지면 단순한 기술 문제가 아니라 <strong class="text-white">무고한 사람들이 실제 피해를 입을 수 있다</strong>는 점을 인식하게 됩니다.
             </p>
         </div>
 
@@ -1123,12 +1119,19 @@
             </div>
         </div>
 
-        <div class="relative z-10 card-warning p-4 mb-4">
-            <div class="flex items-center gap-2 mb-2">
-                <i class="fa-solid fa-triangle-exclamation text-sm" style="color: #f87171 !important;"></i>
-                <p class="mini-title">주의할 점</p>
-            </div>
-            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
+        <div class="relative z-10 card-example p-4 mb-4">
+            <p class="mini-title mb-2">해설</p>
+            <p class="parl-stage-block-copy text-zinc-300 break-keep">
+                좋은 P문장은 "보안에 관심이 생겼다"에서 끝나지 않고,
+                <strong class="text-white">어떤 사건을 보고 왜 그 문제가 중요하다고 느꼈는지</strong>가 드러납니다.
+                그래서 읽는 사람은 이 지원자를 감정적으로 반응한 사람이 아니라, 문제를 인식한 사람으로 받아들이게 됩니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                초안으로는
+                <strong class="text-white">"온라인 쇼핑몰 결제 과정에서 가짜 결제창으로 인해 정보가 유출되는 사고 뉴스를 보았습니다. 이 사건을 보며 기술적 오류 하나가 사용자 신뢰 전체를 무너뜨릴 수 있음을 느꼈습니다."</strong>
+                처럼 쓰면 충분히 출발점이 됩니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
                 P단계의 문제는 <strong class="text-white">회사의 부족함</strong>이 아니라 <strong class="text-white">내가 중요하게 느낀 문제</strong>여야 합니다.
                 회사를 평가하거나 지적하는 문장으로 들리면, 좋은 문제 제기가 아니라 비판으로 읽힙니다.
             </p>
@@ -1153,55 +1156,27 @@
             <span class="text-[10px] font-mono text-zinc-500 tracking-widest">09</span>
         </div>
 
-        <div class="relative z-10 flex items-center justify-between mb-4">
-            <span class="section-label text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full">Alignment</span>
-            <span class="text-[11px] text-zinc-400 tracking-widest">왜 이 회사와 방향이 맞는가</span>
-        </div>
-
-        <div class="relative z-10 mb-5 pl-5" style="border-left: 4px solid #60a5fa !important;">
-            <h2 class="page-title break-keep">
-                A는 개인 목표가 아니라, <br>
-                <span style="color: #60a5fa !important;">회사와 나의 방향이 만나는 지점</span>을 보여줍니다.
-            </h2>
-        </div>
-
-        <div class="relative z-10 card-main p-5 mb-4">
+        <div class="relative z-10 card-main star-main-card p-5 mb-4">
+            <div class="flex items-center gap-4 mb-3">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center font-black text-black text-[28px]" style="background-color: #60a5fa !important;">A</div>
+                <div>
+                    <p class="eyebrow mb-1" style="color: #60a5fa !important;">Alignment</p>
+                    <h2 class="page-title">회사와 나의 방향이 만나는 지점</h2>
+                </div>
+            </div>
             <p class="lead-copy break-keep">
                 A단계는 <strong class="text-white">"왜 이 회사인가"</strong>를 설명하는 구간입니다.
                 여기서 중요한 것은 단순한 성장 가능성이나 브랜드 선호가 아니라,
                 <strong class="text-white">내가 중요하게 본 문제를 이 회사도 같은 방향에서 해결하고 있는가</strong>입니다.
             </p>
-        </div>
-
-        <div class="relative z-10 card-example p-4 mb-4">
-            <p class="eyebrow mb-3" style="color: #60a5fa !important;">2단계 초안 예시</p>
-            <p class="text-[13px] leading-[1.85] text-zinc-100 break-keep">
-                안랩은 글로벌 보안 평가에서 꾸준히 최고 수준의 신뢰를 유지하며,
-                사람과 기업의 안전을 지키는 기술력을 증명해 왔습니다.
-                민수는 이 지점에서 <strong class="text-white">"내가 중요하게 느낀 문제를 이 회사도 같은 방향에서 해결하고 있다"</strong>는 공감의 연결을 발견합니다.
-            </p>
-        </div>
-
-        <div class="relative z-10 card-main p-4 mb-4">
-            <div class="flex items-center gap-2 mb-3">
-                <i class="fa-solid fa-compass text-sm" style="color: #60a5fa !important;"></i>
-                <p class="mini-title">A단계의 핵심</p>
+            <div class="mt-3 space-y-2 text-[13px] leading-[1.8] text-zinc-300">
+                <p>• P가 <strong class="text-white">문제의식의 시작점</strong>이라면, A는 <strong class="text-white">공감의 방향점</strong>입니다.</p>
+                <p>• 복잡한 회사 분석보다 <strong class="text-white">회사와 나의 시선이 만나는 한 지점</strong>을 분명하게 잡는 편이 더 강합니다.</p>
+                <p>• 성장 가능성, 배울 점 같은 일반론보다 <strong class="text-white">왜 이 회사가 그 문제를 같은 방향에서 해결하는가</strong>가 보여야 합니다.</p>
             </div>
-            <div class="space-y-2 text-[13px] leading-[1.8] text-zinc-300">
-                <p>P가 <strong class="text-white">문제의식의 시작점</strong>이라면, A는 <strong class="text-white">공감의 방향점</strong>입니다.</p>
-                <p>복잡한 논리보다 <strong class="text-white">회사와 나의 시선이 만나는 지점</strong> 하나를 분명하게 보여주면 충분합니다.</p>
-            </div>
-        </div>
-
-        <div class="relative z-10 card-main p-4 mb-4">
-            <div class="flex items-center gap-2 mb-3">
-                <i class="fa-solid fa-arrows-to-circle text-sm" style="color: #60a5fa !important;"></i>
-                <p class="mini-title">정리하면 이렇게 읽힙니다</p>
-            </div>
-            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
-                지원자는 단순히 회사를 좋아한다고 말하는 것이 아니라,
-                <strong class="text-white">내가 중요하게 생각한 문제를 이 회사도 같은 방향에서 해결하고 있다</strong>는 이유로
-                지원의 근거를 만들게 됩니다.
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
+                예를 들어 안랩은 글로벌 보안 평가에서 꾸준히 높은 신뢰를 유지해 왔고,
+                민수는 이 지점에서 <strong class="text-white">"내가 중요하게 느낀 문제를 이 회사도 같은 방향에서 해결하고 있다"</strong>는 공감의 연결을 발견하게 됩니다.
             </p>
         </div>
 
@@ -1220,12 +1195,19 @@
             </div>
         </div>
 
-        <div class="relative z-10 card-warning p-4 mb-4">
-            <div class="flex items-center gap-2 mb-2">
-                <i class="fa-solid fa-triangle-exclamation text-sm" style="color: #f87171 !important;"></i>
-                <p class="mini-title">주의할 점</p>
-            </div>
-            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
+        <div class="relative z-10 card-example p-4 mb-4">
+            <p class="mini-title mb-2">해설</p>
+            <p class="parl-stage-block-copy text-zinc-300 break-keep">
+                좋은 A문장은 회사를 좋아한다고 고백하는 문장이 아니라,
+                <strong class="text-white">내가 중요하게 본 문제를 이 회사도 같은 방향에서 해결하고 있다</strong>는 이유로
+                지원의 근거를 만드는 문장입니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                초안으로는
+                <strong class="text-white">"안랩은 글로벌 보안 평가에서 꾸준히 높은 신뢰를 유지하며 사람과 기업의 안전을 지키는 기술력을 증명해 왔습니다. 저는 이 지점에서 제가 중요하게 느낀 문제를 이 회사도 같은 방향에서 해결하고 있다는 확신을 얻었습니다."</strong>
+                처럼 정리할 수 있습니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
                 A단계에서는 <strong class="text-white">"배울 점이 많다"</strong> 같은 일반론에 머물면 약합니다.
                 핵심은 <strong class="text-white">왜 이 회사가 내가 중요하게 본 문제를 같은 방향에서 해결하는지</strong>를 보여주는 것입니다.
             </p>
@@ -1250,53 +1232,27 @@
             <span class="text-[10px] font-mono text-zinc-500 tracking-widest">10</span>
         </div>
 
-        <div class="relative z-10 flex items-center justify-between mb-4">
-            <span class="section-label text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full">Relevance</span>
-            <span class="text-[11px] text-zinc-400 tracking-widest">경험으로 공감을 증명하기</span>
-        </div>
-
-        <div class="relative z-10 mb-5 pl-5" style="border-left: 4px solid #60a5fa !important;">
-            <h2 class="page-title break-keep">
-                R은 공감에서 멈추지 않고, <br>
-                <span style="color: #60a5fa !important;">실제 행동과 경험으로 이어지는 단계</span>입니다.
-            </h2>
-        </div>
-
-        <div class="relative z-10 card-main p-5 mb-4">
+        <div class="relative z-10 card-main star-main-card p-5 mb-4">
+            <div class="flex items-center gap-4 mb-3">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center font-black text-black text-[28px]" style="background-color: #60a5fa !important;">R</div>
+                <div>
+                    <p class="eyebrow mb-1" style="color: #60a5fa !important;">Relevance</p>
+                    <h2 class="page-title">실제 행동과 경험으로 증명하기</h2>
+                </div>
+            </div>
             <p class="lead-copy break-keep">
                 R단계에서는 <strong class="text-white">"그래서 나는 이런 노력을 했다"</strong>가 보여야 합니다.
                 완벽한 성취보다 중요한 것은, <strong class="text-white">그 방향을 향해 실제로 무엇을 준비하고 실천했는가</strong>입니다.
             </p>
-        </div>
-
-        <div class="relative z-10 card-example p-4 mb-4">
-            <p class="eyebrow mb-3" style="color: #60a5fa !important;">3단계 초안 예시</p>
-            <p class="text-[13px] leading-[1.85] text-zinc-100 break-keep">
-                민수는 프로젝트에서 서비스 신뢰성을 높이기 위해 입력값 검증과 예외 처리를 꼼꼼히 구현했습니다.
-                그 결과 테스트 과정에서 <strong class="text-white">다른 팀보다 절반 가까이 적은 오류</strong>가 발견됐고,
-                보안과 안정성을 중요하게 보는 시선을 경험으로 이어갈 수 있었습니다.
-            </p>
-        </div>
-
-        <div class="relative z-10 card-main p-4 mb-4">
-            <div class="flex items-center gap-2 mb-3">
-                <i class="fa-solid fa-link text-sm" style="color: #60a5fa !important;"></i>
-                <p class="mini-title">R단계의 기준</p>
+            <div class="mt-3 space-y-2 text-[13px] leading-[1.8] text-zinc-300">
+                <p>• 중요한 건 큰 스펙보다 <strong class="text-white">방향의 일관성</strong>입니다.</p>
+                <p>• <strong class="text-white">문제 인식 → 회사 공감 → 관련 경험</strong>이 자연스럽게 연결되면 충분합니다.</p>
+                <p>• 결과가 완벽하지 않아도 <strong class="text-white">그래서 나는 관련된 행동을 했다</strong>는 흐름이 보이면 설득력이 생깁니다.</p>
             </div>
-            <div class="space-y-2 text-[13px] leading-[1.8] text-zinc-300">
-                <p>중요한 건 큰 스펙보다 <strong class="text-white">방향의 일관성</strong>입니다.</p>
-                <p><strong class="text-white">문제 인식 → 회사 공감 → 관련 경험</strong>이 자연스럽게 연결되면 충분합니다.</p>
-            </div>
-        </div>
-
-        <div class="relative z-10 card-main p-4 mb-4">
-            <div class="flex items-center gap-2 mb-3">
-                <i class="fa-solid fa-person-running text-sm" style="color: #60a5fa !important;"></i>
-                <p class="mini-title">R단계에서 보여줘야 하는 것</p>
-            </div>
-            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
-                결과가 완벽하지 않아도 괜찮습니다.
-                중요한 것은 <strong class="text-white">그래서 나는 관련된 행동을 했고, 그 방향으로 준비해 왔다</strong>는 흐름이 보이는 것입니다.
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
+                예를 들어 민수는 프로젝트에서 서비스 신뢰성을 높이기 위해 입력값 검증과 예외 처리를 꼼꼼히 구현했고,
+                그 결과 테스트 과정에서 <strong class="text-white">다른 팀보다 절반 가까이 적은 오류</strong>가 발견됐습니다.
+                이렇게 써야 "공감했다"가 아니라 <strong class="text-white">실제로 준비해 온 사람</strong>으로 읽힙니다.
             </p>
         </div>
 
@@ -1313,6 +1269,20 @@
                     "입력값 검증과 예외 처리를 구현해 서비스 신뢰성을 높였고, 테스트 과정에서 다른 팀보다 절반 가까이 적은 오류가 발견됐습니다."
                 </p>
             </div>
+        </div>
+
+        <div class="relative z-10 card-example p-4 mb-4">
+            <p class="mini-title mb-2">해설</p>
+            <p class="parl-stage-block-copy text-zinc-300 break-keep">
+                좋은 R문장은 "프로젝트도 해봤다"에서 끝나지 않고,
+                <strong class="text-white">왜 그 경험이 지금 말한 방향성과 연결되는지</strong>를 보여줍니다.
+                즉, 공감이 행동으로 이어졌다는 증거를 만드는 단계입니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                초안으로는
+                <strong class="text-white">"프로젝트에서 서비스 신뢰성을 높이기 위해 입력값 검증과 예외 처리를 구현했고, 테스트 과정에서 다른 팀보다 절반 가까이 적은 오류가 발견됐습니다."</strong>
+                정도만 잡아도 충분히 방향성이 살아납니다.
+            </p>
         </div>
 
         <div class="relative z-10 mt-auto pt-5" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
@@ -1334,51 +1304,29 @@
             <span class="text-[10px] font-mono text-zinc-500 tracking-widest">11</span>
         </div>
 
-        <div class="relative z-10 flex items-center justify-between mb-4">
-            <span class="section-label text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full">Link</span>
-            <span class="text-[11px] text-zinc-400 tracking-widest">입사 후 기여로 연결하기</span>
-        </div>
-
-        <div class="relative z-10 mb-5 pl-5" style="border-left: 4px solid #60a5fa !important;">
-            <h2 class="page-title break-keep">
-                L은 결론입니다. <br>
-                <span style="color: #60a5fa !important;">기여 문장 한 줄로 방향을 닫는 단계</span>입니다.
-            </h2>
-        </div>
-
-        <div class="relative z-10 card-main p-5 mb-4">
+        <div class="relative z-10 card-main star-main-card p-5 mb-4">
+            <div class="flex items-center gap-4 mb-3">
+                <div class="w-12 h-12 rounded-xl flex items-center justify-center font-black text-black text-[28px]" style="background-color: #60a5fa !important;">L</div>
+                <div>
+                    <p class="eyebrow mb-1" style="color: #60a5fa !important;">Link</p>
+                    <h2 class="page-title">기여 문장으로 방향을 닫기</h2>
+                </div>
+            </div>
             <p class="lead-copy break-keep">
                 L단계에서는 지금까지의 경험을 바탕으로,
                 <strong class="text-white">그래서 내가 이 회사에서 어떤 방향으로 기여할 수 있는가</strong>를 정리합니다.
                 길게 설명하기보다 <strong class="text-white">나의 강점과 회사의 가치가 한 문장 안에서 만나게</strong> 하면 됩니다.
             </p>
-        </div>
-
-        <div class="relative z-10 card-example p-4 mb-4">
-            <p class="eyebrow mb-3" style="color: #60a5fa !important;">4단계 초안 예시</p>
-            <p class="text-[13px] leading-[1.85] text-zinc-100 break-keep">
-                이러한 경험을 바탕으로, 사용자 신뢰를 중심에 두는 백엔드 개발자로서
-                <strong class="text-white">안랩의 안정적이고 신뢰받는 서비스 구축에 기여하고 싶습니다.</strong>
+            <div class="mt-3 space-y-2 text-[13px] leading-[1.8] text-zinc-300">
+                <p>• <strong class="text-white">나의 강점</strong>과 <strong class="text-white">회사의 가치</strong>가 한 문장 안에서 함께 보여야 합니다.</p>
+                <p>• 희망사항을 길게 나열하기보다 <strong class="text-white">어떤 방향으로 기여할 사람인가</strong>를 분명히 닫아야 합니다.</p>
+                <p>• L은 결심문이 아니라 <strong class="text-white">기여 문장</strong>이어야 합니다.</p>
+            </div>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
+                예를 들어
+                <strong class="text-white">"사용자 신뢰를 중심에 두는 백엔드 개발자로서 안랩의 안정적이고 신뢰받는 서비스 구축에 기여하고 싶습니다."</strong>
+                처럼 쓰면, 앞 단계에서 쌓아온 문제의식과 경험이 마지막 문장에서 자연스럽게 닫히게 됩니다.
             </p>
-        </div>
-
-        <div class="relative z-10 card-main p-4 mb-4">
-            <div class="flex items-center gap-2 mb-3">
-                <i class="fa-solid fa-bullseye text-sm" style="color: #60a5fa !important;"></i>
-                <p class="mini-title">좋은 L문장의 기준</p>
-            </div>
-            <div class="space-y-2 text-[13px] leading-[1.8] text-zinc-300">
-                <p><strong class="text-white">나의 강점</strong>과 <strong class="text-white">회사의 가치</strong>가 함께 보여야 합니다.</p>
-                <p>희망사항을 나열하기보다, <strong class="text-white">어떤 방향으로 기여할 사람인가</strong>가 드러나야 합니다.</p>
-            </div>
-        </div>
-
-        <div class="relative z-10 card-example p-4 mb-4">
-            <p class="eyebrow mb-3" style="color: #60a5fa !important;">확장 예시</p>
-            <div class="space-y-2 text-[13px] leading-[1.8] text-zinc-100">
-                <p>• 보안적 시각을 가진 백엔드 개발자로서 안랩의 기술 완성도에 힘을 보태고 싶습니다.</p>
-                <p>• 사용자 신뢰를 지키는 서비스를 함께 만들며, 안정적인 백엔드 구조에 기여하고 싶습니다.</p>
-            </div>
         </div>
 
         <div class="relative z-10 compare-grid mb-4">
@@ -1394,6 +1342,21 @@
                     "사용자 신뢰를 중심에 두는 백엔드 개발자로서 안랩의 안정적이고 신뢰받는 서비스 구축에 기여하고 싶습니다."
                 </p>
             </div>
+        </div>
+
+        <div class="relative z-10 card-example p-4 mb-4">
+            <p class="mini-title mb-2">해설</p>
+            <p class="parl-stage-block-copy text-zinc-300 break-keep">
+                좋은 L문장은 "열심히 하겠습니다"가 아니라,
+                <strong class="text-white">나는 어떤 기준을 가진 사람이고 그 기준으로 회사에 어떻게 기여하겠다</strong>를 보여줍니다.
+                그래서 읽는 사람은 이 문장을 지원동기의 결론으로 자연스럽게 받아들이게 됩니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                확장하면
+                <strong class="text-white">"보안적 시각을 가진 백엔드 개발자로서 안랩의 기술 완성도에 힘을 보태고 싶습니다."</strong>,
+                <strong class="text-white">"사용자 신뢰를 지키는 서비스를 함께 만들며 안정적인 백엔드 구조에 기여하고 싶습니다."</strong>
+                같은 형태로도 정리할 수 있습니다.
+            </p>
         </div>
 
         <div class="relative z-10 mt-auto pt-5" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
@@ -1678,14 +1641,21 @@
                 Situation은 어떤 배경에서 문제가 발생했는지를 짧고 구체적으로 보여주는 구간입니다.
                 <strong class="text-white">무슨 프로젝트였는지 + 어떤 문제가 있었는지</strong>가 함께 보여야 합니다.
             </p>
-        </div>
-
-        <div class="relative z-10 card-main p-4 mb-4">
-            <p class="mini-title mb-2">핵심 포인트</p>
-            <div class="space-y-2 text-[13px] leading-[1.8] text-zinc-300">
+            <div class="mt-3 space-y-2 text-[13px] leading-[1.8] text-zinc-300">
                 <p>• "무슨 프로젝트였는가"와 "어떤 문제가 있었는가"를 한 번에 보여줘야 합니다.</p>
                 <p>• 길게 설명하지 말고 <strong class="text-white">2문장 이내</strong>로 간결하게 써야 합니다.</p>
+                <p>• 단순 현상보다 <strong class="text-white">왜 문제가 됐는지의 기술적 맥락</strong>이 드러나면 훨씬 강해집니다.</p>
             </div>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
+                많은 지원자들이 상황을 쓸 때 프로젝트 소개부터 길게 시작합니다.
+                하지만 Situation의 목적은 배경 설명이 아니라 <strong class="text-white">문제의 장면을 빠르게 보여주는 것</strong>입니다.
+                그래서 프로젝트 이름과 문제 상황을 먼저 붙여 쓰는 편이 훨씬 강합니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                결국 Situation은 "무슨 일을 했다"를 소개하는 칸이 아니라,
+                <strong class="text-white">내가 어떤 문제를 인식했고 무엇을 해결 대상으로 삼았는가</strong>를 보여주는 출발점입니다.
+                이 시작점이 선명해야 뒤의 Task와 Action도 자연스럽게 이어집니다.
+            </p>
         </div>
 
         <div class="relative z-10 compare-grid mb-4">
@@ -1709,21 +1679,17 @@
                 단순히 "페이지가 느렸다"가 아니라, <strong class="text-white">왜 느렸는지의 원인</strong>까지 자연스럽게 드러나 있습니다.
                 이렇게 써야 독자가 "이 사람이 문제를 기술적으로 인식하고 있구나"라고 느낍니다.
             </p>
-        </div>
-
-        <div class="relative z-10 card-warning p-4 mb-4">
-            <p class="mini-title mb-2">Situation에서 자주 약해지는 이유</p>
-            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
-                많은 지원자들이 상황을 쓸 때 프로젝트 소개부터 길게 시작합니다.
-                하지만 Situation의 목적은 배경 설명이 아니라 <strong class="text-white">문제의 장면을 빠르게 보여주는 것</strong>입니다.
-                그래서 "무슨 프로젝트였는지"와 "어떤 문제가 있었는지"만 먼저 잡아주는 편이 훨씬 강합니다.
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                반대로 "트래픽이 많아져서 느려졌다"처럼 현상만 적으면 누구나 쓸 수 있는 문장이 됩니다.
+                Situation은 문제를 요약하는 칸이 아니라, <strong class="text-white">내가 무엇을 문제로 봤는지 드러내는 칸</strong>입니다.
             </p>
-        </div>
-
-        <div class="relative z-10 card-main p-4 mb-4">
-            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
-                Situation은 배경 설명이 길어지면 힘이 빠집니다.
-                핵심은 <strong class="text-white">문제의 장면을 빠르게 잡아주는 것</strong>입니다.
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                핵심은 <strong class="text-white">배경 설명</strong>이 아니라 <strong class="text-white">문제 장면을 빠르게 보여주는 것</strong>입니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                면접에서도 이 문장은 그대로 출발점이 됩니다.
+                Situation을 잘 써두면 "어떤 문제였나요?"라는 질문에 다시 헤매지 않고,
+                처음부터 <strong class="text-white">문제 인식이 있는 지원자</strong>로 보이게 됩니다.
             </p>
         </div>
 
@@ -1759,14 +1725,20 @@
                 <strong class="text-white">해결 목표</strong>를 함께 제시합니다.
                 단순히 맡은 일이 아니라 무엇을 해결해야 했는지가 보여야 합니다.
             </p>
-        </div>
-
-        <div class="relative z-10 card-main p-4 mb-4">
-            <p class="mini-title mb-2">핵심 포인트</p>
-            <div class="space-y-2 text-[13px] leading-[1.8] text-zinc-300">
+            <div class="mt-3 space-y-2 text-[13px] leading-[1.8] text-zinc-300">
                 <p>• "내가 해야 했던 일"보다 <strong class="text-white">무엇을 해결해야 했는가</strong>를 써야 합니다.</p>
                 <p>• 목표가 명확할수록 뒤의 Action이 설득력을 얻습니다.</p>
+                <p>• 역할과 과제를 분리해서 쓰면 <strong class="text-white">책임 범위와 기대 결과</strong>가 더 또렷하게 보입니다.</p>
             </div>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
+                "백엔드를 맡았습니다"처럼 역할만 쓰면 그 다음 문장은 전부 업무 나열처럼 보입니다.
+                그래서 Task에서는 <strong class="text-white">무엇을 바꿔야 했는지, 어떤 상태를 만들어야 했는지</strong>까지 함께 써야 합니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                쉽게 말해 Task는 "내가 담당자였다"를 쓰는 칸이 아니라,
+                <strong class="text-white">내가 책임졌던 개선 목표를 한 줄로 정리하는 칸</strong>입니다.
+                이 목표가 선명할수록 뒤에서 설명하는 Action이 일관된 흐름으로 읽힙니다.
+            </p>
         </div>
 
         <div class="relative z-10 compare-grid mb-4">
@@ -1790,21 +1762,18 @@
                 역할과 목표가 함께 제시되어 있어,
                 독자는 "이 사람은 단순히 맡은 게 아니라 <strong class="text-white">책임을 인식하고 있었구나</strong>"라고 이해하게 됩니다.
             </p>
-        </div>
-
-        <div class="relative z-10 card-warning p-4 mb-4">
-            <p class="mini-title mb-2">Task를 쓸 때 흔한 실수</p>
-            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
-                "백엔드를 맡았습니다", "기능 구현을 담당했습니다"처럼 역할만 쓰면
-                그 다음 Action은 단순 업무 나열처럼 보입니다.
-                Task에서는 <strong class="text-white">무엇을 바꿔야 했는지, 어떤 상태를 만들어야 했는지</strong>가 같이 보여야 문장이 살아납니다.
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                특히 Task는 Action의 기준점 역할을 합니다.
+                목표가 선명해야 뒤에서 설명하는 기술 선택과 해결 과정도 <strong class="text-white">왜 그 행동이 필요했는지</strong> 설득력을 얻습니다.
             </p>
-        </div>
-
-        <div class="relative z-10 card-main p-4 mb-4">
-            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
                 Task가 흐리면 그 다음 문장은 전부 "그냥 한 일"처럼 보입니다.
                 먼저 <strong class="text-white">내가 해결해야 했던 과제</strong>를 선명하게 잡아야 합니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                좋은 Task 문장은 역할과 목표가 동시에 들어 있어
+                읽는 사람이 "이 사람이 왜 이 행동을 했는지"를 미리 이해하게 만듭니다.
+                즉, Task는 뒤 문장을 위한 <strong class="text-white">판단 프레임</strong>을 깔아주는 단계입니다.
             </p>
         </div>
 
@@ -1839,27 +1808,22 @@
                 Action은 STAR의 핵심입니다. 단순히 무엇을 실행했는지로 끝나지 않고,
                 <strong class="text-white">왜 그런 문제가 생겼는지 분석하고 어떤 해결 전략을 세웠는지</strong>까지 보여줘야 합니다.
             </p>
-        </div>
-
-        <div class="relative z-10 grid grid-cols-[0.92fr_1.08fr] gap-4 mb-4">
-            <div class="card-main p-4">
-                <p class="mini-title mb-2">핵심 포인트</p>
-                <div class="space-y-2 text-[13px] leading-[1.8] text-zinc-300">
-                    <p>• Action에는 <strong class="text-white">원인 분석</strong>과 <strong class="text-white">해결 과정</strong>이 함께 들어가야 합니다.</p>
-                    <p>• 단순 실행보다 <strong class="text-white">왜 그 방식을 택했는가</strong>가 드러나야 합니다.</p>
-                    <p>• 기술적 해결뿐 아니라 <strong class="text-white">논리적 판단 과정</strong>이 보여야 합니다.</p>
-                </div>
+            <div class="mt-3 space-y-2 text-[13px] leading-[1.8] text-zinc-300">
+                <p>• Action에는 <strong class="text-white">원인 분석</strong>과 <strong class="text-white">해결 과정</strong>이 함께 들어가야 합니다.</p>
+                <p>• 단순 실행보다 <strong class="text-white">왜 그 방식을 택했는가</strong>가 드러나야 합니다.</p>
+                <p>• 핵심 구조는 <strong class="text-white">원인 분석 → 해결 전략 수립 → 실행</strong>입니다.</p>
             </div>
-            <div class="card-example p-4">
-                <p class="mini-title mb-2">구조 공식</p>
-                <p class="text-[13px] leading-[1.85] text-zinc-100 break-keep">
-                    <strong class="text-white">원인 분석 → 해결 전략 수립 → 실행</strong>
-                </p>
-                <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-2">
-                    이 세 단계가 한 문단 안에서 자연스럽게 이어질 때,
-                    STAR의 Action이 실무형 사고로 보입니다.
-                </p>
-            </div>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
+                S와 T가 문제와 과제를 세팅하는 구간이라면,
+                A는 지원자의 <strong class="text-white">실제 판단력과 실행력</strong>이 드러나는 구간입니다.
+                그래서 Action은 "했다"로 끝내지 말고,
+                <strong class="text-white">왜 그 원인을 병목으로 봤는지 → 왜 그 해결책을 택했는지 → 무엇을 바꿨는지</strong>가 이어져야 합니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                기업이 Action에서 보고 싶은 것은 화려한 기술명이 아니라,
+                문제를 만났을 때 <strong class="text-white">원인을 짚고 우선순위를 정한 뒤 실제로 개선까지 연결한 사고 흐름</strong>입니다.
+                그래서 이 단계는 길어져도 괜찮지만, 반드시 논리 순서가 살아 있어야 합니다.
+            </p>
         </div>
 
         <div class="relative z-10 compare-grid mb-4">
@@ -1877,33 +1841,28 @@
             </div>
         </div>
 
-        <div class="relative z-10 card-main p-4 mb-4">
-            <p class="mini-title mb-2">Action 확장 예시</p>
+        <div class="relative z-10 card-example p-4 mb-4">
+            <p class="mini-title mb-2">해설과 확장 예시</p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mb-3">
+                Action은 단순한 실행 목록이 아니라, <strong class="text-white">왜 그렇게 판단했고 어떻게 해결했는가</strong>를 보여주는 구간입니다.
+                이 단계에서 지원자의 실제 판단력과 실행력이 가장 선명하게 드러납니다.
+            </p>
             <p class="parl-stage-block-copy text-zinc-300 break-keep">
                 원인을 분석해보니, 상품 목록을 불러올 때마다 DB에서 전체 데이터를 매번 조회하는 구조로 되어 있었고,
                 사용자 요청이 많아질수록 DB 부하가 급격히 증가하고 있었습니다.
                 이를 개선하기 위해 상품 데이터를 한 번 조회한 뒤 일정 시간 동안 메모리 캐싱을 적용해 동일 요청 시 DB 접근을 최소화했습니다.
                 또한, 조회 쿼리에서 필요 없는 컬럼도 함께 조회하고 있어 필요한 컬럼만 선택하도록 수정해 데이터 전송량을 줄였습니다.
             </p>
-        </div>
-
-        <div class="relative z-10 card-warning p-4 mb-4">
-            <p class="mini-title mb-2">왜 A가 STAR의 핵심인가</p>
-            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
-                S와 T가 문제와 과제를 세팅하는 구간이라면,
-                A는 지원자의 <strong class="text-white">실제 판단력과 실행력</strong>이 드러나는 구간입니다.
-                그래서 Action은 "했다"로 끝내지 말고,
-                <strong class="text-white">왜 그 원인을 병목으로 봤는지 → 왜 그 해결책을 택했는지 → 무엇을 바꿨는지</strong>가 이어져야 합니다.
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
+                Action의 기준은 하나입니다.
+                <strong class="text-white">무엇을 했는지</strong>보다
+                <strong class="text-white">왜 그렇게 판단했고 실제로 무엇을 바꿨는지</strong>가 보이면 됩니다.
             </p>
-        </div>
-
-        <div class="relative z-10 card-example p-4 mb-4">
-            <p class="mini-title mb-2">실무형 Action의 기준</p>
-            <div class="space-y-2 text-[13px] leading-[1.8] text-zinc-300">
-                <p>• 문제를 그냥 고친 것이 아니라 <strong class="text-white">원인을 분석</strong>했는가</p>
-                <p>• 여러 선택지 중 <strong class="text-white">왜 그 해결 방향을 택했는가</strong>가 보이는가</p>
-                <p>• 기술 조치를 말한 뒤 <strong class="text-white">무엇이 실제로 달라졌는가</strong>로 이어지는가</p>
-            </div>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                따라서 Action을 쓸 때는 기능 목록처럼 나열하지 말고,
+                <strong class="text-white">원인 분석 → 선택한 전략 → 실제 수정 내용</strong>이 한 흐름으로 읽히게 정리하는 것이 중요합니다.
+                이 구조가 살아 있으면 면접에서도 같은 답변을 그대로 확장해 말하기 쉬워집니다.
+            </p>
         </div>
 
         <div class="relative z-10 mt-auto pt-5" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
@@ -1937,6 +1896,20 @@
                 Result는 수치 중심의 정량적 변화를 보여주는 것이 가장 좋습니다.
                 정량화가 어렵다면 <strong class="text-white">이전 대비 개선된 점 + 배운 점</strong>으로도 충분히 설득력을 만들 수 있습니다.
             </p>
+            <div class="mt-3 space-y-2 text-[13px] leading-[1.8] text-zinc-300">
+                <p>• 가능하면 <strong class="text-white">속도, 오류 수, 처리 시간</strong>처럼 숫자로 변화를 제시합니다.</p>
+                <p>• 숫자가 없다면 <strong class="text-white">이전 대비 어떤 점이 달라졌는지</strong>를 비교 형태로 적습니다.</p>
+                <p>• 마지막에는 이 경험을 통해 얻은 <strong class="text-white">배움이나 기준</strong>을 한 줄로 정리합니다.</p>
+            </div>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
+                결과를 쓸 때는 가장 먼저 <strong class="text-white">무엇이 얼마나 달라졌는지</strong>를 보여주고,
+                그 다음에 <strong class="text-white">이 경험에서 무엇을 배웠는지</strong>를 붙이면 문장이 훨씬 완성도 있게 보입니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                많은 지원자들이 Result를 성과 자랑으로만 끝내는데,
+                기업은 숫자 자체보다도 그 결과를 해석하는 태도를 봅니다.
+                그래서 결과 뒤에 <strong class="text-white">어떤 기준을 배우게 되었는지</strong>까지 붙이는 편이 훨씬 강합니다.
+            </p>
         </div>
 
         <div class="relative z-10 compare-grid mb-4">
@@ -1955,35 +1928,38 @@
         </div>
 
         <div class="relative z-10 card-example p-4 mb-4">
-            <p class="mini-title mb-2">해설</p>
+            <p class="mini-title mb-2">해설과 요약</p>
             <p class="parl-stage-block-copy text-zinc-300 break-keep">
                 성과(<strong class="text-white">50% 단축</strong>)와 인사이트(<strong class="text-white">사용자 중심 사고</strong>)가 함께 들어가면 완성도가 높아집니다.
                 기업이 보고 싶은 것은 단순한 성공이 아니라, 그 안에서 <strong class="text-white">무엇을 배우고 성장했는가</strong>입니다.
             </p>
-        </div>
-
-        <div class="relative z-10 grid grid-cols-2 gap-4 mb-4">
-            <div class="card-main p-4">
-                <p class="mini-title mb-2">정량화가 가능할 때</p>
-                <div class="space-y-2 text-[13px] leading-[1.8] text-zinc-300">
-                    <p>• 응답 속도, 처리 시간, 오류 수, 매출, 비용처럼 <strong class="text-white">숫자 변화</strong>를 바로 제시합니다.</p>
-                    <p>• 예: 평균 4초 → 2초대, 오류 절반 수준 감소</p>
+            <div class="grid grid-cols-2 gap-4 mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
+                <div>
+                    <p class="text-[13px] font-black text-white mb-1">정량화가 가능할 때</p>
+                    <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
+                        응답 속도, 처리 시간, 오류 수처럼 <strong class="text-white">숫자 변화</strong>를 바로 제시합니다.
+                    </p>
+                </div>
+                <div>
+                    <p class="text-[13px] font-black text-white mb-1">정량화가 어려울 때</p>
+                    <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
+                        <strong class="text-white">이전 대비 개선된 점 + 배운 점</strong>으로 써도 충분히 설득력이 생깁니다.
+                    </p>
                 </div>
             </div>
-            <div class="card-main p-4">
-                <p class="mini-title mb-2">정량화가 어려울 때</p>
-                <div class="space-y-2 text-[13px] leading-[1.8] text-zinc-300">
-                    <p>• <strong class="text-white">이전 대비 개선된 점</strong>을 먼저 쓰고,</p>
-                    <p>• 마지막에 <strong class="text-white">무엇을 배웠는지</strong>를 붙이면 충분히 설득력이 생깁니다.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="relative z-10 card-main p-4 mb-4">
-            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
                 Result는 숫자만 쓰는 칸이 아닙니다.
                 <strong class="text-white">성과 + 배운 점</strong>이 함께 들어갈 때,
                 이 경험이 입사 후 성장 가능성으로 연결됩니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                결국 Result의 목적은 자랑이 아니라 증명입니다.
+                "무엇이 달라졌는가"와 "그 경험이 나를 어떻게 바꿨는가"가 함께 보여야 다음 문항과 면접 답변까지 자연스럽게 이어집니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                정리하면 좋은 Result는
+                <strong class="text-white">숫자나 비교로 변화 제시 → 그 변화의 의미 해석 → 배운 점 정리</strong>의 순서를 가집니다.
+                이 순서가 잡히면 STAR 문장이 단순 경험담이 아니라 성과 중심 사례로 완성됩니다.
             </p>
         </div>
 
@@ -2018,20 +1994,25 @@
                 면접관은 긴 서사를 끝까지 읽기 전에 판단을 시작합니다.
                 그래서 STAR 구조를 시작하기 전에 <strong class="text-white">결과의 핵심을 한 줄로 먼저 던지는 두괄식 후킹</strong>이 필요합니다.
             </p>
-            <div class="mt-3 card-example p-4" style="border-left: 4px solid #60a5fa !important;">
-                <p class="text-[13px] text-zinc-100 leading-[1.8] break-keep">
-                    <strong class="text-white">[성과 요약 한 줄]</strong>을 먼저 던지고,
-                    그 다음에 왜 그런 성과가 나왔는지 STAR 구조로 풀어주면 됩니다.
-                </p>
+            <div class="mt-3 space-y-2 text-[13px] leading-[1.8] text-zinc-300">
+                <p>• 후킹은 <strong class="text-white">결과를 통째로 먼저 말하는 것</strong>이 아니라 핵심만 먼저 잡아주는 방식입니다.</p>
+                <p>• 좋은 후킹은 뒤의 STAR 본문을 <strong class="text-white">설명</strong>이 아니라 <strong class="text-white">증거</strong>로 읽히게 만듭니다.</p>
+                <p>• 핵심 순서는 <strong class="text-white">성과 요약 한 줄 → 이유와 과정(STAR)</strong>입니다.</p>
             </div>
-        </div>
-
-        <div class="relative z-10 card-warning p-4 mb-4">
-            <p class="mini-title mb-2">왜 두괄식 후킹이 효과적인가</p>
-            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                공식은 간단합니다.
+                <strong class="text-white">[성과 요약 한 줄] → [왜/어떻게 풀었는지 STAR 구조로 설명]</strong>
+                순서로 말하면 됩니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
                 사람은 긴 서사를 끝까지 듣지 않습니다.
                 반면 결과의 핵심을 먼저 던지면 "어떻게 그 성과가 가능했지?"라는 질문이 생깁니다.
                 이 호기심이 생겨야 뒤에 이어지는 STAR 구조가 <strong class="text-white">설명</strong>이 아니라 <strong class="text-white">증거</strong>로 읽힙니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                즉, 두괄식은 순서를 바꾸는 기술이 아니라
+                <strong class="text-white">읽는 사람의 관심 순서를 먼저 설계하는 기술</strong>입니다.
+                이 한 줄이 있느냐 없느냐에 따라 같은 STAR 문장도 집중도가 크게 달라집니다.
             </p>
         </div>
 
@@ -2041,6 +2022,10 @@
                 <p class="text-[13px] leading-[1.8] text-zinc-200 break-keep">
                     "부트캠프 과정에서 백엔드 개발을 맡았고, 우리 팀은 쇼핑몰을 개발했습니다. 저는 상품 목록 페이지를 담당했고, 당시 로딩 속도가 느려서..."
                 </p>
+                <p class="text-[12px] leading-[1.8] text-zinc-400 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
+                    배경부터 차곡차곡 시작하면 읽는 사람은
+                    <strong class="text-zinc-200">언제 핵심이 나오는지 모른 채</strong> 중간에 집중을 잃기 쉽습니다.
+                </p>
             </div>
             <div class="card-example p-4">
                 <p class="eyebrow mb-2" style="color: #60a5fa !important;">두괄식 후킹</p>
@@ -2048,6 +2033,11 @@
                     "사용자 경험을 수치로 개선하는 백엔드 개발자입니다.
                     상품 목록 페이지 속도를 절반으로 줄인 경험이 있습니다.
                     그 과정에서 병목 구간을 찾아 캐싱과 쿼리 최적화를 적용했습니다."
+                </p>
+                <p class="text-[12px] leading-[1.8] text-zinc-300 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
+                    프로필 헤드라인이 <strong class="text-white">브랜딩</strong>을 하고,
+                    결과 한 줄이 <strong class="text-white">흥미를 유발</strong>한 뒤,
+                    STAR 본문이 그 주장을 증명하는 구조가 됩니다.
                 </p>
             </div>
         </div>
@@ -2069,24 +2059,30 @@
                 개선 후 페이지 응답 속도가 약 50% 단축되었고, 동시에 접속해도 지연이 거의 사라졌습니다.
                 이 경험을 통해 작은 기술적 개선이 사용자 경험에 큰 영향을 준다는 점을 배웠습니다.
             </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
+                이 구조의 장점은 분명합니다.
+                먼저 <strong class="text-white">무엇을 바꿨는지</strong>를 던져서 시선을 잡고,
+                그 다음에 <strong class="text-white">왜 그 변화가 가능했는지</strong>를 STAR 순서로 증명하기 때문에,
+                읽는 사람 입장에서 문장이 훨씬 빠르게 이해됩니다.
+            </p>
         </div>
 
-        <div class="relative z-10 grid grid-cols-[1.02fr_0.98fr] gap-4 mb-4">
-            <div class="card-main p-4">
-                <p class="mini-title mb-2">마무리 정리</p>
-                <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
-                    STAR는 단순한 글쓰기 공식이 아니라,
-                    기업이 보고자 하는 <strong class="text-white">문제 인식 → 해결 → 성과 → 성장</strong>의 사고 흐름을
-                    가장 명확하게 보여주는 구조입니다.
-                </p>
-            </div>
-            <div class="summary-callout rounded-lg p-4">
-                <p class="eyebrow mb-2" style="color: #60a5fa !important;">핵심 메시지</p>
-                <p class="text-[13px] leading-[1.8] text-zinc-100 break-keep">
-                    면접관이 기억하는 지원자는 가장 많이 한 사람이 아니라,
-                    <strong class="text-white">자신의 성과를 가장 명확하게 설명할 줄 아는 사람</strong>입니다.
-                </p>
-            </div>
+        <div class="relative z-10 card-main p-4 mb-4">
+            <p class="mini-title mb-2">마무리 정리</p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep">
+                STAR는 단순한 글쓰기 공식이 아니라,
+                기업이 보고자 하는 <strong class="text-white">문제 인식 → 해결 → 성과 → 성장</strong>의 사고 흐름을
+                가장 명확하게 보여주는 구조입니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-100 break-keep mt-3 pt-3" style="border-top: 1px solid rgba(255,255,255,0.08) !important;">
+                면접관이 기억하는 지원자는 가장 많이 한 사람이 아니라,
+                <strong class="text-white">자신의 성과를 가장 명확하게 설명할 줄 아는 사람</strong>입니다.
+            </p>
+            <p class="text-[13px] leading-[1.8] text-zinc-300 break-keep mt-3">
+                따라서 STAR를 쓸 때는 구조만 외우는 것으로 끝내지 말고,
+                매 문항마다 <strong class="text-white">한 줄 후킹</strong>을 먼저 설계한 뒤 본문을 붙이는 습관을 들이는 것이 좋습니다.
+                이 차이가 글의 시작 인상과 면접 답변의 전달력을 동시에 바꿉니다.
+            </p>
         </div>
 
         <div class="relative z-10 mt-auto pt-4 footer-anchor" style="border-top: 1px solid rgba(255,255,255,0.1) !important;">
