@@ -152,14 +152,19 @@ function createBookCard(book) {
     const isPrimaryBook = book.id === "resume-master-book";
     const statusClass = !isPublished ? "status-locked" : unlocked ? "status-unlocked" : "status-locked";
     const statusText = !isPublished ? "출간 예정" : unlocked ? "열람 가능" : "미리보기 제공";
-    const accessText = !isPublished ? "현재 제작 중입니다" : unlocked ? "전체 열람 가능" : "샘플 공개 10%";
+    const accessText = !isPublished ? "현재 제작 중입니다" : unlocked ? "전체 열람 가능" : isPrimaryBook ? "샘플 열람 가능" : "샘플 공개 10%";
     const availabilityClass = !isPublished ? "book-availability is-coming-soon" : "book-availability";
     const cardClass = !isPublished ? "book-card is-coming-soon" : "book-card";
     const thumbClass = !isPublished ? "book-thumb is-coming-soon" : isPrimaryBook ? "book-thumb is-primary-book" : "book-thumb";
+    const cardDescription = isPrimaryBook
+        ? unlocked
+            ? "스펙이 아니라 문장 구조가 합격률을 바꿉니다. 비전공자, 국비지원, 중소기업 경험도 서류와 면접에서 통하는 언어로 다시 정리한 실전 전자책입니다."
+            : "스펙이 부족해서 떨어지는 것이 아니라, 경험을 합격 문장으로 바꾸는 방법을 몰랐기 때문입니다. 먼저 샘플로 흐름을 확인한 뒤 전체 열람으로 이어갈 수 있습니다."
+        : book.description;
     const readAction = isPublished
         ? unlocked
             ? `<a class="button button-primary" href="./book.html?book=${book.id}&read=1">전자책 읽기</a>`
-            : `<button class="button button-primary" type="button" data-book-id="${book.id}" data-action="open-reader">전자책 열기</button>`
+            : `<button class="button button-primary" type="button" data-book-id="${book.id}" data-action="open-reader">샘플 보기</button>`
         : "";
     const actions = isPublished
         ? `
@@ -190,7 +195,7 @@ function createBookCard(book) {
             <div class="book-card-info">
                 ${primaryHeading}
                 <div class="${availabilityClass}">${accessText}</div>
-                <p>${book.description}</p>
+                <p>${cardDescription}</p>
                 ${actions}
             </div>
         </article>
