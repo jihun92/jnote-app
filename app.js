@@ -94,7 +94,7 @@ function installContentProtection(target) {
         return;
     }
 
-    const blockedEvents = ["copy", "cut", "dragstart", "contextmenu", "selectstart"];
+    const blockedEvents = ["dragstart"];
     blockedEvents.forEach((eventName) => {
         target.addEventListener(eventName, (event) => {
             event.preventDefault();
@@ -644,9 +644,9 @@ function mountBookFrame(container, book, mode = "original", options = {}) {
 
             const sharedCss = `
                 html {
-                    -webkit-user-select: none !important;
-                    user-select: none !important;
-                    -webkit-touch-callout: none !important;
+                    -webkit-user-select: text !important;
+                    user-select: text !important;
+                    -webkit-touch-callout: default !important;
                 }
                 body {
                     display: block !important;

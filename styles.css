@@ -1145,9 +1145,9 @@ body[data-page="viewer"] .reader-hero {
 .secure-reader-surface {
     position: relative;
     isolation: isolate;
-    -webkit-user-select: none;
-    user-select: none;
-    -webkit-touch-callout: none;
+    -webkit-user-select: text;
+    user-select: text;
+    -webkit-touch-callout: default;
 }
 
 .secure-watermark-layer {
