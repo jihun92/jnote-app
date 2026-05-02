@@ -1,5 +1,14 @@
 node_modules/
 test-results/
+.DS_Store
+PCL5URES.DL_
+tmp*/
 tmp_master.png
 tmp_reader.png
 tmp_word_export/
+tmp_page-10.png
+tmp_page-13.png
+tmp_page-22.png
+tmp_reader_check_full.png
+tmp_pdf_pages/
+tmp_pdf_verify/

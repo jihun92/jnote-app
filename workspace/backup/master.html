@@ -52,7 +52,6 @@
         .page-cover { padding: 60px; justify-content: space-between; }
         .page-content {
             padding: 45px 55px;
-            height: 100%;
             display: flex;
             flex-direction: column;
             position: relative;
@@ -279,6 +278,19 @@
         #page-13 .mb-3 { margin-bottom: 0.65rem !important; }
         #page-13 .card-main.p-3 { padding: 0.75rem !important; }
         #page-13 .card-example.p-5 { padding: 0.875rem !important; }
+        #page-13 .result-card-copy {
+            font-size: 13px !important;
+            line-height: 1.74 !important;
+        }
+        #page-13 .summary-note {
+            font-size: 12px !important;
+            line-height: 1.66 !important;
+        }
+        #page-13 .summary-callout { padding: 0.875rem !important; }
+        #page-13 .summary-callout p.text-\[17px\] {
+            font-size: 15px !important;
+            line-height: 1.45 !important;
+        }
         #page-13 .summary-callout { padding: 0.875rem !important; }
         .star-step-page .card-main.p-5,
         .star-step-page .card-example.p-5,
@@ -380,6 +392,25 @@
         #page-22 p.text-\[13px\] { line-height: 1.72 !important; }
         #page-22 .space-y-3 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.55rem !important; }
         #page-22 .space-y-2 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.45rem !important; }
+        #page-5 .mb-5 { margin-bottom: 1rem !important; }
+        #page-5 .mb-4 { margin-bottom: 0.75rem !important; }
+        #page-5 .roadmap-frame { padding: 10px !important; }
+        #page-5 .roadmap-frame img { max-width: 400px !important; }
+        #page-5 .pt-5 { padding-top: 1rem !important; }
+        #page-21 .mb-6 { margin-bottom: 1rem !important; }
+        #page-21 .mb-5 { margin-bottom: 0.875rem !important; }
+        #page-21 .mb-4 { margin-bottom: 0.75rem !important; }
+        #page-21 .p-6 { padding: 1rem !important; }
+        #page-21 .example-box { padding: 14px !important; margin-bottom: 0.875rem !important; }
+        #page-21 .space-y-5 > :not([hidden]) ~ :not([hidden]) { margin-top: 0.875rem !important; }
+        #page-21 .input-box { min-height: 52px !important; padding: 12px !important; }
+        #page-21 h2.text-\[25px\] { font-size: 23px !important; line-height: 1.24 !important; }
+        #page-21 p.text-\[14px\] { font-size: 13px !important; line-height: 1.6 !important; }
+        #page-22 .hero-panel { padding: 1.1rem !important; }
+        #page-22 h2.text-\[34px\] { font-size: 28px !important; line-height: 1.16 !important; }
+        #page-22 p.text-\[16px\] { font-size: 15px !important; line-height: 1.64 !important; }
+        #page-22 .mb-5 { margin-bottom: 0.875rem !important; }
+        #page-22 .mb-4 { margin-bottom: 0.65rem !important; }
         #page-8 .card-main.p-5,
         #page-8 .card-warning.p-5,
         #page-8 .card-example.p-5 { padding: 0.875rem !important; }
@@ -426,10 +457,36 @@
         .star-badge { display: inline-flex; align-items: center; justify-content: center; min-width: 32px; height: 20px; background-color: #333 !important; color: #60a5fa !important; font-size: 10px; font-weight: 900; border-radius: 4px; margin-right: 8px; margin-top: 2px; flex-shrink: 0; }
 
         /* 🖨️ PDF 인쇄 시 다중 페이지 자동 분할 기능 (핵심) */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
         @media print {
-            body { background: none !important; padding: 0 !important; margin: 0 !important; display: block !important; }
-            .page { box-shadow: none !important; margin: 0 !important; page-break-after: always !important; page-break-inside: avoid !important; }
-            .page:last-child { page-break-after: auto !important; }
+            html, body {
+                width: 210mm !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: none !important;
+            }
+            body {
+                display: block !important;
+            }
+            .page {
+                width: 210mm !important;
+                height: 297mm !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                overflow: hidden !important;
+                page-break-after: always !important;
+                page-break-inside: avoid !important;
+                break-after: page !important;
+                break-inside: avoid !important;
+            }
+            .page:last-child {
+                page-break-after: auto !important;
+                break-after: auto !important;
+            }
             .no-print { display: none !important; }
         }
     </style>
@@ -594,7 +651,7 @@
             
             <!-- Left: 9등급 성적표 -->
             <div class="flex-[1.6] image-upload-zone is-uploaded">
-                <img class="uploaded-img" alt="성적표" src="../img/고교 성적 인증사진.png" style="display:block;">
+                <img class="uploaded-img" alt="성적표" src="../../img/고교 성적 인증사진.png" style="display:block;">
                 <div class="absolute top-3 left-3 px-2.5 py-1.5 text-[9px] text-white font-bold tracking-widest z-30 border rounded-sm flex items-center gap-1.5" style="background-color: #000000 !important; border-color: #2563eb !important;">
                     <span class="neon-text">이전 스펙</span> <span style="opacity: 0.5;">//</span> 9등급 성적표
                 </div>
@@ -602,7 +659,7 @@
 
             <!-- Right: 사회복지 학위증 -->
             <div class="flex-1 image-upload-zone is-uploaded">
-                <img class="uploaded-img" alt="학사학위증명서" src="../img/사회복지사 인증사진.png" style="display:block;">
+                <img class="uploaded-img" alt="학사학위증명서" src="../../img/사회복지사 인증사진.png" style="display:block;">
                 <div class="absolute top-3 left-3 px-2.5 py-1.5 text-[9px] text-white font-bold tracking-widest z-30 border rounded-sm flex items-center gap-1.5" style="background-color: #000000 !important; border-color: #2563eb !important;">
                     <span class="neon-text">이전 스펙</span> <span style="opacity: 0.5;">//</span> 사회복지 학위
                 </div>
@@ -827,7 +884,7 @@
 
         <div class="relative z-10 roadmap-frame mb-4">
             <img
-                src="../img/roadmap-visual.png"
+                src="../../img/roadmap-visual.png"
                 alt="전자책 전체 로드맵"
             >
         </div>
@@ -1443,11 +1500,9 @@
                 <p class="text-[14px] font-black text-white">한 줄 소개 문장</p>
             </div>
             <p class="summary-note text-zinc-300 break-keep">
-                자기소개서를 잘 써도 읽는 사람이 끝까지 집중하지 않으면 의미가 없습니다.
-                그래서 각 항목의 시작 부분에 <strong class="text-white">짧고 명확한 한 줄 요약문</strong>, 즉 한 줄 소개 문장을 두는 전략이 효과적입니다.
-                예를 들어 <span class="text-white font-bold">"사용자의 불편을 줄이기 위해 고민하는 백엔드 개발자"</span>처럼
-                자신의 강점을 먼저 정의하면, 면접관은 글을 읽기 전부터 지원자의 방향을 기억하게 됩니다.
-                즉, 방금 위의 최종 완성본도 이 한 줄 소개 문장이 적용된 예시라고 보면 됩니다.
+                각 항목의 시작에 <strong class="text-white">짧고 명확한 한 줄 소개 문장</strong>을 두면,
+                읽는 사람은 글을 보기 전부터 지원자의 방향을 먼저 기억하게 됩니다.
+                위 완성본의 <span class="text-white font-bold">"사용자의 불편을 줄이기 위해 고민하는 백엔드 개발자"</span>가 바로 그 역할을 합니다.
             </p>
         </div>
 
@@ -1462,9 +1517,7 @@
                 두 구조를 함께 사용할 때, 비로소 <strong class="text-white">스토리로 설득하고 근거로 증명하는 자기소개서</strong>가 완성됩니다.
             </p>
             <div class="mt-2 summary-note text-zinc-400 break-keep">
-                이제 여러분은 "왜 이 일을 하고 싶은가"에서 출발해,
-                "이 회사와 함께 성장할 이유"까지 자연스럽게 이어지는 지원동기를 만들 수 있습니다.
-                다음 장에서는 여기에 <strong class="text-white">성과와 수치</strong>를 입히는 STAR 작성법을 보겠습니다.
+                이제 다음 장에서는 여기에 <strong class="text-white">성과와 수치</strong>를 입히는 STAR 작성법을 보겠습니다.
             </div>
         </div>
 

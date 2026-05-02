@@ -11,7 +11,7 @@ window.BOOK_REGISTRY["resume-master-book"] = {
     tags: ["이력서 전략", "STAR 기법", "면접 활용"],
     purchaseUrl: "https://YOUR-LIVEKLASS-CHECKOUT-URL",
     validCodes: ["JNOTE-OPEN-2026"],
-    fullSource: "./backup/master.html",
+    fullSource: "./workspace/backup/master.html",
     frameHeight: {
         original: 7800,
         mobile: 9200
